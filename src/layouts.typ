@@ -71,7 +71,7 @@ set page(
   doc
 }
 
-#let articleSetup(
+#let article(
   header-global: none, 
   footer-left-1: none, 
   footer-left-2: none, 

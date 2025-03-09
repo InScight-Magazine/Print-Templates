@@ -1,3 +1,4 @@
+#import "constants.typ": *
 #let title-author(title, authors) = {
   place(
     top,
@@ -129,3 +130,50 @@
     count = count + 1
   }
 }
+
+#let v-image(imagePath, caption, position) = {
+  place(
+    position,
+    scope: "column",
+    float: true,
+    rect(fill: image-bg-color, inset: image-caption-gap)[
+      #figure(
+      image(imagePath, width: 100%),
+      caption: figure.caption(position: bottom, [#caption])
+    )
+    ]
+  )
+}
+
+#let h-image(imagePath, caption, position, width) ={
+  counter(figure).step()
+  place(
+    position,
+    scope: "parent",
+    float: true,
+    rect(fill: image-bg-color, inset: image-caption-gap)[
+      #grid(
+      columns: (width, 100% - width - image-caption-gap),
+      column-gutter: image-caption-gap,
+      align: (left, horizon+right),
+      image(imagePath, width: 100%),
+      align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure).display()}: #caption]]
+    )
+    ]
+  )
+}
+
+#let info(info) = {
+  rect(width: 100%, fill: rgb("FDFBD4"), inset: 1em, radius: 10pt)[
+    #text(weight: "medium", size: 11pt)[#info]
+  ]
+}
+
+#let references(refsFile) = {
+  [== References]
+  let refsList = yaml(refsFile)
+  for ref in refsList {
+    [+ #ref]
+  }
+}
+

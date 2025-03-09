@@ -1,3 +1,3 @@
-#include "constants.typ"
-#include "layouts.typ"
-#include "helpers.typ"
+#import "constants.typ": *
+#import "layouts.typ": *
+#import "helpers.typ": *
