@@ -8,3 +8,5 @@
 )
 #include "subfiles/editor.typ"
 #include "subfiles/article-example1.typ"
+#include "subfiles/article-example2.typ"
+#include "subfiles/srijitaInterview.typ"

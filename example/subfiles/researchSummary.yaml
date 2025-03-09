@@ -1,0 +1,54 @@
+- 
+  "Author": "Chitradeep Saha"
+  "Affiliation": "CESSI, IISER Kolkata"
+  "Title": "Earth has its own electric field weaker than a pencil battery"
+  "Summary": "Our planet Earth also has a global electric field – as fundamental as its gravity and magnetic fields. Researchers have successfully measured this electric field for the first time. The quest started over half a century ago when a steady stream of outgoing plasma particles was detected near the Earth's poles. Theories have been proposed and refined over time to understand this peculiar phenomenon. Peculiar. Because the temperature of the outflowing plasma is too cold to evaporate due to solar radiation. Therefore, existing knowledge of global energy fields failed to explain it. Alternatively, the existence of an independent, electric field was hypothesized. However, more mature technology was required to make precise measurements and test the hypothesis. The research team flew a suborbital rocket through the arctic skies that touched the exosphere while sampling various ionospheric properties. The photoelectron spectrometer onboard detected a minute change in electric potential of 0.55 volts – less than that of a standard AA battery – across an altitude range of ~500 km, confirming the existence of such a global electric field. Due to an asymmetric gravitational pull on the lighter electrons and heavier ion cores, charge separation occurs in the atmosphere. The Coulombic force partially counteracts this charge separation; the associated electric field is ambipolar, as it works in both directions. The net effect of this global ambipolar field is to puff up the atmosphere, lifting some ions high enough to escape through the polar caps and giving rise to polar winds."
+  "Reference": "Collinson, G.A., Glocer, A., Pfaff, R. et al., Nature 632, 1021–1025 (2024)"
+  "Keywords":
+   - Polar wind
+   - electric field
+   - ambipolarity
+- 
+  "Author": "M. Sahnawaz Alam"
+  "Affiliation": "RWTH Aachen University, Germany"
+  "Title": "Mapping Strain in Laser-Written Diamond Waveguides Using Optically Detected Magnetic Resonance"
+  "Summary": "Color centers in diamond, such as the nitrogen-vacancy (NV) center—which consists of a nitrogen atom adjacent to a vacancy in the carbon lattice—are renowned for their exceptional quantum properties, making them ideal candidates for applications in nanoscale sensing and quantum information processing at room temperature. However, NV centers often suffer from low contrast in experiments, which hampers their performance and limits practical applications. Integrating NV centers with laser-written optical waveguides enhances the coupling of light to these quantum systems, facilitating more efficient manipulation and readout of their states. This integration addresses the low-contrast issue by improving the interaction between NV centers and light. However, the process of laser writing photonic structures inherently introduces strain into the diamond lattice. This strain can alter the electronic and spin properties of the NV centers, affecting their performance and the fidelity of quantum operations. Until now, the full impact of this strain on defect centers has not been  thoroughly understood. In our combined experimental and theoretical study, we demonstrate that optically detected magnetic resonance (ODMR) spectroscopy—a technique commonly used to probe the spin states of NV centers—provides sufficient information to fully characterize the spatial distribution of strain within laser-written diamond waveguides. Remarkably, this characterization is possible even without the application of an external constant magnetic field. Our findings present an accessible and non-invasive tool for mapping strain in diamond-based photonic devices. By utilizing ODMR spectroscopy, researchers can gain detailed insights into strain distributions, enabling the optimization of device fabrication processes and the improvement of quantum device performance. This advancement is a  significant step forward in the development of diamond- based quantum technologies, potentially impacting a wide  range of applications from high-precision sensing to quantum communication and computation."
+  "Reference": "Phys. Rev. Applied 22, 024055 (2024)"
+  "Keywords":
+   - Color Centers
+   - Diamond waveguides
+   - Strain imaging
+   - Quantum Sensing
+- 
+  "Author": "Swarnendu Saha"
+  "Affiliation": "CESSI, IISER Kolkata"
+  "Title": "GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo during the Second Part of the Third Observing Run"
+  "Summary": "This paper, “GWTC-3: Compact Binary Coalescences Observed by LIGO and Virgo during the Second Part of the Third Observing Run”, is an excerpt from the third Gravitational Wave Transient Catalog. The report was published in December 2023 in the journal Physical Review X that reports on observation of gravitational waves by the LIGO, Virgo, and KAGRA for the second half of the period of the third observing run. The interval covered is from November 1, 2019, through March 27, 2020. Our very own Professor Rajesh Kumble Nayak has been a part of this team from IISER Kolkata. 
+  <br>
+  <br>
+
+  The paper also lists 35 new gravitational-wave events detected during that period, all the result of a \"compact binary coalescence\" in which pairs of black holes or neutron stars orbit ever tighter until they eventually merge. This brings the number of gravitational-wave detections across three observation runs to 90. Most of the events in the catalog arise from the merger of black holes, which can be  pretty large, but this observing run also marks the first definite identification of neutron star–black hole (NSBH) mergers. Curiously, however, no BNS mergers were confirmed during this period. 
+  <br>
+  <br>
+
+  The researchers selected these signals with advanced algorithms and data calibration, estimating probabilities for each event to be of astrophysical rather than noise artifacts. As there is always some inevitable noise, the  probability for these signals to be due to a non- astrophysical origin is estimated to be around 10-15%. All  the data are made available in the public domain for use by the community through the Gravitational Wave Open Science Center. The expanding dataset from GWTC-3 gives unparalleled insight into the properties and behaviors of black holes and neutron stars, offering unique insights into the population in the universe and providing informative input into the theory governing their formation, structure, and evolution."
+  "Reference": "R. Abbott et al., Phys. Rev. X 13, 041039 (2023)"
+  "Keywords":
+   - Astrophysics
+   - Gravitation
+   - Black Hole Mrrger
+   - LIGO
+- 
+  "Author": "Abhirup Mukherjee"
+  "Affiliation": "IISER Kolkata"
+  "Title": "Strange Metal and Quantum Spin Liquid in Heavy-Fermion Material: An Array of Exotic Phases"
+  "Summary": "Strange metals and spin liquids constitute deviations from the \"standard model\" of condensed matter physics. For most of the twentieth century, metals were believed to be  smoothly connected to non-interacting electrons at low- energies (the so-called Landau's Fermi liquid theory), and  insulators and superconductors were believed to arise from spontaneous symmetry breaking (the ground state does not have all symmetries of the Hamiltonian). Violations of these ideas were observed in the 1980s, a notable example being the discovery of high-temperature superconductivity in copper oxide materials. The strange metal phase of the  copper oxides, while being a metal, displayed a linear-in- temperature resistivity, in contrast to the quadratic-in- temperature resistivty of Landau Fermi liquids. Due to the  large transition temperature of the material and the proximity to an electronic-correlation driven Mott insulator, Phillip Anderson hyppthesised that the ground state of the Mott insulator was close to a \"spin liquid\", where the system does not settle into any particular configuration (in contrast to the symmetry-broken insulators) but keeps shifting (in the sense of a quantum superposition) between various configurations.  
+  <br>
+  <br>
+  While these exotic phases typically emerge in different materials, the authors of the present work have experimentally realised these exotic phases in crystals of  the material Ba4 Nb1-xRu3+xO12, where x is the hole- doping concentration. By tuning the doping concentration,  the material undergoes transition from a heavy strange metal phase to a heavy Fermi liquid phase to finally a spin liquid phase. The \"heaviness\" arises from the fact that these are heavy-fermion materials in which the inter-electron interactions increase the \"inertia\" of the quasiparticles. Other results suggest that the excitations in all three phases are described by spinons - spin-1/2 charge-neutral objects. These spinons are fractionalised excitations (to see why, recall that flipping a spin from -1/2 to 1/2 creates a spin-1 excitation). At the heart of these exotic phenomenon in this material is the underlying triangular lattice that leads to geometric frustration (it is not simple to obtain an energy-minimising configuration of spins on this lattice) and the emergence of novel elementary excitations (the spinons). Such a material provides a wonderful platform to realise and study these highly-correlated phases of matter."
+  "Reference": "Hengdi Zhao et al., Phys. Rev. Lett. 132, 226503 (2024)"
+  "Keywords":
+   - metal-insulator transition
+   - quantum spin liquid
+   - strange metal
+   - spinon

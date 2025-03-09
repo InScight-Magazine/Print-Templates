@@ -68,7 +68,7 @@ set page(
     if query(<outline>).len() > 0 {
       link(<outline>)[Jump to Outline]
     },
-    context [#text(weight: "extrabold", counter(page).display("1 of 1", both: true))]
+    text(weight: "extrabold", counter(page).display("1 of 1", both: true))
     )
     ]
   ]
