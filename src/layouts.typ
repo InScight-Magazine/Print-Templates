@@ -1,3 +1,6 @@
+#import "constants.typ": *
+#import "helpers.typ": *
+
 #let default(
   header-global: none,
   doc
@@ -62,7 +65,9 @@ set page(
     columns: (33%, 34%, 33%),
     align: (left, center, right),
     footer-link,
-    link(<outline>)[Jump to Outline],
+    if query(<outline>).len() > 0 {
+      link(<outline>)[Jump to Outline]
+    },
     context [#text(weight: "extrabold", counter(page).display("1 of 1", both: true))]
     )
     ]
