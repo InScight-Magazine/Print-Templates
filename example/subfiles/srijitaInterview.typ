@@ -13,4 +13,4 @@
   abstract: abstract,
   coverImage: coverImage
 )
-#interview("/subfiles/sampleInterview.csv", group1: ("SS:", "AD:"), group2: "SR:")
+#interview("/subfiles/sampleInterview.txt", group1: ("SS:", "AD:"), group2: "SR:")

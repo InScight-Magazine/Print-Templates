@@ -108,12 +108,13 @@
 }
 
 #let researchSummary(
-  file, 
-  heights,
+  file: none, 
+  heights: (0,),
+  title: none,
 ) = {
   let data = yaml(file).flatten()
   let count = 0
-  for item in data {
+  let content = for item in data {
     box(height: heights.at(count))[
       #par(leading: rs-spacing)[
       #text(size: rs-size, fill: rs-title-color, weight: "bold")[#item.at("Title")]
@@ -130,6 +131,12 @@
     v(0.5em)
     count = count + 1
   }
+  [
+    = #title
+    == Summarising The Frontiers In Research
+    #v(20pt)
+    #content
+  ]
 }
 
 #let v-image(imagePath, caption, position) = {

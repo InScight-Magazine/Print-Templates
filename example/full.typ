@@ -15,3 +15,8 @@
 #include "subfiles/article-example1.typ"
 #include "subfiles/article-example2.typ"
 #include "subfiles/srijitaInterview.typ"
+#researchSummary(
+  file: "/subfiles/researchSummary.yaml", 
+  heights: (34%, 45%, 44%, 48%),
+  title: "InScight Digest",
+)
