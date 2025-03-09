@@ -71,42 +71,6 @@
 ]
 }
 
-#let interview(
-  file,
-  group1: (none,),
-  group2: none,
-) = {
-  let boldflag = true
-  let firstFlag = true
-  for line in csv(file,delimiter:"\t").flatten(){ 
-    if line == "#colbreak()" {
-      colbreak()
-      continue
-    }
-    for name in group1 {
-      if line.starts-with(name) {
-        if firstFlag != true {
-          linebreak()
-        }
-        boldflag = true
-      }
-    }
-    if line.starts-with(group2) {
-      if firstFlag != true {
-        linebreak()
-      }
-      boldflag = false
-    }
-    if boldflag == true {
-      text(weight: boldweight, fill: boldcolor)[#line]
-    } else {
-      text(weight: "regular", fill: fg-color)[#line]
-    }
-    linebreak()
-    firstFlag = false
-  }
-}
-
 #let researchSummary(
   file: none, 
   heights: (0,),

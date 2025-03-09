@@ -1,3 +1,4 @@
+abstract: Suryadip and Tathagata offer an engaging exploration of how AI is transforming biological sciences. From the early days of rule-based AI to cutting-edge deep learning applications like AlphaFold, this article traces the evolution of AI's role in biology. It highlights AI's power in solving complex problems such as protein folding, drug discovery, and genomics. With groundbreaking examples like DeepVariant and DrugGPT, readers will gain insight into AI's monumental impact on research and healthcare. Dive into the future of biology where data meets innovation!
 SS: Hello. Didi. So, you have had a remarkable journey, I believe, in IISER, Kolkata.
 
 SR: Yes. 
@@ -239,6 +240,7 @@ AD: Have you ever thought why earth science shows these fluctuations where physi
 
 SR: I think it is because we learn physics, chemistry, biology, and mathematics from childhood. So, people usually like when they come here, they usually already love either physics or mathematics or chemistry like that, and they usually go there.
 
+#colbreak()
 
 AD: In Australia, it was not a hostel life, right? You had to stay in apartments?
 
@@ -246,7 +248,6 @@ SR: So, in Australia, we stayed in studio apartments.
 
 So it was a big room with your kitchen and bathroom, everything. And then, like at the side, you have another room with a kitchen and bathroom. So there was no sharing.
 
-#colbreak()
 AD: So, is it one bedroom, one BHK type?
 
 SR: Not BHK because there was no partitioning between the kitchen and bedroom. So it is kind of, so studio apartment is kind of arranged. For example, if this is like one room, then this side is the kitchen, and this side is the bathroom. The bathroom is the door, if you were asking that.

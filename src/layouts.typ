@@ -118,3 +118,48 @@ title-author(
 )
 columns(cols, doc)
 }
+
+#let interview(
+  file: none,
+  group1: (none,),
+  group2: none,
+  title: none,
+  authors: (none,),
+  abstract: "",
+  coverImage: "",
+) = {
+  let boldflag = true
+  let lines = read(file).split("\n")
+  assert(lines.at(0).starts-with("abstract: "))
+  let abstract = lines.at(0).split("abstract: ").at(1)
+  lines.remove(0)
+  let content = for line in lines {
+    if line == "#colbreak()" {
+      colbreak()
+      continue
+    }
+    for name in group1 {
+      if line.starts-with(name) {
+        boldflag = true
+      }
+    }
+    if line.starts-with(group2) {
+      boldflag = false
+    }
+    if boldflag == true {
+      text(weight: boldweight, fill: boldcolor)[#line]
+    } else {
+      text(weight: "regular", fill: fg-color)[#line]
+    }
+    linebreak()
+  }
+  [
+    #show: section.with(
+      title: title, 
+      authors: authors,
+      abstract: abstract,
+      coverImage: coverImage
+    )
+    #content
+  ]
+}

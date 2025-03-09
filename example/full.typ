@@ -14,7 +14,14 @@
 )
 #include "subfiles/article-example1.typ"
 #include "subfiles/article-example2.typ"
-#include "subfiles/srijitaInterview.typ"
+#interview(
+  file: "/subfiles/sampleInterview.txt",
+  group1: ("SS:", "AD:"), 
+  group2: "SR:",
+  title: "Interview with Artificial Intelligence - 4",
+  authors: ("Suryadip Sarkar (IBAB Bengaluru)", "Tathagata Chatterjee (RKMVERI Kolkata)"),
+  coverImage: "/subfiles/himg.jpg",
+)
 #researchSummary(
   file: "/subfiles/researchSummary.yaml", 
   heights: (34%, 45%, 44%, 48%),
