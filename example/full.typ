@@ -7,6 +7,11 @@
   header-global: header-global,
 )
 #include "subfiles/editor.typ"
+#fullOutline(
+  dividers: (10, 20), 
+  imagePaths: ("/subfiles/vimg.jpg","/subfiles/vimg.jpg",),
+  outlinePath: "/subfiles/outline.yaml"
+)
 #include "subfiles/article-example1.typ"
 #include "subfiles/article-example2.typ"
 #include "subfiles/srijitaInterview.typ"

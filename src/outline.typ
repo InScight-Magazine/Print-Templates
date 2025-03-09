@@ -1,3 +1,5 @@
+#import "constants.typ": *
+
 #let miniOutline(minPage, maxPage, outline-path) = {
   let outline-entries-data = yaml(outline-path)
   let outline-entries = ("key": "value")
@@ -43,17 +45,34 @@
 #let fullOutline(
   dividers: (1,),
   imagePaths: (none,),
-  outline-path: none
+  startFrom: 1,
+  outlinePath: none
 ) = {
-  for pair in dividers.zip(imagePaths, exact: true) {
-    grid(
-      columns: (40%, 55%),
-      align: (left + top, right + top),
-      gutter: 5%,
-      image(pair.at(0), fit: "cover", width: 100%),
-      createOutline(startPoint, pair.at(1), outline-path)
-    )
-    v(20pt)
-    startPoint = pair.at(1) + 1
+  let align = "left"
+  let content = for pair in dividers.zip(imagePaths, exact: true) {
+    if align == "left" {
+      grid(
+        columns: (40%, 55%),
+        align: (left + horizon, right + horizon),
+        gutter: 5%,
+        image(pair.at(1), fit: "cover", height: 45%),
+        miniOutline(startFrom, pair.at(0), outlinePath)
+      )
+      align = "right"
+    } else {
+      grid(
+        columns: (40%, 55%),
+        align: (left + horizon, right + horizon),
+        gutter: 5%,
+        miniOutline(startFrom, pair.at(0), outlinePath),
+        image(pair.at(1), fit: "cover", height: 45%),
+      )
+      align = "left"
+    }
+    startFrom = pair.at(0) + 1
   }
+  [
+    = Outline<outline>
+    #content
+  ]
 }
