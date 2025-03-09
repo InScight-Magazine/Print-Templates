@@ -11,11 +11,11 @@
       = #title
       == #authors.join(", ")
     ]
-  } else {
-    block[
-      = #title
-    ]
-  }
+    } else {
+      block[
+        = #title
+      ]
+    }
   )
 }
 

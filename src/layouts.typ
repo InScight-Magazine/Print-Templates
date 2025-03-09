@@ -76,7 +76,7 @@ set page(
   doc
 }
 
-#let article(
+#let section(
   header-global: none, 
   footer-left-1: none, 
   footer-left-2: none, 
@@ -105,12 +105,12 @@ set page(
   ]
 )
 if coverImage != none {
-articleCover(
-  title: title, 
-  authors: authors,
-  abstract: abstract,
-  coverImage: coverImage
-)
+  articleCover(
+    title: title, 
+    authors: authors,
+    abstract: abstract,
+    coverImage: coverImage
+  )
 }
 title-author(
   title, 
