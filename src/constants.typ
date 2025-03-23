@@ -38,7 +38,7 @@
 #let footer-weight = "bold"
 #let footer-raise = -5pt
 #let footerLineHeight = 1pt
-#let footer-link = link("https://scicomm.iiserkol.ac.in/")[scicomm.iiserkol.ac.in] 
+#let website-link = link("https://scicomm.iiserkol.ac.in/")[scicomm.iiserkol.ac.in] 
 
 // figures
 #let figure-suppl = "Fig"

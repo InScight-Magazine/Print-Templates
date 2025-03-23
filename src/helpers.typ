@@ -24,6 +24,8 @@
   authors: none, 
   abstract: none,
   coverImage: none,
+  sideImage: none,
+  sideImageFraction: 0.5,
 ) = {
   page(
     fill: header-dark-color,
@@ -34,7 +36,7 @@
   )[
     #context[#image(coverImage, width: page.width)]
     #rect(
-      width: 100% - coverRightMargin,
+      width: 100%,
       inset: margin-2,
       stroke: 0pt,
     )[
@@ -58,15 +60,33 @@
     ]
     ]
     #v(coverItemGap)
-    #par(justify: true, first-line-indent: 0pt)[
-    #text(
-      fill: title-color,
-      size: abstract-size,
-      weight: "medium",
-    )[
-      #abstract
-    ]
-  ]
+
+    #if sideImage != none {
+      grid(
+        columns: ((2 - sideImageFraction) * 1fr, sideImageFraction * 1fr),
+        gutter: 2em,
+        par(justify: true, first-line-indent: 0pt)[
+        #text(
+          fill: title-color,
+          size: abstract-size,
+          weight: "medium",
+        )[
+          #abstract
+        ]
+        ],
+        image(sideImage)
+      )
+    } else {
+        par(justify: true, first-line-indent: 0pt)[
+        #text(
+          fill: title-color,
+          size: abstract-size,
+          weight: "medium",
+        )[
+          #abstract
+        ]
+        ]
+    }
   ]
 ]
 }
@@ -149,3 +169,6 @@
   }
 }
 
+#let sign(signature) = {
+  align(right)[#text(weight: "bold")[#signature]]
+}

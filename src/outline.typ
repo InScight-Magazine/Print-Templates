@@ -17,7 +17,7 @@
           (page: int(it.page().text), x: 0pt, y: 0pt),it.page()
         )],
         link(
-          (page: int(it.page().text), x: 0pt, y: 0pt), 
+          (page: int(it.page().text) - 1, x: 0pt, y: 0pt), 
           [
           #if outline-entries.at(it.body().text) == "" {
             text(fill: outline-headings-color, weight: "bold", size: outline-main-size)[#it.body()]
@@ -73,6 +73,7 @@
   }
   [
     = Outline<outline>
+
     #content
   ]
 }

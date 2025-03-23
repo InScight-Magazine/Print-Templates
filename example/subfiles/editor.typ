@@ -1,4 +1,4 @@
-#import "../template-files/inscight-template.typ": *
+#import "/template-files/inscight-template.typ": *
 #import "issueConstants.typ": *
 
 #show: section.with(
@@ -14,3 +14,5 @@
 #lorem(100)
 
 #lorem(100)
+
+#sign([Swarnendu,\ Chief Editor,\ InScight])

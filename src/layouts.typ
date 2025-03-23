@@ -51,7 +51,7 @@ set page(
     height: 100%
   )[
     #set text(fill: header-bright-color)
-    *#header-global*
+    *#header-global | #upper(website-link)*
     #h(1fr) 
     #v(header-raise)
   ]
@@ -64,9 +64,11 @@ set page(
     #grid(
     columns: (33%, 34%, 33%),
     align: (left, center, right),
-    footer-link,
+    if query(selector(heading.where(level:1)).after(here())).len() > 0 {
+      link(query(selector(heading.where(level:1)).before(here())).at(0).location())[*SKIP TO NEXT*]
+    },
     if query(<outline>).len() > 0 {
-      link(<outline>)[Jump to Outline]
+      link(<outline>)[*JUMP TO OUTLINE*]
     },
     text(weight: "extrabold", counter(page).display("1 of 1", both: true))
     )
@@ -84,6 +86,8 @@ set page(
   authors: (),
   abstract: none,
   coverImage: none,
+  sideImage: none,
+  sideImageFraction: 0.3,
   cols: 2,
   doc
 ) = {
@@ -97,7 +101,7 @@ set page(
     height: 100%
   )[
     #set text(fill: header-bright-color)
-    *#header-global*
+    *#header-global | #upper(website-link)*
     #h(1fr) 
     #set text(fill: header-dark-color)
     *#title*
@@ -109,7 +113,8 @@ if coverImage != none {
     title: title, 
     authors: authors,
     abstract: abstract,
-    coverImage: coverImage
+    coverImage: coverImage,
+    sideImage: sideImage
   )
 }
 title-author(
@@ -127,6 +132,9 @@ columns(cols, doc)
   authors: (none,),
   abstract: "",
   coverImage: "",
+  sideImage: none,
+  sideImageFraction: 0.5,
+  header-global: none, 
 ) = {
   let boldflag = true
   let lines = read(file).split("\n")
@@ -158,7 +166,10 @@ columns(cols, doc)
       title: title, 
       authors: authors,
       abstract: abstract,
-      coverImage: coverImage
+      coverImage: coverImage,
+      sideImage: sideImage,
+      sideImageFraction: sideImageFraction,
+      header-global: header-global, 
     )
     #content
   ]

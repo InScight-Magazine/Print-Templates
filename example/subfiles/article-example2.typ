@@ -1,10 +1,10 @@
 #import "issueConstants.typ": *
-#import "../template-files/inscight-template.typ": *
+#import "/template-files/inscight-template.typ": *
 
 #let title = "Revolutionising Biology with Artificial Intelligence - 1"
 #let authors = ("Suryadip",)
 #let abstract = "Suryadip and Tathagata offer an engaging exploration of how AI is transforming biological sciences. From the early days of rule-based AI to cutting-edge deep learning applications like AlphaFold, this article traces the evolution of AI's role in biology. It highlights AI's power in solving complex problems such as protein folding, drug discovery, and genomics. With groundbreaking examples like DeepVariant and DrugGPT, readers will gain insight into AI's monumental impact on research and healthcare. Dive into the future of biology where data meets innovation!"
-#let coverImage = "/subfiles/himg.jpg"
+#let coverImage = "/images/himg.jpg"
 
 
 #show: section.with(
@@ -23,7 +23,7 @@ Machine Learning (ML) is a subset of AI that focuses on the development of algor
 
 == Early Days: From Symbolic AI to ML and DL
 
-#v-image("/subfiles/img.jpg", "This is a caption. This is a caption. This is a caption.", bottom)
+#v-image("/images/img.jpg", "This is a caption. This is a caption. This is a caption.", bottom)
 
 It all dates back to the 1950s, when Alan Turing proposed the concept of machines being able to simulate any form of human reasoning through algorithmic approaches [1]. As a result, during the early years, AI was largely rule-based (aka Symbolic AI) which was based on logical representations of the world. This led to the birth of expert systems, which used knowledge bases of rules to solve specific problems. One such expert system was called MYCIN (1978) (Fig 1) [2]. It was developed by Edward Shortliffe as part of his doctoral dissertation, under the guidance of Bruce G. Buchanan, Stanley N. Cohen, and others at Stanford University. MYCIN was used to identify the bacteria causing severe bacterial infections like meningitis and bacteremia and to subsequently recommend appropriate antibiotics and their dosages according to the patient’s body weights. 
 
@@ -64,4 +64,4 @@ Our immune system only allows lymphocytes, that recognize  certain antigens, to 
 Towards the Future
 The synergy between AI and biology has set the stage for groundbreaking discoveries and innovations. From protein structure prediction with AlphaFold to the use of neural networks in genomics and drug discovery, biology has been transformed into a data-driven, predictive and multi-disciplinary branch of science. Whether it's predicting disease, designing drugs, or deciphering the mysteries of life at the molecular level, AI is now an indispensable tool in every biologist’s toolkit. So, if you’re curious, now’s the time to dive into this captivating intersection of science and technology—where the future of biology is being driven by AI.
 
-#h-image("/subfiles/himg.jpg", "This is a caption. This is a caption. This is a caption.", top, 40%)
+#h-image("/images/himg.jpg", "This is a caption. This is a caption. This is a caption.", top, 40%)
