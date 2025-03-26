@@ -123,21 +123,30 @@
   ]
 }
 
-#let v-image(imagePath, caption, position) = {
+#let v-image(
+  path: none, 
+  caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  position: top,
+  ) = {
   place(
     position,
     scope: "column",
     float: true,
     rect(fill: image-bg-color, inset: image-caption-gap)[
       #figure(
-      image(imagePath, width: 100%),
+      image(path, width: 100%),
       caption: figure.caption(position: bottom, [#caption])
     )
     ]
   )
 }
 
-#let h-image(imagePath, caption, position, width) ={
+#let h-image(
+  path: none, 
+  caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  position: top,
+  width: 50%,
+) ={
   counter(figure).step()
   place(
     position,
@@ -148,7 +157,7 @@
       columns: (width, 100% - width - image-caption-gap),
       column-gutter: image-caption-gap,
       align: (left, horizon+right),
-      image(imagePath, width: 100%),
+      image(path, width: 100%),
       align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure).display()}: #caption]]
     )
     ]

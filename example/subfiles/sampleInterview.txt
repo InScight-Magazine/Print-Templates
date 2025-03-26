@@ -52,6 +52,8 @@ SS: So, in those days, did you have SDG?
 
 SR: No.
 
+H-IMAGE: (path: "/images/himg.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions. Also throw in a comma , into the mix.", position: top, width: 40%)
+
 SS: You did not have him? 
 
 SR: No. So, we studied petrology under Tapobrata Sir. 
@@ -121,6 +123,8 @@ SR: No. The interview process is very similar. So, in Europe, the principal supe
 SS: What about the funding sources in Australia? So, the funding source is like a university can fund you, or if a professor has your fund, then that is a wa,y or there is another way like the government you can get funded. 
 
 AD: Australian government? 
+
+V-IMAGE: (path: "/images/himg.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions. Also throw in a comma , into the mix.", position: top)
 
 SR: Yes, the Australian government.
 

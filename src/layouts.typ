@@ -146,6 +146,16 @@ columns(cols, doc)
       colbreak()
       continue
     }
+    if line.starts-with("V-IMAGE:") {
+      let dict = eval(line.trim("V-IMAGE:"))
+      v-image(..dict)
+      continue
+    }
+    if line.starts-with("H-IMAGE:") {
+      let dict = eval(line.trim("H-IMAGE:"))
+      h-image(..dict)
+      continue
+    }
     for name in group1 {
       if line.starts-with(name) {
         boldflag = true
