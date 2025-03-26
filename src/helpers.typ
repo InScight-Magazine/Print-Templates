@@ -107,7 +107,7 @@
     count = count + 1
   }
   [
-    #heading(level:1, outlined: true, [#title])
+    #heading(level:1, outlined: true, "Insight Digest")
     == Summarising The Frontiers In Research
     #v(20pt)
     #content
@@ -156,7 +156,7 @@
 }
 
 #let info(info) = {
-  rect(width: 100%, fill: rgb("FDFBD4"), inset: 1em, radius: 10pt)[
+  rect(width: 100%, fill: image-bg-color, inset: 1em, radius: 10pt)[
     #text(weight: "medium", size: main-size)[#info]
   ]
 }

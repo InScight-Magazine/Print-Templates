@@ -23,12 +23,12 @@
 #let title-size = 34pt
 #let title-line-spacing = 0.2em
 #let title-weight = "medium"
+#let author-color = rgb("8B8000")
 
 // colours
 #let fg-color = rgb("282828")
 #let bg-color = rgb("fafafa")
 #let title-color = rgb("e0e0e0")
-#let author-color = rgb("#ff474d")
 
 // header and footer
 #let header-bg-color = rgb("bd2033")
@@ -46,7 +46,7 @@
 #let caption-weight = 700
 #let image-caption-gap = 1em
 #let image-caption-align = center
-#let image-bg-color = rgb("F0F0F0")
+#let image-bg-color = rgb("FDFBD4")
 
 // table of contents
 #let outline-headings-color = rgb("383838")

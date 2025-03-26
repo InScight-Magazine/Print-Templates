@@ -52,7 +52,7 @@ set page(
     height: 100%
   )[
     #set text(fill: header-bright-color)
-    *#header-global | #upper(website-link)*
+    *#header-global*
     #h(1fr) 
     #v(header-raise)
   ]
@@ -68,10 +68,8 @@ set page(
     if query(selector(heading.where(level:1)).after(here())).len() > 0 {
       link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
     },
-    if query(<outline>).len() > 0 {
-      link(<outline>)[JUMP TO OUTLINE]
-    },
-    counter(page).display("1 of 1", both: true)
+    upper(website-link),
+    link(<outline>)[#counter(page).display("1 of 1", both: true)]
     )
     ]
   ]
@@ -102,7 +100,7 @@ set page(
     height: 100%
   )[
     #set text(fill: header-bright-color)
-    *#header-global | #upper(website-link)*
+    *#header-global*
     #h(1fr) 
     #set text(fill: header-dark-color)
     *#title*
