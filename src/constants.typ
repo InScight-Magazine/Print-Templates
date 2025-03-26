@@ -55,7 +55,7 @@
 #let outline-main-size = 12pt
 
 // interviews
-#let boldweight = "bold"
+#let boldweight = "black"
 #let boldcolor = outline-headings-color
 
 // research summary

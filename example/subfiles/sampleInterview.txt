@@ -52,7 +52,7 @@ SS: So, in those days, did you have SDG?
 
 SR: No.
 
-H-IMAGE: (path: "/images/himg.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions. Also throw in a comma , into the mix.", position: top, width: 40%)
+H-IMAGE: (path: "/images/himg.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions. Also throw in a comma , into the mix.", position: top, width: 40%) 
 
 SS: You did not have him? 
 
@@ -96,7 +96,7 @@ SR: So, in Australia, directly you will enter the RA, and you will not like to d
 
 As for my case, I did like a little bit of TAship duty, but that was an optional exercise. So, I just did it for my experience. Thus, the question that you asked earlier was how the academic systems in Australia as compared to India.
 
-So, I would say that in Australia, the work-life balance is better. 
+So, I would say that in Australia, the work-life balance is better.
 
 AD: Better in the sense?
  
@@ -244,7 +244,6 @@ AD: Have you ever thought why earth science shows these fluctuations where physi
 
 SR: I think it is because we learn physics, chemistry, biology, and mathematics from childhood. So, people usually like when they come here, they usually already love either physics or mathematics or chemistry like that, and they usually go there.
 
-#colbreak()
 
 AD: In Australia, it was not a hostel life, right? You had to stay in apartments?
 

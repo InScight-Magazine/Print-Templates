@@ -143,6 +143,9 @@ columns(cols, doc)
   let abstract = lines.at(0).split("abstract: ").at(1)
   lines.remove(0)
   let content = for line in lines {
+    if line.len() == 0 {
+      continue
+    }
     if line == "#colbreak()" {
       colbreak()
       continue
@@ -160,10 +163,13 @@ columns(cols, doc)
     for name in group1 {
       if line.starts-with(name) {
         boldflag = true
+        linebreak()
+        break
       }
     }
     if line.starts-with(group2) {
       boldflag = false
+      linebreak()
     }
     if boldflag == true {
       text(weight: boldweight, fill: boldcolor)[#line]
