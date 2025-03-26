@@ -30,11 +30,6 @@
   ]}
 
   show outline.entry: it => {
-    if it.body() != [Outline] {
-      it
-    }
-  }
-  show outline.entry: it => {
     if int(it.page().text) >= minPage and int(it.page().text) <= maxPage {
       it
     }

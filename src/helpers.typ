@@ -8,7 +8,7 @@
     if authors != none {
     block[
       #show heading: set par(leading: 0.2em)
-      = #title
+      #heading(level: 1, outlined: false, [#title])
       == #authors.join(", ")
     ]
     } else {
@@ -40,15 +40,13 @@
       inset: margin-2,
       stroke: 0pt,
     )[
-    #par(justify: false, leading: title-line-spacing)[
-    #text(
-      fill: title-color,
-      size: title-size,
-      weight: "regular",
-      font: heading-font,
-    )[#smallcaps(title)]\
+    #show heading.where(level: 1): it => [
+      #set par(justify: false, leading: title-line-spacing)
+      #set text(fill: title-color,size: title-size, weight: "regular", font: heading-font)
+      #v(-30pt)
+      #block(smallcaps(it.body))
     ]
-    #v(coverItemGap)
+    #heading(level: 1, outlined: true, [#title])
     #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
     #text(
       fill: author-color,
@@ -116,7 +114,7 @@
     count = count + 1
   }
   [
-    = #title
+    #heading(level:1, outlined: true, [#title])
     == Summarising The Frontiers In Research
     #v(20pt)
     #content

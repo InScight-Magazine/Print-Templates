@@ -21,7 +21,7 @@
 #let coverRightMargin = 2 * margin-2
 #let coverItemGap = 0.5 * margin-2
 #let title-size = 34pt
-#let title-line-spacing = 1em
+#let title-line-spacing = 0.2em
 #let title-weight = "medium"
 
 // colours
@@ -38,6 +38,7 @@
 #let footer-weight = "bold"
 #let footer-raise = -5pt
 #let footerLineHeight = 1pt
+#let footer-text-color = header-bg-color
 #let website-link = link("https://scicomm.iiserkol.ac.in/")[scicomm.iiserkol.ac.in] 
 
 // figures

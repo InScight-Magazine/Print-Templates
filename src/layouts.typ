@@ -12,6 +12,7 @@ set text(
   fill: fg-color,
   hyphenate: false
 )
+set heading(outlined: false)
 show heading.where(level: 2): it =>[
   #set text(font: heading-font, weight: heading-weight, size: heading-2-size)
   #block(smallcaps(it.body))
@@ -60,17 +61,17 @@ set page(
   footer: context [
   #v(footer-raise)
   #line(length: 100%, stroke:footerLineHeight+fg-color)
-  #text(weight: "regular", fill: fg-color)[
+  #text(weight: "black", fill: footer-text-color)[
     #grid(
     columns: (33%, 34%, 33%),
     align: (left, center, right),
     if query(selector(heading.where(level:1)).after(here())).len() > 0 {
-      link(query(selector(heading.where(level:1)).before(here())).at(0).location())[*SKIP TO NEXT*]
+      link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
     },
     if query(<outline>).len() > 0 {
-      link(<outline>)[*JUMP TO OUTLINE*]
+      link(<outline>)[JUMP TO OUTLINE]
     },
-    text(weight: "extrabold", counter(page).display("1 of 1", both: true))
+    counter(page).display("1 of 1", both: true)
     )
     ]
   ]
