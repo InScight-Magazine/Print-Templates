@@ -51,41 +51,34 @@
     #text(
       fill: author-color,
       size: author-size,
-      weight: "medium",
+      // weight: "medium",
       font: heading-font,
     )[
       #smallcaps(authors.join(linebreak()))
     ]
     ]
     #v(coverItemGap)
-
+    #text(
+        fill: title-color,
+        size: abstract-size,
+        // weight: "medium",
+    )[
     #if sideImage != none {
       grid(
         columns: ((2 - sideImageFraction) * 1fr, sideImageFraction * 1fr),
         gutter: 2em,
         par(justify: true, first-line-indent: 0pt)[
-        #text(
-          fill: title-color,
-          size: abstract-size,
-          weight: "medium",
-        )[
-          #abstract
-        ]
+        #abstract
         ],
         image(sideImage)
       )
     } else {
         par(justify: true, first-line-indent: 0pt)[
-        #text(
-          fill: title-color,
-          size: abstract-size,
-          weight: "medium",
-        )[
           #abstract
-        ]
         ]
     }
   ]
+]
 ]
 }
 
@@ -164,7 +157,7 @@
 
 #let info(info) = {
   rect(width: 100%, fill: rgb("FDFBD4"), inset: 1em, radius: 10pt)[
-    #text(weight: "medium", size: 11pt)[#info]
+    #text(weight: "medium", size: main-size)[#info]
   ]
 }
 

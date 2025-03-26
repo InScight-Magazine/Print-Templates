@@ -1,12 +1,12 @@
 // font defaults
-#let main-font = "Lato"
-#let heading-font = "Barlow"
+#let main-font = "Ubuntu"
+#let heading-font = "Ubuntu Titling"
 #let heading-weight = "semibold"
-#let main-size = 10pt
+#let main-size = 9pt
 #let heading-size = 28pt
 #let heading-2-size = 14pt
 #let author-size = 18pt
-#let abstract-size = 15pt
+#let abstract-size = 12pt
 #let line-spacing = 0.5em
 #let paragraph-spacing = 1.2em
 #let subheading-weight = "semibold"
@@ -50,15 +50,15 @@
 
 // table of contents
 #let outline-headings-color = rgb("383838")
-#let contents-size = 10pt
-#let contents-weight = "medium"
-#let outline-main-size = 12pt
+#let contents-size = 9pt
+#let contents-weight = "regular"
+#let outline-main-size = 10pt
 
 // interviews
 #let boldweight = "black"
 #let boldcolor = outline-headings-color
 
 // research summary
-#let rs-size = 14pt
+#let rs-size = 11pt
 #let rs-title-color = header-bg-color
 #let rs-spacing = 1.1em

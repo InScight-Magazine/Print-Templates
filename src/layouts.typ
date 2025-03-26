@@ -137,11 +137,12 @@ columns(cols, doc)
   sideImageFraction: 0.5,
   header-global: none, 
 ) = {
+  set par(
+    first-line-indent: 0em,
+    justify: true,
+  )
   let boldflag = true
   let lines = read(file).split("\n")
-  assert(lines.at(0).starts-with("abstract: "))
-  let abstract = lines.at(0).split("abstract: ").at(1)
-  lines.remove(0)
   let content = for line in lines {
     if line.len() == 0 {
       continue
@@ -163,19 +164,18 @@ columns(cols, doc)
     for name in group1 {
       if line.starts-with(name) {
         boldflag = true
-        linebreak()
         break
       }
     }
     if line.starts-with(group2) {
       boldflag = false
-      linebreak()
     }
     if boldflag == true {
       text(weight: boldweight, fill: boldcolor)[#line]
     } else {
       text(weight: "regular", fill: fg-color)[#line]
     }
+    linebreak()
     linebreak()
   }
   [

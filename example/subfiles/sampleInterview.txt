@@ -1,4 +1,4 @@
-abstract: Suryadip and Tathagata offer an engaging exploration of how AI is transforming biological sciences. From the early days of rule-based AI to cutting-edge deep learning applications like AlphaFold, this article traces the evolution of AI's role in biology. It highlights AI's power in solving complex problems such as protein folding, drug discovery, and genomics. With groundbreaking examples like DeepVariant and DrugGPT, readers will gain insight into AI's monumental impact on research and healthcare. Dive into the future of biology where data meets innovation!
+
 SS: Hello. Didi. So, you have had a remarkable journey, I believe, in IISER, Kolkata.
 
 SR: Yes. 
@@ -52,7 +52,7 @@ SS: So, in those days, did you have SDG?
 
 SR: No.
 
-H-IMAGE: (path: "/images/himg.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions. Also throw in a comma , into the mix.", position: top, width: 40%) 
+H-IMAGE: (path: "/images/himg.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions. Also throw in a comma , into the mix.", position: top, width: 40%)
 
 SS: You did not have him? 
 
@@ -99,7 +99,7 @@ As for my case, I did like a little bit of TAship duty, but that was an optional
 So, I would say that in Australia, the work-life balance is better.
 
 AD: Better in the sense?
- 
+
 SR: Better in the sense, I mean, maybe for example in Australia, after 5 o'clock or after 4.30, nobody will, or rather should I put this in this way, technically should not send you any official email or communicate. And, in my whole PhD, I never get any kind of official email from either my supervisor or my professor, co-supervisor, or anyone after 5. So, these kinds of things were there.
 
 SS: In India, we all get important mail at midnight. Yes. And we submit our assignments also at 12.
@@ -177,14 +177,18 @@ SR: I am not very sure about this topic because I was unaware of the budget or t
 
 AD: Ok,  never mind. 
 Have you ever felt that, despite the changing times, the challenges faced by the scientific community have mainly remained the same—especially when it comes to attacks from various parts of society?
+
 For example, after COVID-19, former U.S. President Donald Trump stated that the United States would no longer be a part of the WHO, claiming that the organization was not acting under his wishes. Similarly, there have been instances where the U.S. has been allowed to violate environmental laws with minimal repercussions, often just paying a small amount of money, as if doing the world a favor. On the other hand, lower- and middle-income countries, especially in the Global South—such as those in Africa and South Asia—don't have the same privileges and often face harsh consequences for similar actions.
+
 In South Asia, countries like India, Pakistan, Bangladesh, and Nepal still experience practices that undermine science and rationality. For example, there are cases of witch-hunting, where people, often women, are accused of being witches and subjected to violence. Malpractices in medicine also persist, with people resorting to quacks and superstitions. Even the practice of alchemy still exists in some places.
+
 Furthermore, institutions like IITs and IISERs often suffer from inadequate funding. And unfortunately, there are still sections of the world that believe in discriminatory practices, such as apartheid, and argue that certain groups can't become better scientists or contribute to research as effectively as others.
 Given all this, do you feel that the attacks on science and the scientific community persist, even today?
 
 SR:, To be honest, I never felt, never felt that.
+
 SS: So, after this PhD, what's your plan?
- 
+
 SR: So, I will join as a postdoc at Rice University in Texas. So, and that's a period of? For two years. After that? After that, basically, basically, I want to explore the industry as well because I have never been totally in academia like throughout.
 
 So, I wanted to explore the industry, but I also wanted to open both of my options in academia and industry. 
