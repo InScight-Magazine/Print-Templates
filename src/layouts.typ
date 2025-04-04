@@ -12,6 +12,7 @@ set text(
   fill: fg-color,
   hyphenate: false
 )
+show math.equation: set text(font: math-font)
 set heading(outlined: false)
 show heading.where(level: 2): it =>[
   #set text(font: heading-font, weight: heading-weight, size: heading-2-size)
