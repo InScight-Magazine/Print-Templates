@@ -84,6 +84,7 @@ set page(
   title: none,
   authors: (),
   abstract: none,
+  intro: none,
   coverImage: none,
   sideImage: none,
   sideImageFraction: 0.3,
@@ -117,8 +118,9 @@ if coverImage != none {
   )
 }
 title-author(
-  title, 
-  authors
+  title: title, 
+  authors: authors,
+  intro: intro,
 )
 columns(cols, doc)
 }
@@ -185,6 +187,45 @@ columns(cols, doc)
       sideImage: sideImage,
       sideImageFraction: sideImageFraction,
       header-global: header-global, 
+    )
+    #content
+  ]
+}
+
+#let quiz(
+  file: none,
+  title: none,
+  intro: none,
+  header-global: none, 
+) = {
+  let content = yaml(file)
+  let questions = content.questions
+  let options = content.options
+  let images = content.images
+  assert.eq(questions.len(), options.len())
+  assert.eq(questions.len(), images.len())
+
+  let counter = 1
+  content = for (q, o, i) in questions.zip(options, images) {
+    [*Q#counter\.* ] + [#eval(q, mode: "markup")]
+    linebreak()
+    if i.len() != 0 {
+      image(i, width: 50%)
+    }
+    for line in o {
+      [+ #eval(line, mode: "markup")]
+    }
+    if counter < questions.len() {
+      linebreak()
+    }
+    counter += 1
+  }
+  [
+    #show: section.with(
+      title: title, 
+      header-global: header-global, 
+      intro: intro,
+      cols: 1,
     )
     #content
   ]

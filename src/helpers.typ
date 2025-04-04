@@ -1,6 +1,10 @@
 #import "constants.typ": *
 
-#let title-author(title, authors) = {
+#let title-author(
+  title: none, 
+  authors: none,
+  intro: none,
+) = {
   place(
     top,
     scope: "parent",
@@ -10,10 +14,12 @@
       #show heading: set par(leading: 0.2em)
       #heading(level: 1, outlined: false, [#title])
       == #authors.join(", ")
+      == #intro
     ]
     } else {
       block[
         = #title
+        == #intro
       ]
     }
   )

@@ -12,3 +12,4 @@
 #include "subfiles/article-example2.typ"
 #include "subfiles/interview.typ"
 #include "subfiles/digest.typ"
+#include "subfiles/quiz.typ"
