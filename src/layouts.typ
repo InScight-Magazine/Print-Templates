@@ -287,3 +287,52 @@ columns(cols, doc)
     Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*].
   ]
 }
+
+#let crossword(
+  file: none,
+  crosswordImage: none,
+  crosswordWidth: 100%,
+  title: none,
+  intro: none,
+  header-global: none, 
+  leftColWidth: 1fr,
+) = {
+  let data = yaml(file)
+  let across = [
+    *Across*
+    #linebreak()
+    #for (k, v) in data.Across [
+      #enum.item(int(k))[
+        #v
+      ]
+    ]
+  ]
+  let down = [
+    *Down*
+    #linebreak()
+    #for (k, v) in data.Down [
+      #enum.item(int(k))[
+        #v
+      ]
+    ]
+  ]
+  let content = grid(
+    columns: (leftColWidth, 2fr - leftColWidth),
+    gutter: 1em,
+    [#across],
+    [#down]
+  )
+  [
+    #heading(level:1, outlined: true, title)
+    == #intro
+    #v(20pt)
+
+    #align(center, [#image(crosswordImage, width: crosswordWidth)])
+
+    #content
+
+    Answers can be found near the end of the issue. For an interactive version, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*].
+
+    #pagebreak()
+  ]
+}
