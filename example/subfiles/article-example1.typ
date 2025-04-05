@@ -22,7 +22,7 @@ Machine Learning (ML) is a subset of AI that focuses on the development of algor
 
 == Early Days: From Symbolic AI to ML and DL
 
-#v-image(path: "/images/img.jpg", caption: "This is a really long caption which should demonstrate how lines break in captions.", position: bottom)
+#v-image(path: "/images/back4-narrow.jpeg", caption: "This is a really long caption which should demonstrate how lines break in captions.", scope: "parent", position: bottom, width: 70%)
 
 It all dates back to the 1950s, when Alan Turing proposed the concept of machines being able to simulate any form of human reasoning through algorithmic approaches [1]. As a result, during the early years, AI was largely rule-based (aka Symbolic AI) which was based on logical representations of the world. This led to the birth of expert systems, which used knowledge bases of rules to solve specific problems. One such expert system was called MYCIN (1978) (Fig 1) [2]. It was developed by Edward Shortliffe as part of his doctoral dissertation, under the guidance of Bruce G. Buchanan, Stanley N. Cohen, and others at Stanford University. MYCIN was used to identify the bacteria causing severe bacterial infections like meningitis and bacteremia and to subsequently recommend appropriate antibiotics and their dosages according to the patient’s body weights. 
 

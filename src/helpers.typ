@@ -180,14 +180,16 @@
   path: none, 
   caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   position: top,
+  scope: "column",
+  width: 100%,
   ) = {
   place(
     position,
-    scope: "column",
+    scope: scope,
     float: true,
-    rect(fill: image-bg-color, inset: image-caption-gap)[
+    rect(fill: image-bg-color, inset: image-caption-gap, width: 100%)[
       #figure(
-      image(path, width: 100%),
+      image(path, width: width),
       caption: figure.caption(position: bottom, [#caption])
     )
     ]
