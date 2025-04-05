@@ -13,3 +13,4 @@
 #include "subfiles/interview.typ"
 #include "subfiles/digest.typ"
 #include "subfiles/quiz.typ"
+#include "subfiles/linkedlist.typ"

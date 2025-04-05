@@ -222,12 +222,68 @@ columns(cols, doc)
     counter += 1
   }
   [
-    #show: section.with(
-      title: title, 
-      header-global: header-global, 
-      intro: intro,
-      cols: 1,
-    )
+    #heading(level:1, outlined: true, title)
+    == #intro
+    #v(20pt)
     #content
+  ]
+}
+
+#let linkedlist(
+  file: none,
+  title: none,
+  intro: none,
+  header-global: none, 
+) = {
+  let data = yaml(file)
+  let seed = data.seed
+  let hints = data.hints
+  let answers = data.answers
+  assert.eq(answers.len(), hints.len())
+  let counter = 1
+  let content = for (h, a) in hints.zip(answers) {
+    let letterCount = 1
+    let strokeDef = (thickness: 1.5pt, paint: header-bg-color)
+    let boxes = for i in a {
+      if counter == 1 and letterCount == 1 {
+        box(square(size: 18pt, stroke: strokeDef, [#text(weight: "medium", size: 13pt, seed.last())]), inset: 0pt, outset: 0pt)
+      } else if counter == hints.len() and letterCount == a.len() {
+        box(square(size: 18pt, stroke: strokeDef, [#text(weight: "medium", size: 13pt, seed.at(0))]), inset: 0pt, outset: 0pt)
+      } else {
+        box(square(size: 18pt, stroke: strokeDef), inset: 0pt, outset: 0pt)
+      }
+      letterCount += 1
+    }
+    [
+      #set par(first-line-indent: 0em)
+      #enum.item(counter)[
+        #h (#a.len()) 
+
+        #linebreak() 
+        #v(-2.5em)
+        #boxes
+        #v(1em)
+      ]
+    ]
+    counter += 1
+  }
+  [
+    #heading(level:1, outlined: true, title)
+    #v(20pt)
+
+    Linked List is a general science-based word game. The rules are straightforward:
+    + The goal is to guess eleven words that have been drawn from science.
+    + The first word (the seed) will be provided to you, and hints and number of letters will be provided for the remaining words.
+    + You are also informed that the first letter of any word is the last letter of the previous word. So the first letter of the second word will be the last letter of the seed word, the first letter of the third word is the last letter of the second word, and so on.
+    + This property goes all the way, so that the last letter of the last (eleventh) word is also the first letter of the seed word.
+
+    Find all the words!
+    #linebreak()
+    #linebreak()
+    Today's seed: *#seed*
+
+    #content
+
+    Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*].
   ]
 }

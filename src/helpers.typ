@@ -9,19 +9,15 @@
     top,
     scope: "parent",
     float: true,
-    if authors != none {
     block[
-      #show heading: set par(leading: 0.2em)
-      #heading(level: 1, outlined: false, [#title])
-      == #authors.join(", ")
-      == #intro
-    ]
-    } else {
-      block[
-        = #title
+      = #title
+      #if authors != none [
+        == #authors.join(", ")
+      ]
+      #if intro != none [
         == #intro
       ]
-    }
+    ]
   )
 }
 
@@ -92,6 +88,7 @@
   file: none, 
   heights: (0,),
   title: none,
+  intro: none,
 ) = {
   let data = yaml(file).flatten()
   let count = 0
@@ -114,7 +111,7 @@
   }
   [
     #heading(level:1, outlined: true, "Insight Digest")
-    == Summarising The Frontiers In Research
+    == #intro
     #v(20pt)
     #content
   ]
