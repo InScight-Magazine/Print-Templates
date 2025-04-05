@@ -1,16 +1,15 @@
 // font defaults
-#let main-font = "Ubuntu"
+#let main-font = "Lato"
 #let math-font = "Noto Sans Math"
-#let heading-font = "Oswald"
-#let heading-weight = "regular"
+#let heading-font = "Barlow"
+#let heading-weight = "semibold"
 #let main-size = 10pt
 #let heading-size = 28pt
 #let heading-2-size = 14pt
 #let author-size = 18pt
-#let abstract-size = 12pt
+#let abstract-size = 13pt
 #let line-spacing = 0.5em
 #let paragraph-spacing = 1.2em
-#let subheading-weight = "medium"
 
 // page layout
 #let margin-1 = 1.68cm
@@ -24,7 +23,7 @@
 #let title-size = 34pt
 #let title-line-spacing = 0.2em
 #let title-weight = "medium"
-#let author-color = rgb("8B8000")
+#let author-color = rgb("ffd58b")
 
 // colours
 #let fg-color = rgb("282828")

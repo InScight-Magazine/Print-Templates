@@ -12,6 +12,7 @@
 #include "subfiles/article-example2.typ"
 #include "subfiles/interview.typ"
 #include "subfiles/digest.typ"
+#include "subfiles/games.typ"
 #include "subfiles/quiz.typ"
 #include "subfiles/crossword.typ"
 #include "subfiles/linkedlist.typ"

@@ -53,7 +53,6 @@
     #text(
       fill: author-color,
       size: author-size,
-      // weight: "medium",
       font: heading-font,
     )[
       #smallcaps(authors.join(linebreak()))
@@ -63,7 +62,6 @@
     #text(
         fill: title-color,
         size: abstract-size,
-        // weight: "medium",
     )[
     #if sideImage != none {
       grid(
@@ -84,14 +82,66 @@
 ]
 }
 
-#let researchSummary(
+#let digestCover(
+  title: none, 
+  abstract: none,
+  coverImage: none,
+  sideImage: none,
+  sideImageFraction: 0.5,
+  data: (),
+) = {
+  page(
+    fill: header-dark-color,
+    columns: 1, 
+    margin: 0cm,
+    header: none,
+    footer: none,
+  )[
+    #context[#image(coverImage, width: page.width)]
+    #rect(
+      width: 100%,
+      inset: margin-2,
+      stroke: 0pt,
+    )[
+    #show heading.where(level: 1): it => [
+      #set par(justify: false, leading: title-line-spacing)
+      #set text(fill: title-color,size: title-size, weight: "regular", font: heading-font)
+      #v(-30pt)
+      #block(smallcaps(it.body))
+    ]
+    #heading(level: 1, [#title])
+    #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
+    #text(
+      fill: author-color,
+      size: author-size,
+      font: heading-font,
+    )[#abstract]
+    ]
+    #v(coverItemGap)
+    #par(leading: line-spacing, first-line-indent: 0pt)[
+    #for (t,a) in data [
+      #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
+      #linebreak()
+      #text(size: abstract-size, fill: title-color, t)
+      #linebreak()
+      #linebreak()
+    ]
+    ]
+  ]
+]
+}
+
+#let insightDigest(
   file: none, 
   heights: (0,),
   title: none,
+  abstract: none,
   intro: none,
+  coverImage: none,
 ) = {
   let data = yaml(file).flatten()
   let count = 0
+  let coverData = ()
   let content = for item in data {
     box(height: heights.at(count))[
       #par(leading: rs-spacing)[
@@ -108,7 +158,16 @@
     ]
     v(0.5em)
     count = count + 1
+    coverData.push((item.at("Title"), item.at("Author")))
   }
+  digestCover(
+    title: title, 
+    abstract: abstract,
+    coverImage: coverImage,
+    data: coverData,
+    sideImage: none,
+    sideImageFraction: 0.5,
+  )
   [
     #heading(level:1, outlined: true, "Insight Digest")
     == #intro
