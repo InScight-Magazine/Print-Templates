@@ -2,18 +2,19 @@
 
 #let title-author(
   title: none, 
-  authors: none,
+  authors: (),
   intro: none,
+  outlined: false,
 ) = {
   place(
     top,
     scope: "parent",
     float: true,
     block[
-      = #title
-      #if authors != none [
+      = #heading(outlined: outlined)[#title]
+      #if authors.len() != 0 [
         == #authors.join(", ")
-      ]
+      ] 
       #if intro != none [
         == #intro
       ]
@@ -131,50 +132,6 @@
 ]
 }
 
-#let insightDigest(
-  file: none, 
-  heights: (0,),
-  title: none,
-  abstract: none,
-  intro: none,
-  coverImage: none,
-) = {
-  let data = yaml(file).flatten()
-  let count = 0
-  let coverData = ()
-  let content = for item in data {
-    box(height: heights.at(count))[
-      #par(leading: rs-spacing)[
-      #text(size: rs-size, fill: rs-title-color, weight: "bold")[#item.at("Title")]
-      #linebreak()
-      #text(size: rs-size)[
-        #item.at("Reference")
-        #linebreak()
-        Contributed by #text(weight: "extrabold")[#item.at("Author") (#item.at("Affiliation"))]
-        #linebreak()
-      ]
-    ]
-    #columns(2, item.at("Summary"))
-    ]
-    v(0.5em)
-    count = count + 1
-    coverData.push((item.at("Title"), item.at("Author")))
-  }
-  digestCover(
-    title: title, 
-    abstract: abstract,
-    coverImage: coverImage,
-    data: coverData,
-    sideImage: none,
-    sideImageFraction: 0.5,
-  )
-  [
-    #heading(level:1, outlined: true, "Insight Digest")
-    == #intro
-    #v(20pt)
-    #content
-  ]
-}
 
 #let v-image(
   path: none, 
@@ -235,4 +192,28 @@
 
 #let sign(signature) = {
   align(right)[#text(weight: "bold")[#signature]]
+}
+
+#let frontCover(
+  background: none
+)  = {
+  set page(
+    paper: page-shape,
+    background: image(background),
+    header: none,
+    footer: none,
+  )
+  linebreak()
+}
+
+#let backCover(
+  background: none
+)  = {
+  set page(
+    paper: page-shape,
+    background: image(background),
+    header: none,
+    footer: none,
+  )
+  linebreak()
 }

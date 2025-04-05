@@ -1,17 +1,36 @@
-Across:
-  3: Evolutionary history and relationships among species (9)
-  4: This refers to the proportion of a specific allele (variant of a gene) within a population's gene pool (15)
-  7: Estimation of evolutionary timescales based on mutation rates (14)
-  9: Random changes in allele frequencies in a population (12)
-  10: The effect that refers to a sharp reduction in population size causing genetic diversity loss (10)
-  11: Long-term interaction between different species, often mutually beneficial (9)
-  12: This refers to evolutionary changes within a population or species over a relatively short period of time (14)
-  14: Movement of genes between populations through migration (8)
-Down:
-  1: Reciprocal evolutionary changes between interacting species (11)
-  2: The effect which refers to genetic variation resulting from a small group establishing a new population (7)
-  3: The idea that evolution occurs in rapid bursts rather than gradually (21)
-  5: Environmental factors that influence reproductive success (17)
-  6: Anatomical similarities due to shared ancestry (10)
-  8: The rapid evolution of multiple species from a common ancestor (17)
-  13: A diagram depicting evolutionary relationships (9)
+Hints:
+  Across:
+    3: Evolutionary history and relationships among species (9)
+    4: This refers to the proportion of a specific allele (variant of a gene) within a population's gene pool (15)
+    7: Estimation of evolutionary timescales based on mutation rates (14)
+    9: Random changes in allele frequencies in a population (12)
+    10: The effect that refers to a sharp reduction in population size causing genetic diversity loss (10)
+    11: Long-term interaction between different species, often mutually beneficial (9)
+    12: This refers to evolutionary changes within a population or species over a relatively short period of time (14)
+    14: Movement of genes between populations through migration (8)
+  Down:
+    1: Reciprocal evolutionary changes between interacting species (11)
+    2: The effect which refers to genetic variation resulting from a small group establishing a new population (7)
+    3: The idea that evolution occurs in rapid bursts rather than gradually (21)
+    5: Environmental factors that influence reproductive success (17)
+    6: Anatomical similarities due to shared ancestry (10)
+    8: The rapid evolution of multiple species from a common ancestor (17)
+    13: A diagram depicting evolutionary relationships (9)
+Solution:
+  Across:
+    1: MOLECULARCLOCK
+    3: COEVOLUTION
+    4: SELECTION
+    6: DRIFT
+    9: HOMOLOGOUS
+    11: PUNCTUATED
+    12: GENEFLOW
+    13: FREQUENCY
+  Down:
+    1: MICROEVOLUTION
+    2: CLADOGRAM
+    4: SYMBIOSIS
+    5: BOTTLENECK
+    7: PHYLOGENY
+    8: FOUNDER
+    10: ADAPTIVE

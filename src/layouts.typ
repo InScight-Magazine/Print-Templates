@@ -109,7 +109,9 @@ set page(
     #v(header-raise)
   ]
 )
+let outlined = true
 if coverImage != none {
+  outlined = false
   articleCover(
     title: title, 
     authors: authors,
@@ -122,6 +124,7 @@ title-author(
   title: title, 
   authors: authors,
   intro: intro,
+  outlined: outlined,
 )
 columns(cols, doc)
 }
@@ -172,7 +175,7 @@ columns(cols, doc)
       boldflag = false
     }
     if boldflag == true {
-      text(weight: boldweight, fill: boldcolor)[#line]
+      text(weight: boldweight, fill: fg-color)[#line]
     } else {
       text(weight: "regular", fill: fg-color)[#line]
     }
@@ -213,6 +216,7 @@ columns(cols, doc)
     if i.len() != 0 {
       image(i, width: 50%)
     }
+    set enum(numbering: "I. ")
     for line in o {
       [+ #eval(line, mode: "markup")]
     }
@@ -221,12 +225,18 @@ columns(cols, doc)
     }
     counter += 1
   }
-  [
-    #heading(level:1, outlined: true, title)
-    == #intro
-    #v(20pt)
-    #content
-  ]
+  section(
+    title: title,
+    intro: intro,
+    cols: 1,
+    content
+  )
+  // [
+  //   #heading(level:1, outlined: true, title)
+  //   == #intro
+  //   #v(20pt)
+  //   #content
+  // ]
 }
 
 #let linkedlist(
@@ -268,8 +278,10 @@ columns(cols, doc)
     counter += 1
   }
   [
-    #heading(level:1, outlined: true, title)
-    #v(20pt)
+    #show: section.with(
+          title: title,
+          cols: 1,
+    )
 
     Linked List is a general science-based word game. The rules are straightforward:
     + The goal is to guess eleven words that have been drawn from science.
@@ -297,7 +309,7 @@ columns(cols, doc)
   header-global: none, 
   leftColWidth: 1fr,
 ) = {
-  let data = yaml(file)
+  let data = yaml(file).Hints
   let across = [
     *Across*
     #linebreak()
@@ -323,9 +335,11 @@ columns(cols, doc)
     [#down]
   )
   [
-    #heading(level:1, outlined: true, title)
-    == #intro
-    #v(20pt)
+    #show: section.with(
+          title: title,
+          intro: intro,
+          cols: 1,
+    )
 
     #align(center, [#image(crosswordImage, width: crosswordWidth)])
 
@@ -333,6 +347,50 @@ columns(cols, doc)
 
     Answers can be found near the end of the issue. For an interactive version, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*].
 
-    #pagebreak()
   ]
+}
+
+#let insightDigest(
+  file: none, 
+  heights: (0,),
+  title: none,
+  abstract: none,
+  intro: none,
+  coverImage: none,
+) = {
+  let data = yaml(file).flatten()
+  let count = 0
+  let coverData = ()
+  let content = for item in data {
+    box(height: heights.at(count))[
+      #par(leading: rs-spacing)[
+      #text(size: rs-size, fill: rs-title-color, weight: "bold")[#item.at("Title")]
+      #linebreak()
+      #text(size: rs-size)[
+        #item.at("Reference")
+        #linebreak()
+        Contributed by #text(weight: "extrabold")[#item.at("Author") (#item.at("Affiliation"))]
+        #linebreak()
+      ]
+    ]
+    #columns(2, item.at("Summary"))
+    ]
+    v(0.5em)
+    count = count + 1
+    coverData.push((item.at("Title"), item.at("Author")))
+  }
+  digestCover(
+    title: title, 
+    abstract: abstract,
+    coverImage: coverImage,
+    data: coverData,
+    sideImage: none,
+    sideImageFraction: 0.5,
+  )
+  section(
+    title: title,
+    intro: intro,
+    cols: 1,
+    content
+  )
 }

@@ -39,7 +39,6 @@
 #let footer-raise = -5pt
 #let footerLineHeight = 1pt
 #let footer-text-color = header-bg-color
-#let website-link = link("https://scicomm.iiserkol.ac.in/")[scicomm.iiserkol.ac.in] 
 
 // figures
 #let figure-suppl = "Fig"
@@ -55,10 +54,18 @@
 #let outline-main-size = 10pt
 
 // interviews
-#let boldweight = "regular"
+#let boldweight = "bold"
 #let boldcolor = outline-headings-color
 
 // research summary
 #let rs-size = 11pt
 #let rs-title-color = header-bg-color
 #let rs-spacing = 1.1em
+
+// links
+#let website-link = link("https://scicomm.iiserkol.ac.in/")[scicomm.iiserkol.ac.in] 
+#let submit-link = "https://scicomm.iiserkol.ac.in/submit/"
+#let email = link("mailto:scicomm@iiserkol.ac.in")[_scicomm\@iiserkol.ac.in_]
+#let gform1 = "https://forms.gle/upAn7ECYkWze9h2U7"
+#let gform2 = "https://forms.gle/C7z6HmnAznQGscoA9"
+

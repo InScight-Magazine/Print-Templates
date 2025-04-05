@@ -6,6 +6,7 @@
 #show: default.with(
   header-global: header-global,
 )
+#include "subfiles/frontCover.typ"
 #include "subfiles/editor.typ"
 #include "subfiles/outline.typ"
 #include "subfiles/article-example1.typ"
@@ -16,3 +17,5 @@
 #include "subfiles/quiz.typ"
 #include "subfiles/crossword.typ"
 #include "subfiles/linkedlist.typ"
+#include "subfiles/contribute.typ"
+#include "subfiles/backCover.typ"

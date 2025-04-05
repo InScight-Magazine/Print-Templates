@@ -2,7 +2,7 @@
 #import "issueConstants.typ": *
 
 #crossword(
-  file: "/subfiles/crossword.yml",
+  file: crosswordpath,
   crosswordImage: "/images/crossword.svg",
   intro: "This issue's crossword is based on evolutionary biology.",
   title: "Themed Crossword",

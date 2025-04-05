@@ -2,7 +2,7 @@
 #import "issueConstants.typ": *
 
 #linkedlist(
-  file: "/subfiles/linkedList.yaml",
+  file: linkedlistpath,
   title: "Linked List - The Word Linking Game",
   header-global: header-global, 
 )
