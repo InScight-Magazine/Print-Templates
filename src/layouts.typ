@@ -70,7 +70,9 @@ set page(
       link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
     },
     upper(website-link),
-    link(<outline>)[#counter(page).display("1 of 1", both: true)]
+    if query(<outline>).len() > 0 {
+      link(<outline>)[#counter(page).display("1 of 1", both: true)]
+    }
     )
     ]
   ]
@@ -148,7 +150,7 @@ columns(cols, doc)
   let boldflag = true
   let lines = read(file).split("\n")
   let content = for line in lines {
-    if line.len() == 0 {
+    if line.len() < 2 {
       continue
     }
     if line == "#colbreak()" {
@@ -158,11 +160,13 @@ columns(cols, doc)
     if line.starts-with("V-IMAGE:") {
       let dict = eval(line.trim("V-IMAGE:"))
       v-image(..dict)
+      v(-1em)
       continue
     }
     if line.starts-with("H-IMAGE:") {
       let dict = eval(line.trim("H-IMAGE:"))
       h-image(..dict)
+      v(-1em)
       continue
     }
     for name in group1 {
@@ -175,9 +179,9 @@ columns(cols, doc)
       boldflag = false
     }
     if boldflag == true {
-      text(weight: boldweight, fill: fg-color)[#line]
+      text(weight: boldweight, fill: fg-color)[#eval(mode: "markup", line)]
     } else {
-      text(weight: "regular", fill: fg-color)[#line]
+      text(weight: "regular", fill: fg-color)[#eval(mode: "markup", line)]
     }
     linebreak()
     linebreak()
@@ -192,6 +196,7 @@ columns(cols, doc)
       sideImageFraction: sideImageFraction,
       header-global: header-global, 
     )
+    #counter(figure.where(kind: image)).update(0)
     #content
   ]
 }

@@ -69,7 +69,7 @@
         columns: ((2 - sideImageFraction) * 1fr, sideImageFraction * 1fr),
         gutter: 2em,
         par(justify: true, first-line-indent: 0pt)[
-        #abstract
+          #eval(mode: "markup", abstract)
         ],
         image(sideImage)
       )
@@ -144,7 +144,11 @@
     position,
     scope: scope,
     float: true,
-    rect(fill: image-bg-color, inset: image-caption-gap, width: 100%)[
+    rect(
+      fill: image-bg-color,
+      inset: image-caption-gap,
+      width: 100%
+    )[
       #figure(
       image(path, width: width),
       caption: figure.caption(position: bottom, [#caption])
