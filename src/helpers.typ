@@ -151,7 +151,7 @@
     )[
       #figure(
       image(path, width: width),
-      caption: figure.caption(position: bottom, [#caption])
+      caption: figure.caption(position: bottom, [#eval(mode: "markup", caption)])
     )
     ]
   )
@@ -174,7 +174,7 @@
       column-gutter: image-caption-gap,
       align: (left, horizon+right),
       image(path, width: 100%),
-      align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure).display()}: #caption]]
+      align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure).display()}: #eval(mode: "markup", caption)]]
     )
     ]
   )
