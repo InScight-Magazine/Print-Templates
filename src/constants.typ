@@ -1,7 +1,7 @@
 // font defaults
-#let main-font = "Lato"
+#let main-font = "Outfit"
 #let math-font = "Noto Sans Math"
-#let heading-font = "Barlow"
+#let heading-font = "Outfit"
 #let heading-weight = "semibold"
 #let main-size = 10pt
 #let heading-size = 28pt
@@ -42,7 +42,7 @@
 
 // figures
 #let figure-suppl = "Fig"
-#let caption-weight = 700
+#let caption-weight = "medium"
 #let image-caption-gap = 1em
 #let image-caption-align = center
 #let image-bg-color = rgb("FDFBD4")
@@ -58,7 +58,8 @@
 #let boldcolor = outline-headings-color
 
 // research summary
-#let rs-size = 11pt
+#let rs-title-size = 1.6em
+#let rs-size = 1.2em
 #let rs-title-color = header-bg-color
 #let rs-spacing = 1.1em
 

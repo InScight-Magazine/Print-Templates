@@ -1,4 +1,5 @@
 #import "constants.typ": *
+#import "@preview/droplet:0.3.1": dropcap
 
 #let title-author(
   title: none, 
@@ -13,7 +14,7 @@
     block[
       = #heading(outlined: outlined)[#title]
       #if authors.len() != 0 [
-        == #authors.join(", ")
+        == #text(fill: header-bg-color ,authors.join(", "))
       ] 
       #if intro != none [
         == #intro
@@ -55,6 +56,7 @@
       fill: author-color,
       size: author-size,
       font: heading-font,
+      weight: "semibold",
     )[
       #smallcaps(authors.join(linebreak()))
     ]
@@ -135,25 +137,27 @@
 
 #let v-image(
   path: none, 
-  caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  caption: "",
   position: top,
   scope: "column",
   width: 100%,
   ) = {
   place(
-    position,
+    position + center,
     scope: scope,
     float: true,
     rect(
       fill: image-bg-color,
       inset: image-caption-gap,
-      width: 100%
+      width: width
     )[
       #figure(
-      image(path, width: width),
-      caption: figure.caption(position: bottom, [#eval(mode: "markup", caption)])
+      image(path, width: 100%),
+      caption: if caption.len() > 0 {
+        figure.caption(position: bottom, [#eval(mode: "markup", caption)])
+      }
     )
-    ]
+  ]
   )
 }
 
@@ -186,11 +190,32 @@
   ]
 }
 
-#let references(refsFile) = {
+#let auth-profile(
+  info: "",
+  imagePath: "",
+  width: 100%,
+) = {
+    align(center, line(length: 50%, stroke: (thickness: 2pt, paint: header-bg-color, cap: "round")))
+    figure(
+      image(imagePath, width: width),
+      caption: figure.caption(position: bottom, [#eval(mode: "markup", info)]),
+      supplement: none,
+    )
+}
+
+#let references(
+  refsFile: none,
+  breakAfter: 0,
+) = {
   [== References]
   let refsList = yaml(refsFile)
+  let counter = 1
   for ref in refsList {
-    [+ #ref]
+    [#enum.item(counter)[#ref]]
+    if counter == breakAfter {
+      colbreak()
+    }
+    counter += 1
   }
 }
 
@@ -220,4 +245,12 @@
     footer: none,
   )
   linebreak()
+}
+
+#let dcap(
+  content
+) = {
+  let first = content.split(regex(" ")).at(0)
+  content = content.replace(first + " ", "", count: 1)
+  dropcap(height: 4, font: "Black Jack", gap: 1em, overhang: 0.0em, depth: 0.01em, first, [#content])
 }

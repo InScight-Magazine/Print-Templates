@@ -72,6 +72,8 @@ set page(
     upper(website-link),
     if query(<outline>).len() > 0 {
       link(<outline>)[#counter(page).display("1 of 1", both: true)]
+    } else {
+      [#counter(page).display("1 of 1", both: true)]
     }
     )
     ]
@@ -92,7 +94,7 @@ set page(
   sideImage: none,
   sideImageFraction: 0.3,
   cols: 2,
-  doc
+  content
 ) = {
 set columns(gutter: column-gap)
 set page(
@@ -122,13 +124,18 @@ if coverImage != none {
     sideImage: sideImage
   )
 }
-title-author(
-  title: title, 
-  authors: authors,
-  intro: intro,
-  outlined: outlined,
+if authors.len() == 0 {
+  title-author(
+    title: title, 
+    authors: authors,
+    intro: intro,
+    outlined: outlined,
+  )
+}
+columns(
+  cols, 
+  content
 )
-columns(cols, doc)
 }
 
 #let interview(
@@ -149,6 +156,7 @@ columns(cols, doc)
   )
   let boldflag = true
   let lines = read(file).split("\n")
+  let firstFlag = true
   let content = for line in lines {
     if line.len() < 2 {
       continue
@@ -178,10 +186,20 @@ columns(cols, doc)
     if line.starts-with(group2) {
       boldflag = false
     }
-    if boldflag == true {
-      text(weight: boldweight, fill: fg-color)[#eval(mode: "markup", line)]
+    if firstFlag == true {
+      line = dcap(line)
     } else {
-      text(weight: "regular", fill: fg-color)[#eval(mode: "markup", line)]
+      line = eval(mode: "markup", line)
+    }
+
+    if boldflag == true {
+      text(weight: boldweight, fill: fg-color)[#line]
+    } else {
+      text(weight: "regular", fill: fg-color)[#line]
+    }
+    if firstFlag == true {
+      firstFlag = false
+      continue
     }
     linebreak()
     linebreak()
@@ -369,12 +387,12 @@ columns(cols, doc)
   let content = for item in data {
     box(height: heights.at(count))[
       #par(leading: rs-spacing)[
-      #text(size: rs-size, fill: rs-title-color, weight: "bold")[#item.at("Title")]
+      #text(size: rs-title-size, fill: rs-title-color, weight: "medium")[#item.at("Title")]
       #linebreak()
       #text(size: rs-size)[
         #item.at("Reference")
         #linebreak()
-        Contributed by #text(weight: "extrabold")[#item.at("Author") (#item.at("Affiliation"))]
+        Contributed by #text(weight: "bold")[#item.at("Author") (#item.at("Affiliation"))]
         #linebreak()
       ]
     ]
@@ -393,8 +411,8 @@ columns(cols, doc)
     sideImageFraction: 0.5,
   )
   section(
-    title: title,
-    intro: intro,
+    // title: title,
+    // intro: intro,
     cols: 1,
     content
   )
