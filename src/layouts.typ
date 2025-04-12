@@ -15,18 +15,19 @@ set text(
 show math.equation: set text(font: math-font)
 set heading(outlined: false)
 show heading.where(level: 2): it =>[
+  #set par(justify: false)
   #set text(font: heading-font, weight: heading-weight, size: heading-2-size)
-  #block(smallcaps(it.body))
+  #block(it.body)
 ]
 show heading.where(level: 1): it =>[
   #set text(fill: outline-headings-color, font: heading-font, size: heading-size, weight: heading-weight)
-  #block(smallcaps(it.body))
+  #it.body
 ]
 set par(
   justify: true,
   leading: line-spacing,
   spacing: paragraph-spacing,
-  first-line-indent: 2em
+  first-line-indent: 0em
 )
 set figure(supplement: figure-suppl, gap: image-caption-gap)
 show figure.caption: c => [
@@ -92,12 +93,17 @@ set page(
   intro: none,
   coverImage: none,
   sideImage: none,
-  sideImageFraction: 0.3,
-  cols: 2,
+  sideImageFraction: 50%,
+  numCols: 2,
+  authorInfo: none,
+  authorImage: none,
+  authorImageWidth: 50%,
+  refsFile: none,
   content
 ) = {
 set columns(gutter: column-gap)
 set page(
+  // columns: numCols,
   header: rect(
     fill: header-bg-color, 
     inset: 0cm,
@@ -121,7 +127,8 @@ if coverImage != none {
     authors: authors,
     abstract: abstract,
     coverImage: coverImage,
-    sideImage: sideImage
+    sideImage: sideImage,
+    sideImageFraction: sideImageFraction,
   )
 }
 if authors.len() == 0 {
@@ -132,10 +139,33 @@ if authors.len() == 0 {
     outlined: outlined,
   )
 }
-columns(
-  cols, 
-  content
-)
+counter(figure.where(kind: image)).update(0)
+// content
+if authorInfo == none {
+  columns(numCols, content + if refsFile != none { references(refsFile: refsFile) })
+} else {
+  if authorImageWidth.len() > 1 {
+    columns(numCols, content)
+    auth-profile(
+      imagePath: authorImage,
+      info: authorInfo,
+      width: authorImageWidth,
+    )
+    if refsFile != none {
+      columns(numCols, references(refsFile: refsFile))
+    }
+  } else {
+    columns(numCols, content + auth-profile(
+        imagePath: authorImage,
+        info: authorInfo,
+        width: authorImageWidth,
+      ) + if refsFile != none { references(refsFile: refsFile) }
+    )
+    // if refsFile != none {
+    //   references(refsFile: refsFile) 
+    // }
+  }
+}
 }
 
 #let interview(
@@ -147,7 +177,7 @@ columns(
   abstract: "",
   coverImage: "",
   sideImage: none,
-  sideImageFraction: 0.5,
+  sideImageFraction: 50%,
   header-global: none, 
 ) = {
   set par(
@@ -251,7 +281,7 @@ columns(
   section(
     title: title,
     intro: intro,
-    cols: 1,
+    numCols: 1,
     content
   )
   // [
@@ -303,7 +333,7 @@ columns(
   [
     #show: section.with(
           title: title,
-          cols: 1,
+          numCols: 1,
     )
 
     Linked List is a general science-based word game. The rules are straightforward:
@@ -361,7 +391,7 @@ columns(
     #show: section.with(
           title: title,
           intro: intro,
-          cols: 1,
+          numCols: 1,
     )
 
     #align(center, [#image(crosswordImage, width: crosswordWidth)])
@@ -408,12 +438,10 @@ columns(
     coverImage: coverImage,
     data: coverData,
     sideImage: none,
-    sideImageFraction: 0.5,
+    sideImageFraction: 50%,
   )
   section(
-    // title: title,
-    // intro: intro,
-    cols: 1,
+    numCols: 1,
     content
   )
 }

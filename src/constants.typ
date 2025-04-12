@@ -1,10 +1,10 @@
 // font defaults
-#let main-font = "Outfit"
+#let main-font = "Lato"
 #let math-font = "Noto Sans Math"
-#let heading-font = "Outfit"
+#let heading-font = "Lato"
 #let heading-weight = "semibold"
 #let main-size = 10pt
-#let heading-size = 28pt
+#let heading-size = 30pt
 #let heading-2-size = 14pt
 #let author-size = 18pt
 #let abstract-size = 13pt
@@ -21,7 +21,7 @@
 #let coverRightMargin = 2 * margin-2
 #let coverItemGap = 0.5 * margin-2
 #let title-size = 34pt
-#let title-line-spacing = 0.2em
+#let title-line-spacing = 0.4em
 #let title-weight = "medium"
 #let author-color = rgb("ffd58b")
 
@@ -29,6 +29,8 @@
 #let fg-color = rgb("282828")
 #let bg-color = rgb("fafafa")
 #let title-color = rgb("e0e0e0")
+#let author-profile-fill = rgb("FFDBBB88")
+#let author-profile-border = rgb("FFDBBB")
 
 // header and footer
 #let header-bg-color = rgb("bd2033")
@@ -42,10 +44,10 @@
 
 // figures
 #let figure-suppl = "Fig"
-#let caption-weight = "medium"
+#let caption-weight = "bold"
 #let image-caption-gap = 1em
 #let image-caption-align = center
-#let image-bg-color = rgb("FDFBD4")
+#let image-bg-color = rgb("eee")
 
 // table of contents
 #let outline-headings-color = rgb("454545")
