@@ -3,6 +3,7 @@
 
 #let default(
   header-global: none,
+  frontImage: none,
   doc
 ) = {
 set text(
@@ -12,6 +13,8 @@ set text(
   fill: fg-color,
   hyphenate: false
 )
+show table.cell.where(y: 0): set text(weight: "black")
+show table.cell.where(y: 0): upper
 show math.equation: set text(font: math-font)
 set heading(outlined: false)
 show heading.where(level: 2): it =>[
@@ -80,6 +83,12 @@ set page(
     ]
   ]
   )
+
+  if frontImage != none {
+    frontCover(
+      background: frontImage
+    )
+  }
   doc
 }
 
@@ -99,11 +108,16 @@ set page(
   authorImage: none,
   authorImageWidth: 50%,
   refsFile: none,
+  reviewedBy: none,
+  category: none,
+  received: none,
+  authProfPosition: auto,
+  breakRefsAt: 999,
   content
 ) = {
 set columns(gutter: column-gap)
+// set page(columns: numCols)
 set page(
-  // columns: numCols,
   header: rect(
     fill: header-bg-color, 
     inset: 0cm,
@@ -124,11 +138,14 @@ if coverImage != none {
   outlined = false
   articleCover(
     title: title, 
-    authors: authors,
+    authors: authors.join(linebreak()),
     abstract: abstract,
     coverImage: coverImage,
     sideImage: sideImage,
     sideImageFraction: sideImageFraction,
+    reviewedBy: reviewedBy,
+    category: category,
+    received: received,
   )
 }
 if authors.len() == 0 {
@@ -140,31 +157,17 @@ if authors.len() == 0 {
   )
 }
 counter(figure.where(kind: image)).update(0)
-// content
-if authorInfo == none {
-  columns(numCols, content + if refsFile != none { references(refsFile: refsFile) })
-} else {
-  if authorImageWidth.len() > 1 {
-    columns(numCols, content)
-    auth-profile(
-      imagePath: authorImage,
-      info: authorInfo,
-      width: authorImageWidth,
-    )
-    if refsFile != none {
-      columns(numCols, references(refsFile: refsFile))
-    }
-  } else {
-    columns(numCols, content + auth-profile(
-        imagePath: authorImage,
-        info: authorInfo,
-        width: authorImageWidth,
-      ) + if refsFile != none { references(refsFile: refsFile) }
-    )
-    // if refsFile != none {
-    //   references(refsFile: refsFile) 
-    // }
-  }
+columns(numCols,
+content +
+if refsFile != none {
+  references(refsFile: refsFile, breakAfter: breakRefsAt)
+}
+)
+if authorInfo != none {
+  auth-profile(
+    imagePath: authorImage,
+    info: authorInfo,
+  )
 }
 }
 
@@ -233,7 +236,7 @@ if authorInfo == none {
     }
     linebreak()
     linebreak()
-  }
+  } 
   [
     #show: section.with(
       title: title, 
@@ -284,12 +287,6 @@ if authorInfo == none {
     numCols: 1,
     content
   )
-  // [
-  //   #heading(level:1, outlined: true, title)
-  //   == #intro
-  //   #v(20pt)
-  //   #content
-  // ]
 }
 
 #let linkedlist(
@@ -332,6 +329,7 @@ if authorInfo == none {
   }
   [
     #show: section.with(
+          header-global: header-global,
           title: title,
           numCols: 1,
     )
@@ -392,6 +390,7 @@ if authorInfo == none {
           title: title,
           intro: intro,
           numCols: 1,
+          header-global: header-global,
     )
 
     #align(center, [#image(crosswordImage, width: crosswordWidth)])
@@ -405,43 +404,71 @@ if authorInfo == none {
 
 #let insightDigest(
   file: none, 
-  heights: (0,),
+  heights: (50%,),
+  widths: (100%,),
   title: none,
   abstract: none,
   intro: none,
   coverImage: none,
+  coverCaption: none,
 ) = {
   let data = yaml(file).flatten()
   let count = 0
   let coverData = ()
-  let content = for item in data {
-    box(height: heights.at(count))[
+  let content = ()
+  for item in data {
+    content.push([
+      #box(height: heights.at(count), clip: true)[
       #par(leading: rs-spacing)[
       #text(size: rs-title-size, fill: rs-title-color, weight: "medium")[#item.at("Title")]
       #linebreak()
       #text(size: rs-size)[
-        #item.at("Reference")
+        #link(item.at("Url"))[#underline[#item.at("Reference")]]
         #linebreak()
         Contributed by #text(weight: "bold")[#item.at("Author") (#item.at("Affiliation"))]
         #linebreak()
       ]
-    ]
-    #columns(2, item.at("Summary"))
-    ]
-    v(0.5em)
+      ]
+      #columns(2, item.at("Summary"))
+      ]
+
+      #rect(
+        align(center, image("/images/"+item.at("Image"), fit: "cover", width: widths.at(count))) +
+        align(center, [*#item.at("Caption")*]),
+        stroke: 0.2em + header-bg-color,
+        inset: 1em
+      )
+    ])
     count = count + 1
     coverData.push((item.at("Title"), item.at("Author")))
   }
-  digestCover(
+
+  coverData = for (t,a) in coverData [
+    #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
+    #linebreak()
+    #text(size: abstract-size, fill: title-color, t)
+    #linebreak()
+    #linebreak()
+  ]
+  articleCover(
     title: title, 
-    abstract: abstract,
+    authors: abstract,
     coverImage: coverImage,
-    data: coverData,
-    sideImage: none,
-    sideImageFraction: 50%,
+    abstract: coverData,
+    coverCaption: coverCaption,
   )
-  section(
-    numCols: 1,
-    content
-  )
+  // digestCover(
+  //   title: title, 
+  //   abstract: abstract,
+  //   coverImage: coverImage,
+  //   data: coverData,
+  //   sideImage: none,
+  //   sideImageFraction: 50%,
+  //   coverCaption: coverCaption,
+  //   outlineTitle: true,
+  // )
+  for c in content {
+    c
+    pagebreak()
+  }
 }

@@ -3,7 +3,8 @@
 #let math-font = "Noto Sans Math"
 #let heading-font = "Lato"
 #let heading-weight = "semibold"
-#let main-size = 10pt
+#let dcap-font = "Lato"
+#let main-size = 9pt
 #let heading-size = 30pt
 #let heading-2-size = 14pt
 #let author-size = 18pt
@@ -53,7 +54,8 @@
 #let outline-headings-color = rgb("454545")
 #let contents-size = 9pt
 #let contents-weight = "regular"
-#let outline-main-size = 10pt
+#let outline-main-size = 1.3em
+#let outline-desc-size = 1.0em
 
 // interviews
 #let boldweight = "bold"

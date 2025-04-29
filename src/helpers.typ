@@ -30,6 +30,10 @@
   coverImage: none,
   sideImage: none,
   sideImageFraction: 50%,
+  reviewedBy: none,
+  category: none,
+  received: none,
+  coverCaption: none,
 ) = {
   page(
     fill: header-dark-color,
@@ -38,7 +42,12 @@
     header: none,
     footer: none,
   )[
-    #context[#image(coverImage, width: page.width)]
+    #block[
+      #image(coverImage, width: 100%, height: 50%)
+      #if coverCaption != none [
+        #place(bottom + right, box(width: 50%, fill: rgb(0, 0, 0, 120), inset: 0.5em, text(size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "medium", coverCaption)))
+      ]
+    ]
     #rect(
       width: 100%,
       inset: margin-2,
@@ -58,7 +67,7 @@
       font: heading-font,
       weight: "semibold",
     )[
-      #authors.join(linebreak())
+      #authors
     ]
     ]
     #v(coverItemGap)
@@ -76,8 +85,27 @@
         image(sideImage)
       )
     } else {
-        par(justify: true, first-line-indent: 0pt)[
-          #box(width: 100% - sideImageFraction, [#abstract])
+        if reviewedBy != none and received != none and category != none [
+          #grid(
+            columns: (1.2fr, 1fr),
+            gutter: 2em,
+            par(justify: true, first-line-indent: 0pt)[
+              #eval(mode: "markup", abstract)
+            ],
+            if reviewedBy != none [
+              #align(right, [
+              #upper[*Reviewed by*]\
+              #reviewedBy.sorted().join(", ", last: " and ")\ \
+              #upper[*Submitted*]\
+              #received\ \
+              #upper[*Category*] \
+              #category
+              ]
+            )
+            ]
+          )
+        ] else [
+          #par(justify: false, abstract)
         ]
     }
   ]
@@ -91,6 +119,8 @@
   coverImage: none,
   sideImage: none,
   sideImageFraction: 0.5,
+  coverCaption: none,
+  outlineTitle: false,
   data: (),
 ) = {
   page(
@@ -100,7 +130,13 @@
     header: none,
     footer: none,
   )[
-    #context[#image(coverImage, width: page.width)]
+    #context[
+      #block({
+        image(coverImage, width: page.width)
+        place(right + bottom, block(inset: 1em, fill: rgb(0, 0, 0, 120), text(size: 1em, weight: "bold", fill: white, upper(coverCaption))))
+      })
+      
+    ]
     #rect(
       width: 100%,
       inset: margin-2,
@@ -112,7 +148,7 @@
       #v(-30pt)
       #block(it.body)
     ]
-    #heading(level: 1, [#title])
+    #heading(level: 1, outlined: outlineTitle, [#title])
     #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
     #text(
       fill: author-color,
@@ -163,11 +199,11 @@
 
 #let h-image(
   path: none, 
-  caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  caption: "",
   position: top,
   width: 50%,
 ) ={
-  counter(figure).step()
+  counter(figure.where(kind: image)).step()
   place(
     position,
     scope: "parent",
@@ -178,7 +214,11 @@
       column-gutter: image-caption-gap,
       align: (left, horizon+right),
       image(path, width: 100%),
-      align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure).display()}: #eval(mode: "markup", caption)]]
+      if caption.len() > 0 {
+        align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure.where(kind: image)).display()}: #eval(mode: "markup", caption)]]
+      } else {
+        none
+      }
     )
     ]
   )
@@ -190,48 +230,25 @@
   ]
 }
 
+#let endLine() = {
+  box(line(length: 25%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "loosely-dashed"))) + h(1em) + box(line(length: 30%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "solid"))) + h(1em) + box(line(length: 25%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "loosely-dashed")))
+}
+
 #let auth-profile(
   info: "",
   imagePath: "",
-  width: (100%,),
 ) = {
-    // align(center, line(length: 80%, stroke: (thickness: 2pt, paint: header-bg-color, cap: "round")))
-    // rect(width: 100%, stroke: 0.2em + author-profile-border, fill: author-profile-fill, inset: 1em, radius: 10pt,
-    // figure(
-    //   image(imagePath, width: width),
-    //   caption: figure.caption(position: bottom, [#eval(mode: "markup", info)]),
-    //   supplement: none,
-    // )
-    // )
-  //
     align(center,
-        if width.len() == 1 {
-          align(center, 
-            box(line(length: 25%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "loosely-dashed"))) + h(1em) + box(line(length: 30%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "solid"))) + h(1em) + box(line(length: 25%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "loosely-dashed")))
-          )
-          place(
-            bottom + center,
-            float: true,
-            scope: "column",
-            rect(width: width.sum() + image-caption-gap, stroke: 0.2em + author-profile-border, fill: author-profile-fill, inset: 1em, radius: 10pt,
-              image(imagePath, width: width.at(0)) +
-              v(image-caption-gap) +
-              eval(mode: "markup", info)
-            )
-          )
-        } else {
-            box(line(length: 12%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "loosely-dashed"))) + h(1em) + box(line(length: 16%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "solid"))) + h(1em) + box(line(length: 12%, stroke: (thickness: 4pt, paint: header-bg-color, cap: "round", dash: "loosely-dashed")))
-          rect(width: width.sum() + image-caption-gap, stroke: 0.2em + author-profile-border, fill: author-profile-fill, inset: 1em, radius: 10pt,
-            grid(
-            columns: (2fr * width.at(0), 2fr * width.at(1)),
-            column-gutter: image-caption-gap,
-            align: left + horizon,
-            image(imagePath, width: 100%),
-            eval(mode: "markup", info)
-          )
-        )
-      }
+    rect(width: 80%, stroke: 0.2em + author-profile-border, fill: author-profile-fill, inset: 1em, radius: 10pt,
+      grid(
+        columns: (1fr, 1fr),
+        align: center + horizon,
+        gutter: 2 * image-caption-gap,
+        image(imagePath),
+        text(size: main-size, eval(mode: "markup", info))
+      )
     )
+  )
 }
 
 #let references(
@@ -283,5 +300,31 @@
 ) = {
   let first = content.split(regex(" ")).at(0)
   content = content.replace(first + " ", "", count: 1)
-  dropcap(height: 4, font: "Black Jack", gap: 1em, overhang: 0.0em, depth: 0.01em, first, [#content])
+  while first.len() == 0 {
+    first = content.split(regex(" ")).at(0)
+    content = content.replace(first + " ", "", count: 1)
+  }
+  dropcap(height: 4, font: dcap-font, gap: 1em, overhang: 0.0em, depth: 0.01em, weight: "regular", emph(first), eval(content, mode: "markup"))
+}
+
+#let tables(
+  headings: none,
+  caption: none,
+  position: bottom,
+  ..content
+) = {
+  figure(
+    placement: position,
+    table(
+      columns: headings.len(),
+      align: horizon,
+      stroke: 1pt + header-bg-color,
+        table.header(
+          ..headings,
+        ),
+        ..content
+      ),
+      caption: caption,
+      supplement: "Table"
+  )
 }

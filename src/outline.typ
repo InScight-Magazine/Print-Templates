@@ -4,7 +4,11 @@
   let outline-entries-data = yaml(outline-path)
   let outline-entries = ("key": "value")
   for var in outline-entries-data [
-    #outline-entries.insert(var.at("title"), var.at("desc"))
+    #if "desc" in var {
+      outline-entries.insert(var.at("title"), var.at("desc"))
+    } else {
+      outline-entries.insert(var.at("title"), "")
+    }
   ]
   show outline.entry: set block(below: 1.5em)
   show outline.entry: it => {
@@ -13,7 +17,7 @@
         columns: (25pt,1fr),
         align: (left,left),
         gutter: 3pt,
-        text(weight: "semibold")[#link(
+        text(weight: "bold", size: outline-main-size)[#link(
           (page: int(it.page().text), x: 0pt, y: 0pt),it.page()
         )],
         link(
@@ -22,12 +26,16 @@
           #if outline-entries.at(it.body().text) == "" {
             text(fill: outline-headings-color, weight: "bold", size: outline-main-size)[#it.body()]
           } else {
-            [#text(fill: outline-headings-color, weight: "bold", size: outline-main-size)[#it.body()] | #outline-entries.at(it.body().text)]
+            [
+              #text(fill: outline-headings-color, weight: "bold", size: outline-main-size)[#it.body()] | #text(fill: outline-headings-color, size: outline-desc-size)[#upper[#outline-entries.at(it.body().text)]]
+            ]
           }
         ]
       ),
       )
-  ]}
+  ]
+  v(1.5em)
+  }
 
   show outline.entry: it => {
     if int(it.page().text) >= minPage and int(it.page().text) <= maxPage {
