@@ -121,6 +121,7 @@
   sideImageFraction: 0.5,
   coverCaption: none,
   outlineTitle: false,
+  attribution: none,
   data: (),
 ) = {
   page(
@@ -133,7 +134,7 @@
     #context[
       #block({
         image(coverImage, width: page.width)
-        place(right + bottom, block(inset: 1em, fill: rgb(0, 0, 0, 120), text(size: 1em, weight: "bold", fill: white, upper(coverCaption))))
+        place(right + bottom, box(inset: 1em, width: 40%, fill: rgb(0, 0, 0, 50), align(center, text(size: 1em, weight: "bold", fill: white, coverCaption))))
       })
       
     ]
@@ -165,6 +166,11 @@
       #linebreak()
       #linebreak()
     ]
+    ]
+    #v(3em)
+
+    #if attribution != none [
+      #text(size: 0.8 * abstract-size, fill: title-color, emph(eval(attribution, mode: "markup")))
     ]
   ]
 ]
@@ -298,13 +304,14 @@
 #let dcap(
   content
 ) = {
-  let first = content.split(regex(" ")).at(0)
-  content = content.replace(first + " ", "", count: 1)
+  let first = content.at(0)//content.split(regex(" ")).at(0)
+  content = content.replace(first, "", count: 1)
+  // content = content.replace(first + " ", "", count: 1)
   while first.len() == 0 {
     first = content.split(regex(" ")).at(0)
     content = content.replace(first + " ", "", count: 1)
   }
-  dropcap(height: 4, font: dcap-font, gap: 1em, overhang: 0.0em, depth: 0.01em, weight: "regular", emph(first), eval(content, mode: "markup"))
+  dropcap(height: 3, font: dcap-font, gap: 0.5em, overhang: 0.0em, depth: 0.0em, weight: "regular", emph(first), eval(content, mode: "markup"))
 }
 
 #let tables(

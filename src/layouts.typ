@@ -71,9 +71,17 @@ set page(
     columns: (33%, 34%, 33%),
     align: (left, center, right),
     if query(selector(heading.where(level:1)).after(here())).len() > 0 {
-      link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
+      if calc.even(counter(page).get().first()) {
+        link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
+      } else {
+        link((page: counter(page).at(query(selector(heading.where(level:1)).before(here())).at(-2, default: query(selector(heading.where(level:1)).before(here())).at(-1)).location()).at(0)-1, x: 0pt, y: 0pt), [BACK TO PREV])
+      }
     },
-    upper(website-link),
+    if calc.even(counter(page).get().first()) {
+      link(<outline>)[JUMP TO TOC]
+    } else {
+      upper(website-link)
+    },
     if query(<outline>).len() > 0 {
       link(<outline>)[#counter(page).display("1 of 1", both: true)]
     } else {
@@ -267,14 +275,21 @@ if authorInfo != none {
 
   let counter = 1
   content = for (q, o, i) in questions.zip(options, images) {
-    [*Q#counter\.* ] + [#eval(q, mode: "markup")]
-    linebreak()
-    if i.len() != 0 {
-      image(i, width: 50%)
-    }
     set enum(numbering: "I. ")
-    for line in o {
-      [+ #eval(line, mode: "markup")]
+    if i.len() != 0 {
+      grid(
+        columns: (1fr, 1fr),
+        gutter: 10em,
+        [*Q#counter\.* ] + [#eval(q, mode: "markup")] + for line in o {
+        [+ #eval(line, mode: "markup")]
+      },
+        align(center, image(i, width: 100%))
+      )
+    } else {
+      [*Q#counter\.* ] + [#eval(q, mode: "markup")]
+      for line in o {
+        [+ #eval(line, mode: "markup")]
+      }
     }
     if counter < questions.len() {
       linebreak()
@@ -457,16 +472,7 @@ if authorInfo != none {
     abstract: coverData,
     coverCaption: coverCaption,
   )
-  // digestCover(
-  //   title: title, 
-  //   abstract: abstract,
-  //   coverImage: coverImage,
-  //   data: coverData,
-  //   sideImage: none,
-  //   sideImageFraction: 50%,
-  //   coverCaption: coverCaption,
-  //   outlineTitle: true,
-  // )
+
   for c in content {
     c
     pagebreak()
