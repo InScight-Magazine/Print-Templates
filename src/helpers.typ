@@ -282,7 +282,7 @@
 )  = {
   set page(
     paper: page-shape,
-    background: image(background),
+    background: image(background, height: 100%),
     header: none,
     footer: none,
   )

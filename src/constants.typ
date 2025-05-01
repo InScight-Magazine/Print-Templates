@@ -1,9 +1,9 @@
 // font defaults
 #let main-font = "Lato"
 #let math-font = "Noto Sans Math"
-#let heading-font = "Lato"
+#let heading-font = "Barlow"
 #let heading-weight = "semibold"
-#let dcap-font = "Lato"
+#let dcap-font = "Barlow"
 #let main-size = 9pt
 #let heading-size = 30pt
 #let heading-2-size = 14pt
