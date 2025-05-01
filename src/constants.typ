@@ -41,7 +41,7 @@
 #let footer-weight = "bold"
 #let footer-raise = -5pt
 #let footerLineHeight = 1pt
-#let footer-text-color = header-bg-color
+#let footer-text-color = rgb("4a4a4a") //header-bg-color
 
 // figures
 #let figure-suppl = "Fig"

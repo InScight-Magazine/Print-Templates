@@ -66,10 +66,10 @@ set page(
   footer: context [
   #v(footer-raise)
   #line(length: 100%, stroke:footerLineHeight+fg-color)
-  #text(weight: "black", fill: footer-text-color)[
+  #text(weight: "black", fill: footer-text-color, size: 0.8em)[
     #grid(
     columns: (33%, 34%, 33%),
-    align: (left, center, right),
+    align: (left + horizon, center + horizon, right + horizon),
     if query(selector(heading.where(level:1)).after(here())).len() > 0 {
       if calc.even(counter(page).get().first()) {
         link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
@@ -82,11 +82,7 @@ set page(
     } else {
       upper(website-link)
     },
-    if query(<outline>).len() > 0 {
-      link(<outline>)[#counter(page).display("1 of 1", both: true)]
-    } else {
-      [#counter(page).display("1 of 1", both: true)]
-    }
+    [#box(fill: rgb(200, 200, 200), outset: 0em, height: 0.7em, width: 10em * (1 - counter(page).get().first() / counter(page).final().at(0))) #h(-0.2em) #box(fill: header-bg-color, height: 0.7em, outset: 0em, width: 10em * counter(page).get().first() / counter(page).final().at(0)) #h(0.5em) #counter(page).display()]
     )
     ]
   ]
