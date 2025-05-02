@@ -87,12 +87,6 @@ set page(
     ]
   ]
   )
-
-  if frontImage != none {
-    frontCover(
-      background: frontImage
-    )
-  }
   doc
 }
 
