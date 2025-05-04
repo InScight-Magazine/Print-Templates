@@ -1,31 +1,36 @@
 #import "constants.typ": *
 #import "@preview/droplet:0.3.1": dropcap
 
-#let title-author(
+#let nonCoverTitle(
   title: none, 
-  authors: (),
   intro: none,
   outlined: false,
+  outlineDesc: none,
 ) = {
   place(
     top,
     scope: "parent",
     float: true,
-    block[
-      = #heading(outlined: outlined)[#title]
-      #if authors.len() != 0 [
-        == #text(fill: header-bg-color ,authors.join(", "))
-      ] 
+    [
+      = #heading(outlined: false)[#title]
+      #linebreak()
+      #linebreak()
       #if intro != none [
-        == #intro
+        #text(size: 1.6em, intro)
+        #v(1.5em)
       ]
     ]
   )
+  { 
+    show heading: none
+    heading(outlined: true, text(fill: outline-headings-color, weight: "bold", size: outline-main-size, title) + if outlineDesc != none [#text(fill: outline-headings-color, size: outline-desc-size)[#upper[#outlineDesc]]])
+  }
 }
 
 #let articleCover(
   title: none, 
-  authors: none, 
+  authors: (), 
+  authorAffiliations: (),
   abstract: none,
   coverImage: none,
   sideImage: none,
@@ -34,6 +39,10 @@
   category: none,
   received: none,
   coverCaption: none,
+  attribution: none,
+  outlineDesc: none,
+  id: none,
+  outlined: true,
 ) = {
   page(
     fill: header-dark-color,
@@ -59,7 +68,17 @@
       #v(-30pt)
       #block(it.body)
     ]
-    #heading(level: 1, outlined: true, [#title])
+    #if id != none [
+      #heading(level: 1, outlined: false, [#title])#label(id)
+    ] else [
+      #heading(level: 1, outlined: false, [#title])
+    ]
+    #if outlined == true {
+      {
+        show heading: none
+        heading(outlined: true, text(fill: outline-headings-color, weight: "bold", size: outline-main-size, title) + if outlineDesc != none [#text(fill: outline-headings-color, size: outline-desc-size)[#upper[#outlineDesc]]])
+      }
+    }
     #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
     #text(
       fill: author-color,
@@ -67,7 +86,7 @@
       font: heading-font,
       weight: "semibold",
     )[
-      #authors
+      #for p in authors.enumerate() { p.at(1) + if authorAffiliations.len() > 0 {" (" + authorAffiliations.at(p.at(0)) + ")" } + linebreak()}
     ]
     ]
     #v(coverItemGap)
@@ -108,12 +127,15 @@
           #par(justify: false, abstract)
         ]
     }
+    #if attribution != none [
+      #text(size: 0.8 * abstract-size, fill: title-color, emph(eval(attribution, mode: "markup")))
+    ]
   ]
 ]
 ]
 }
 
-#let digestCover(
+#let digestCoverr(
   title: none, 
   abstract: none,
   coverImage: none,
@@ -150,6 +172,11 @@
       #block(it.body)
     ]
     #heading(level: 1, outlined: outlineTitle, [#title])
+
+    #{
+      show heading: none
+      heading(outlined: true, [#text(fill: outline-headings-color, weight: "bold", size: outline-main-size)[#title] | #text(fill: outline-headings-color, size: outline-desc-size)[#upper[#authors.split("(").at(0)]]])
+    }
     #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
     #text(
       fill: author-color,
@@ -274,7 +301,7 @@
 }
 
 #let sign(signature) = {
-  align(right)[#text(weight: "bold")[#signature]]
+  align(left)[#text(weight: "bold")[#signature]]
 }
 
 #let frontCover(
@@ -283,18 +310,6 @@
   set page(
     paper: page-shape,
     background: image(background, height: 100%),
-    header: none,
-    footer: none,
-  )
-  linebreak()
-}
-
-#let backCover(
-  background: none
-)  = {
-  set page(
-    paper: page-shape,
-    background: image(background),
     header: none,
     footer: none,
   )
@@ -334,4 +349,11 @@
       caption: caption,
       supplement: "Table"
   )
+}
+
+#let pageLink(
+  anchor,
+  text
+) = {
+  context[#link(("page": locate(anchor).page(), "x": 0em, "y": 0em), text)]
 }

@@ -64,17 +64,19 @@ set page(
 )
 set page(
   footer: context [
+  #let elementsAfter = query(selector(heading.where(level:1)).after(here()))
+  #let elementsBefore = query(selector(heading.where(level:1)).before(here()))
   #v(footer-raise)
   #line(length: 100%, stroke:footerLineHeight+fg-color)
   #text(weight: "black", fill: footer-text-color, size: 0.8em)[
     #grid(
     columns: (33%, 34%, 33%),
     align: (left + horizon, center + horizon, right + horizon),
-    if query(selector(heading.where(level:1)).after(here())).len() > 0 {
+    if elementsAfter.len() > 0 {
       if calc.even(counter(page).get().first()) {
-        link((page: counter(page).at(query(selector(heading.where(level:1)).after(here())).at(0).location()).at(0)-1, x: 0pt, y: 0pt), [SKIP TO NEXT])
+        link((page: counter(page).at(elementsAfter.at(0).location()).at(0), x: 0pt, y: 0pt), [SKIP TO NEXT])
       } else {
-        link((page: counter(page).at(query(selector(heading.where(level:1)).before(here())).at(-2, default: query(selector(heading.where(level:1)).before(here())).at(-1)).location()).at(0)-1, x: 0pt, y: 0pt), [BACK TO PREV])
+        link((page: counter(page).at(elementsBefore.at(-2, default: elementsBefore.at(-1)).location()).at(0), x: 0pt, y: 0pt), [BACK TO PREV])
       }
     },
     if calc.even(counter(page).get().first()) {
@@ -96,6 +98,7 @@ set page(
   footer-left-2: none, 
   title: none,
   authors: (),
+  authorAffiliations: (),
   abstract: none,
   intro: none,
   coverImage: none,
@@ -111,10 +114,11 @@ set page(
   received: none,
   authProfPosition: auto,
   breakRefsAt: 999,
+  outlineDesc: none,
+  id: none,
   content
 ) = {
 set columns(gutter: column-gap)
-// set page(columns: numCols)
 set page(
   header: rect(
     fill: header-bg-color, 
@@ -131,12 +135,11 @@ set page(
     #v(header-raise)
   ]
 )
-let outlined = true
 if coverImage != none {
-  outlined = false
   articleCover(
     title: title, 
-    authors: authors.join(linebreak()),
+    authors: authors,
+    authorAffiliations: authorAffiliations,
     abstract: abstract,
     coverImage: coverImage,
     sideImage: sideImage,
@@ -144,14 +147,15 @@ if coverImage != none {
     reviewedBy: reviewedBy,
     category: category,
     received: received,
+    outlineDesc: if authorAffiliations.len() > 0  { " | " + authors.join(", ") } else { outlineDesc },
+    id: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { id },
   )
 }
 if authors.len() == 0 {
-  title-author(
+  nonCoverTitle(
     title: title, 
-    authors: authors,
     intro: intro,
-    outlined: outlined,
+    outlineDesc: outlineDesc,
   )
 }
 counter(figure.where(kind: image)).update(0)
@@ -171,10 +175,11 @@ if authorInfo != none {
 
 #let interview(
   file: none,
-  group1: (none,),
+  group1: (),
   group2: none,
   title: none,
-  authors: (none,),
+  authors: (),
+  authorAffiliations: (),
   abstract: "",
   coverImage: "",
   sideImage: none,
@@ -239,6 +244,7 @@ if authorInfo != none {
     #show: section.with(
       title: title, 
       authors: authors,
+      authorAffiliations: authorAffiliations,
       abstract: abstract,
       coverImage: coverImage,
       sideImage: sideImage,
@@ -288,7 +294,6 @@ if authorInfo != none {
   }
   section(
     title: title,
-    intro: intro,
     numCols: 1,
     content
   )
@@ -337,6 +342,7 @@ if authorInfo != none {
           header-global: header-global,
           title: title,
           numCols: 1,
+          outlineDesc: " | The word linking game"
     )
 
     Linked List is a general science-based word game. The rules are straightforward:
@@ -363,6 +369,7 @@ if authorInfo != none {
   title: none,
   intro: none,
   header-global: none, 
+  outlineDesc: none,
   leftColWidth: 1fr,
 ) = {
   let data = yaml(file).Hints
@@ -395,10 +402,11 @@ if authorInfo != none {
           title: title,
           intro: intro,
           numCols: 1,
+          outlineDesc: outlineDesc,
           header-global: header-global,
     )
 
-    #align(center, [#image(crosswordImage, width: crosswordWidth)])
+    #align(center, [#image(crosswordImage, width: crosswordWidth)])#label("crossword")
 
     #content
 
@@ -425,7 +433,7 @@ if authorInfo != none {
     content.push([
       #box(height: heights.at(count), clip: true)[
       #par(leading: rs-spacing)[
-      #text(size: rs-title-size, fill: rs-title-color, weight: "medium")[#item.at("Title")]
+      #text(size: rs-title-size, fill: rs-title-color, weight: "medium")[#item.at("Title")] #label(item.at("Author").split().at(0))
       #linebreak()
       #text(size: rs-size)[
         #link(item.at("Url"))[#underline[#item.at("Reference")]]
@@ -461,10 +469,44 @@ if authorInfo != none {
     coverImage: coverImage,
     abstract: coverData,
     coverCaption: coverCaption,
+    outlineDesc: " | " + intro,
   )
 
   for c in content {
     c
     pagebreak()
   }
+}
+
+#let backCover(
+  images: (),
+  captions: (),
+  footerLeft: none,
+  footerRight: none,
+) = {
+  stack(
+    dir: ttb,
+    spacing: 3em,
+    grid(
+      columns: (45%, 55%),
+      gutter: 1em,
+      align: right + bottom,
+      align(left, text(font: heading-font, size: 1.5em, weight: "medium", fill: backpage-color, captions.at(0))),
+      image(images.at(0), width: 100%),
+    ),
+    grid(
+      columns: (55%, 45%),
+      gutter: 1em,
+      align: left + bottom,
+      image(images.at(1), width: 100%),
+      align(left, text(font: heading-font, size: 1.5em, weight: "medium", fill: backpage-color, captions.at(1))),
+    ),
+    grid(
+      columns: (45%, 55%),
+      gutter: 1em,
+      align: right + bottom,
+      align(left, text(font: heading-font, size: 1.5em, weight: "medium", fill: backpage-color, captions.at(2))),
+      image(images.at(2), width: 100%),
+    )
+  )
 }

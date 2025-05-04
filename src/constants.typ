@@ -32,10 +32,11 @@
 #let title-color = rgb("e0e0e0")
 #let author-profile-fill = rgb("FFDBBB88")
 #let author-profile-border = rgb("FFDBBB")
+#let backpage-color = rgb("353535")
 
 // header and footer
 #let header-bg-color = rgb("bd2033")
-#let header-dark-color = rgb("202020")
+#let header-dark-color = fg-color
 #let header-bright-color = rgb("ffffff")
 #let header-raise = 10pt
 #let footer-weight = "bold"
