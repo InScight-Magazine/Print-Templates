@@ -105,6 +105,7 @@
       )
     } else {
         if reviewedBy != none and received != none and category != none [
+          #let date = datetime(..received)
           #grid(
             columns: (1.2fr, 1fr),
             gutter: 2em,
@@ -116,7 +117,7 @@
               #upper[*Reviewed by*]\
               #reviewedBy.sorted().join(", ", last: " and ")\ \
               #upper[*Submitted*]\
-              #received\ \
+              #date.display("[month repr:short] [day], [year]")\ \
               #upper[*Category*] \
               #category
               ]

@@ -484,6 +484,7 @@ if authorInfo != none {
   footerLeft: none,
   footerRight: none,
 ) = {
+align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made it to the end! While we cook up the next issue, here's a random photo dump.]),)
   stack(
     dir: ttb,
     spacing: 3em,
@@ -491,7 +492,7 @@ if authorInfo != none {
       columns: (45%, 55%),
       gutter: 1em,
       align: right + bottom,
-      align(left, text(font: heading-font, size: 1.5em, weight: "medium", fill: backpage-color, captions.at(0))),
+      align(left, text(size: 1.4em, weight: "medium", fill: backpage-color, captions.at(0))),
       image(images.at(0), width: 100%),
     ),
     grid(
@@ -499,13 +500,13 @@ if authorInfo != none {
       gutter: 1em,
       align: left + bottom,
       image(images.at(1), width: 100%),
-      align(left, text(font: heading-font, size: 1.5em, weight: "medium", fill: backpage-color, captions.at(1))),
+      align(left, text(size: 1.4em, weight: "medium", fill: backpage-color, captions.at(1))),
     ),
     grid(
       columns: (45%, 55%),
       gutter: 1em,
       align: right + bottom,
-      align(left, text(font: heading-font, size: 1.5em, weight: "medium", fill: backpage-color, captions.at(2))),
+      align(left, text(size: 1.4em, weight: "medium", fill: backpage-color, captions.at(2))),
       image(images.at(2), width: 100%),
     )
   )
