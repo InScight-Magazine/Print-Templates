@@ -41,6 +41,8 @@
   coverCaption: none,
   attribution: none,
   outlineDesc: none,
+  permalink: "https://scicomm.iiserkol.ac.in/magazine/",
+  qrpath: none,
   id: none,
   outlined: true,
 ) = {
@@ -100,15 +102,21 @@
         gutter: 2em,
         par(justify: true, first-line-indent: 0pt)[
           #eval(mode: "markup", abstract)
-        ],
+        ]+link(permalink)[#grid(
+            columns: (auto, 3em),
+            gutter: 1em,
+            align: (right + horizon, right + horizon),
+            underline[_Web Version_],
+            if qrpath != none [ #box(image(qrpath, width: 3em)) ]
+          )],
         image(sideImage)
       )
     } else {
         if reviewedBy != none and received != none and category != none [
           #let date = datetime(..received)
           #grid(
-            columns: (1.2fr, 1fr),
-            gutter: 2em,
+            columns: (1.3fr, 1fr),
+            gutter: 4em,
             par(justify: true, first-line-indent: 0pt)[
               #eval(mode: "markup", abstract)
             ],
@@ -119,7 +127,14 @@
               #upper[*Submitted*]\
               #date.display("[month repr:short] [day], [year]")\ \
               #upper[*Category*] \
-              #category
+              #category \ \
+              #link(permalink)[#grid(
+                columns: (auto, 3em),
+                gutter: 1em,
+                align: (right + horizon, right + horizon),
+                underline[_Web Version_],
+                if qrpath != none [ #box(image(qrpath, width: 3em)) ]
+              )]
               ]
             )
             ]

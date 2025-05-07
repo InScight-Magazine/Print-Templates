@@ -13,6 +13,7 @@ set text(
   fill: fg-color,
   hyphenate: false
 )
+set underline(offset: 3pt)
 show table.cell.where(y: 0): set text(weight: "black")
 show table.cell.where(y: 0): upper
 show math.equation: set text(font: math-font)
@@ -115,6 +116,8 @@ set page(
   authProfPosition: auto,
   breakRefsAt: 999,
   outlineDesc: none,
+  permalink: "https://scicomm.iiserkol.ac.in/magazine/",
+  qrpath: none,
   id: none,
   content
 ) = {
@@ -147,6 +150,8 @@ if coverImage != none {
     reviewedBy: reviewedBy,
     category: category,
     received: received,
+    permalink: permalink,
+    qrpath: qrpath,
     outlineDesc: if authorAffiliations.len() > 0  { " | " + authors.join(", ") } else { outlineDesc },
     id: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { id },
   )
@@ -185,6 +190,8 @@ if authorInfo != none {
   sideImage: none,
   sideImageFraction: 50%,
   header-global: none, 
+  permalink: "https://scicomm.iiserkol.ac.in/magazine/",
+  qrpath: none,
 ) = {
   set par(
     first-line-indent: 0em,
@@ -250,6 +257,8 @@ if authorInfo != none {
       sideImage: sideImage,
       sideImageFraction: sideImageFraction,
       header-global: header-global, 
+      permalink: permalink,
+      qrpath: qrpath,
     )
     #counter(figure.where(kind: image)).update(0)
     #content
