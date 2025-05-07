@@ -116,9 +116,7 @@ set page(
   authProfPosition: auto,
   breakRefsAt: 999,
   outlineDesc: none,
-  permalink: "https://scicomm.iiserkol.ac.in/magazine/",
-  qrpath: none,
-  id: none,
+  issueId: none,
   content
 ) = {
 set columns(gutter: column-gap)
@@ -139,6 +137,10 @@ set page(
   ]
 )
 if coverImage != none {
+  let permalink = none
+  if reviewedBy != none {
+    permalink = root-website + authors.at(0).split().at(0) + "-" + title.split().at(-1)
+  }
   articleCover(
     title: title, 
     authors: authors,
@@ -150,10 +152,9 @@ if coverImage != none {
     reviewedBy: reviewedBy,
     category: category,
     received: received,
-    permalink: permalink,
-    qrpath: qrpath,
+    issueId: issueId,
     outlineDesc: if authorAffiliations.len() > 0  { " | " + authors.join(", ") } else { outlineDesc },
-    id: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { id },
+    locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
   )
 }
 if authors.len() == 0 {
@@ -190,8 +191,7 @@ if authorInfo != none {
   sideImage: none,
   sideImageFraction: 50%,
   header-global: none, 
-  permalink: "https://scicomm.iiserkol.ac.in/magazine/",
-  qrpath: none,
+  issueId: none,
 ) = {
   set par(
     first-line-indent: 0em,
@@ -257,8 +257,7 @@ if authorInfo != none {
       sideImage: sideImage,
       sideImageFraction: sideImageFraction,
       header-global: header-global, 
-      permalink: permalink,
-      qrpath: qrpath,
+      issueId: issueId,
     )
     #counter(figure.where(kind: image)).update(0)
     #content
@@ -304,7 +303,7 @@ if authorInfo != none {
   section(
     title: title,
     numCols: 1,
-    content
+    content + v(2em) + emph[Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*]#label("quiz")]
   )
 }
 
@@ -367,7 +366,7 @@ if authorInfo != none {
 
     #content
 
-    Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*].
+    Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*]#label("linkedlist").
   ]
 }
 
@@ -433,6 +432,7 @@ if authorInfo != none {
   intro: none,
   coverImage: none,
   coverCaption: none,
+  issueId: none,
 ) = {
   let data = yaml(file).flatten()
   let count = 0
@@ -442,7 +442,7 @@ if authorInfo != none {
     content.push([
       #box(height: heights.at(count), clip: true)[
       #par(leading: rs-spacing)[
-      #text(size: rs-title-size, fill: rs-title-color, weight: "medium")[#item.at("Title")] #label(item.at("Author").split().at(0))
+      #text(size: rs-title-size, fill: rs-title-color, weight: "medium")[#item.at("Title")] #label("digest-" + item.at("Author").split().at(0))
       #linebreak()
       #text(size: rs-size)[
         #link(item.at("Url"))[#underline[#item.at("Reference")]]
@@ -467,7 +467,7 @@ if authorInfo != none {
 
   coverData = for (t,a) in coverData [
     #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
-    #linebreak()
+    // #linebreak()
     #text(size: abstract-size, fill: title-color, t)
     #linebreak()
     #linebreak()
@@ -478,6 +478,7 @@ if authorInfo != none {
     coverImage: coverImage,
     abstract: coverData,
     coverCaption: coverCaption,
+    issueId: issueId,
     outlineDesc: " | " + intro,
   )
 

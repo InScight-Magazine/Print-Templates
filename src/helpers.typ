@@ -1,5 +1,6 @@
 #import "constants.typ": *
 #import "@preview/droplet:0.3.1": dropcap
+#import "@preview/tiaoma:0.3.0": barcode
 
 #let nonCoverTitle(
   title: none, 
@@ -41,11 +42,31 @@
   coverCaption: none,
   attribution: none,
   outlineDesc: none,
-  permalink: "https://scicomm.iiserkol.ac.in/magazine/",
-  qrpath: none,
-  id: none,
+  issueId: none,
+  locator: none,
   outlined: true,
 ) = {
+  let permalink = none
+  if authorAffiliations.len() > 0 {
+    permalink = root-website + issueId + authors.at(0).split().at(0) + "-" + title.split().at(-1)
+  } else {
+    permalink = root-website + issueId + title.split().at(-1)
+  }
+  let webLink = if permalink != none {
+          link(permalink)[
+            // #grid(
+        //     columns: (auto, 3em),
+        //     gutter: 1em,
+        //     align: (right + horizon, right + horizon),
+        //     underline[_Web Version_],
+        //     box(barcode(permalink, "QRCode")))
+        #align(center,
+          text(fill: black, weight: "bold", [Web Version]) +
+          linebreak() +
+          box(barcode(permalink, "QRCode"))
+        )
+        ]
+      }
   page(
     fill: header-dark-color,
     columns: 1, 
@@ -57,6 +78,12 @@
       #image(coverImage, width: 100%, height: 50%)
       #if coverCaption != none [
         #place(bottom + right, box(width: 50%, fill: rgb(0, 0, 0, 120), inset: 0.5em, text(size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "medium", coverCaption)))
+      ]
+      #if webLink != none [
+        #{
+          set text(size: 1.3em)
+          place(bottom + left, box(fill: rgb(255, 255, 255, 150), inset: 0.5em, webLink))
+        }
       ]
     ]
     #rect(
@@ -70,8 +97,8 @@
       #v(-30pt)
       #block(it.body)
     ]
-    #if id != none [
-      #heading(level: 1, outlined: false, [#title])#label(id)
+    #if locator != none [
+      #heading(level: 1, outlined: false, [#title])#label(locator)
     ] else [
       #heading(level: 1, outlined: false, [#title])
     ]
@@ -102,13 +129,7 @@
         gutter: 2em,
         par(justify: true, first-line-indent: 0pt)[
           #eval(mode: "markup", abstract)
-        ]+link(permalink)[#grid(
-            columns: (auto, 3em),
-            gutter: 1em,
-            align: (right + horizon, right + horizon),
-            underline[_Web Version_],
-            if qrpath != none [ #box(image(qrpath, width: 3em)) ]
-          )],
+        ],
         image(sideImage)
       )
     } else {
@@ -127,14 +148,7 @@
               #upper[*Submitted*]\
               #date.display("[month repr:short] [day], [year]")\ \
               #upper[*Category*] \
-              #category \ \
-              #link(permalink)[#grid(
-                columns: (auto, 3em),
-                gutter: 1em,
-                align: (right + horizon, right + horizon),
-                underline[_Web Version_],
-                if qrpath != none [ #box(image(qrpath, width: 3em)) ]
-              )]
+              #category
               ]
             )
             ]
@@ -148,74 +162,6 @@
     ]
   ]
 ]
-]
-}
-
-#let digestCoverr(
-  title: none, 
-  abstract: none,
-  coverImage: none,
-  sideImage: none,
-  sideImageFraction: 0.5,
-  coverCaption: none,
-  outlineTitle: false,
-  attribution: none,
-  data: (),
-) = {
-  page(
-    fill: header-dark-color,
-    columns: 1, 
-    margin: 0cm,
-    header: none,
-    footer: none,
-  )[
-    #context[
-      #block({
-        image(coverImage, width: page.width)
-        place(right + bottom, box(inset: 1em, width: 40%, fill: rgb(0, 0, 0, 50), align(center, text(size: 1em, weight: "bold", fill: white, coverCaption))))
-      })
-      
-    ]
-    #rect(
-      width: 100%,
-      inset: margin-2,
-      stroke: 0pt,
-    )[
-    #show heading.where(level: 1): it => [
-      #set par(justify: false, leading: title-line-spacing)
-      #set text(fill: title-color,size: title-size, weight: "regular", font: heading-font)
-      #v(-30pt)
-      #block(it.body)
-    ]
-    #heading(level: 1, outlined: outlineTitle, [#title])
-
-    #{
-      show heading: none
-      heading(outlined: true, [#text(fill: outline-headings-color, weight: "bold", size: outline-main-size)[#title] | #text(fill: outline-headings-color, size: outline-desc-size)[#upper[#authors.split("(").at(0)]]])
-    }
-    #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
-    #text(
-      fill: author-color,
-      size: author-size,
-      font: heading-font,
-    )[#abstract]
-    ]
-    #v(coverItemGap)
-    #par(leading: line-spacing, justify: false, first-line-indent: 0pt)[
-    #for (t,a) in data [
-      #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
-      #linebreak()
-      #text(size: abstract-size, fill: title-color, t)
-      #linebreak()
-      #linebreak()
-    ]
-    ]
-    #v(3em)
-
-    #if attribution != none [
-      #text(size: 0.8 * abstract-size, fill: title-color, emph(eval(attribution, mode: "markup")))
-    ]
-  ]
 ]
 }
 

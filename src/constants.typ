@@ -69,7 +69,8 @@
 #let rs-spacing = 1.1em
 
 // links
-#let website-link = link("https://scicomm.iiserkol.ac.in/")[scicomm.iiserkol.ac.in] 
+#let root-website = "https://scicomm.iiserkol.ac.in/"
+#let website-link = link(root-website)[scicomm.iiserkol.ac.in] 
 #let submit-link = "https://scicomm.iiserkol.ac.in/submit/"
 #let email = link("mailto:scicomm@iiserkol.ac.in")[_scicomm\@iiserkol.ac.in_]
 #let gform1 = "https://forms.gle/upAn7ECYkWze9h2U7"
