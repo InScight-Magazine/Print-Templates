@@ -1,6 +1,5 @@
 #import "constants.typ": *
 #import "@preview/droplet:0.3.1": dropcap
-#import "@preview/tiaoma:0.3.0": barcode
 
 #let nonCoverTitle(
   title: none, 
@@ -46,27 +45,21 @@
   locator: none,
   outlined: true,
 ) = {
-  let permalink = none
-  if authorAffiliations.len() > 0 {
-    permalink = root-website + issueId + authors.at(0).split().at(0) + "-" + title.split().at(-1)
-  } else {
-    permalink = root-website + issueId + title.split().at(-1)
-  }
-  let webLink = if permalink != none {
-          link(permalink)[
-            // #grid(
-        //     columns: (auto, 3em),
-        //     gutter: 1em,
-        //     align: (right + horizon, right + horizon),
-        //     underline[_Web Version_],
-        //     box(barcode(permalink, "QRCode")))
-        #align(center,
-          text(fill: black, weight: "bold", [Web Version]) +
-          linebreak() +
-          box(barcode(permalink, "QRCode"))
-        )
-        ]
-      }
+  // let permalink = none
+  // if authorAffiliations.len() > 0 {
+  //   permalink = root-website + issueId + authors.at(0).split().at(0) + "-" + title.split().at(-1)
+  // } else {
+  //   permalink = root-website + issueId + title.split().at(-1)
+  // }
+  // let webLink = if permalink != none {
+  //         link(permalink)[
+  //           #align(center,
+  //             text(fill: black, weight: "bold", [Web Version]) +
+  //             linebreak() +
+  //             box(barcode(permalink, "QRCode"))
+  //           )
+  //         ]
+  //       }
   page(
     fill: header-dark-color,
     columns: 1, 
@@ -79,12 +72,10 @@
       #if coverCaption != none [
         #place(bottom + right, box(width: 50%, fill: rgb(0, 0, 0, 120), inset: 0.5em, text(size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "medium", coverCaption)))
       ]
-      #if webLink != none [
-        #{
-          set text(size: 1.3em)
-          place(bottom + left, box(fill: rgb(255, 255, 255, 150), inset: 0.5em, webLink))
-        }
-      ]
+      // #{
+      //   set text(size: 1.3em)
+      //   place(bottom + left, dx: margin-2, dy: -0.2em, box(fill: rgb(255, 255, 255, 150), inset: 0.5em, webLink))
+      // }
     ]
     #rect(
       width: 100%,

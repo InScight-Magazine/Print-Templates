@@ -1,8 +1,9 @@
 #import "constants.typ": *
 #import "helpers.typ": *
+#import "@preview/tiaoma:0.3.0": *
 
 #let default(
-  header-global: none,
+  issueDetails: (),
   frontImage: none,
   doc
 ) = {
@@ -57,9 +58,9 @@ set page(
     width: 100%, 
     height: 100%
   )[
-    #set text(fill: header-bright-color)
-    *#header-global*
-    #h(1fr) 
+    #{
+      text(fill: header-bright-color, weight: "bold", [INSCIGHT \##issueDetails.at("number")] + h(5pt)) + [ ] + h(5pt) + text(fill: header-bright-color, weight: "black", [#issueDetails.at("time")])
+    }
     #v(header-raise)
   ]
 )
@@ -94,7 +95,7 @@ set page(
 }
 
 #let section(
-  header-global: none, 
+  issueDetails: none,
   footer-left-1: none, 
   footer-left-2: none, 
   title: none,
@@ -116,9 +117,18 @@ set page(
   authProfPosition: auto,
   breakRefsAt: 999,
   outlineDesc: none,
-  issueId: none,
   content
 ) = {
+  let permalink = none
+  if authorAffiliations.len() > 0 {
+    permalink = root-website + "issue" + issueDetails.at("number") + "/" + authors.at(0).split().at(0) + "-" + title.split().at(-1)
+  } else {
+    permalink = root-website + "issue" + issueDetails.at("number") + "/" + title.split().at(-1)
+  }
+  let webLink = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-bright-color, [ #h(5pt) View Online #h(5pt)])] }
+  let webLinkLong = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-dark-color, size: 1em, [ #h(5pt) View this content online for a more fluid experience. #h(5pt)])] }
+  let qrcode = barcode(permalink, "QRCode", options: (bg-color: image-bg-color, fg-color: header-dark-color))
+
 set columns(gutter: column-gap)
 set page(
   header: rect(
@@ -128,19 +138,15 @@ set page(
     width: 100%, 
     height: 100%
   )[
-    #set text(fill: header-bright-color)
-    *#header-global*
+    #{
+      text(fill: header-bright-color, weight: "bold", [INSCIGHT \##issueDetails.at("number")] + h(5pt)) + [ ] + h(5pt) + text(fill: header-bright-color, weight: "black", [#issueDetails.at("time")]) + h(5pt) + [ ] + h(5pt) + webLink
+    }
     #h(1fr) 
-    #set text(fill: header-dark-color)
-    *#title*
+    #text(fill: header-bright-color, weight: "bold", title)
     #v(header-raise)
   ]
 )
 if coverImage != none {
-  let permalink = none
-  if reviewedBy != none {
-    permalink = root-website + authors.at(0).split().at(0) + "-" + title.split().at(-1)
-  }
   articleCover(
     title: title, 
     authors: authors,
@@ -152,7 +158,6 @@ if coverImage != none {
     reviewedBy: reviewedBy,
     category: category,
     received: received,
-    issueId: issueId,
     outlineDesc: if authorAffiliations.len() > 0  { " | " + authors.join(", ") } else { outlineDesc },
     locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
   )
@@ -166,8 +171,18 @@ if authors.len() == 0 {
 }
 counter(figure.where(kind: image)).update(0)
 columns(numCols,
-content +
-if refsFile != none {
+content 
++ if coverImage != none {
+  box(width: 100%, inset: 1em, fill: image-bg-color,
+  grid(
+    rows:(auto, auto),
+    gutter: 1em,
+    align: (center + horizon, center + horizon),
+    text(weight: "bold", size: 1.1em, webLinkLong),
+    qrcode
+  ))
+}
++ if refsFile != none {
   references(refsFile: refsFile, breakAfter: breakRefsAt)
 }
 )
@@ -180,6 +195,7 @@ if authorInfo != none {
 }
 
 #let interview(
+  issueDetails: (),
   file: none,
   group1: (),
   group2: none,
@@ -190,8 +206,6 @@ if authorInfo != none {
   coverImage: "",
   sideImage: none,
   sideImageFraction: 50%,
-  header-global: none, 
-  issueId: none,
 ) = {
   set par(
     first-line-indent: 0em,
@@ -249,6 +263,7 @@ if authorInfo != none {
   } 
   [
     #show: section.with(
+      issueDetails: issueDetails,
       title: title, 
       authors: authors,
       authorAffiliations: authorAffiliations,
@@ -256,8 +271,6 @@ if authorInfo != none {
       coverImage: coverImage,
       sideImage: sideImage,
       sideImageFraction: sideImageFraction,
-      header-global: header-global, 
-      issueId: issueId,
     )
     #counter(figure.where(kind: image)).update(0)
     #content
@@ -265,10 +278,10 @@ if authorInfo != none {
 }
 
 #let quiz(
+  issueDetails: (),
   file: none,
   title: none,
   intro: none,
-  header-global: none, 
 ) = {
   let content = yaml(file)
   let questions = content.questions
@@ -301,6 +314,7 @@ if authorInfo != none {
     counter += 1
   }
   section(
+    issueDetails: issueDetails,
     title: title,
     numCols: 1,
     content + v(2em) + emph[Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*]#label("quiz")]
@@ -308,10 +322,10 @@ if authorInfo != none {
 }
 
 #let linkedlist(
+  issueDetails: none,
   file: none,
   title: none,
   intro: none,
-  header-global: none, 
 ) = {
   let data = yaml(file)
   let seed = data.seed
@@ -347,10 +361,10 @@ if authorInfo != none {
   }
   [
     #show: section.with(
-          header-global: header-global,
-          title: title,
-          numCols: 1,
-          outlineDesc: " | The word linking game"
+        issueDetails: issueDetails,
+        title: title,
+        numCols: 1,
+        outlineDesc: " | The word linking game"
     )
 
     Linked List is a general science-based word game. The rules are straightforward:
@@ -371,12 +385,12 @@ if authorInfo != none {
 }
 
 #let crossword(
+  issueDetails: none,
   file: none,
   crosswordImage: none,
   crosswordWidth: 100%,
   title: none,
   intro: none,
-  header-global: none, 
   outlineDesc: none,
   leftColWidth: 1fr,
 ) = {
@@ -407,11 +421,11 @@ if authorInfo != none {
   )
   [
     #show: section.with(
+          issueDetails: issueDetails,
           title: title,
           intro: intro,
           numCols: 1,
           outlineDesc: outlineDesc,
-          header-global: header-global,
     )
 
     #align(center, [#image(crosswordImage, width: crosswordWidth)])#label("crossword")
@@ -424,6 +438,7 @@ if authorInfo != none {
 }
 
 #let insightDigest(
+  issueDetails: none,
   file: none, 
   heights: (50%,),
   widths: (100%,),
@@ -432,7 +447,6 @@ if authorInfo != none {
   intro: none,
   coverImage: none,
   coverCaption: none,
-  issueId: none,
 ) = {
   let data = yaml(file).flatten()
   let count = 0
@@ -465,20 +479,38 @@ if authorInfo != none {
     coverData.push((item.at("Title"), item.at("Author")))
   }
 
+  let permalink = root-website + "issue" + issueDetails.at("number") + "/" + title.split().at(-1)
+  let webLink = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-bright-color, [ #h(5pt) View Online #h(5pt)])] }
+  let webLinkLong = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-bright-color, size: 1.1em, [ #h(10pt) Explore this on our website. #h(5pt)])] }
+
   coverData = for (t,a) in coverData [
     #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
-    // #linebreak()
     #text(size: abstract-size, fill: title-color, t)
     #linebreak()
     #linebreak()
-  ]
+  ] + webLinkLong
+  set page(
+    header: rect(
+      fill: header-bg-color, 
+      inset: 0cm,
+      outset: (x: margin-2,), 
+      width: 100%, 
+      height: 100%
+    )[
+      #{
+        text(fill: header-bright-color, weight: "bold", [INSCIGHT \##issueDetails.at("number")] + h(5pt)) + [ ] + h(5pt) + text(fill: header-bright-color, weight: "black", [#issueDetails.at("time")]) + h(5pt) + [ ] + h(5pt) + webLink
+      }
+      #h(1fr) 
+      #text(fill: header-bright-color, weight: "bold", title)
+      #v(header-raise)
+    ]
+  )
   articleCover(
     title: title, 
     authors: abstract,
     coverImage: coverImage,
     abstract: coverData,
     coverCaption: coverCaption,
-    issueId: issueId,
     outlineDesc: " | " + intro,
   )
 
