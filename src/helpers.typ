@@ -72,10 +72,6 @@
       #if coverCaption != none [
         #place(bottom + right, box(width: 50%, fill: rgb(0, 0, 0, 120), inset: 0.5em, text(size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "medium", coverCaption)))
       ]
-      // #{
-      //   set text(size: 1.3em)
-      //   place(bottom + left, dx: margin-2, dy: -0.2em, box(fill: rgb(255, 255, 255, 150), inset: 0.5em, webLink))
-      // }
     ]
     #rect(
       width: 100%,
@@ -110,14 +106,16 @@
     ]
     ]
     #v(coverItemGap)
-    #text(
+    #{
+      set text(
         fill: title-color,
         size: abstract-size,
-    )[
-    #if sideImage != none {
+      )
+    if sideImage != none {
       grid(
         columns: ((200% - 2 * sideImageFraction) * 1fr, 2 * sideImageFraction * 1fr),
         gutter: 2em,
+        rows: 190pt,
         par(justify: true, first-line-indent: 0pt)[
           #eval(mode: "markup", abstract)
         ],
@@ -148,10 +146,10 @@
           #par(justify: false, abstract)
         ]
     }
-    #if attribution != none [
-      #text(size: 0.8 * abstract-size, fill: title-color, emph(eval(attribution, mode: "markup")))
-    ]
-  ]
+    if attribution != none {
+      emph(text(fill: header-bright-color, attribution))
+    }
+  }
 ]
 ]
 }
@@ -309,4 +307,43 @@
   text
 ) = {
   context[#link(("page": locate(anchor).page(), "x": 0em, "y": 0em), text)]
+}
+
+#let createLinks(
+  url: none
+) = {
+  let webLink = link(url)[#text(baseline: -1pt, size: 1.2em, [🔗]) #h(1pt) Web version #h(5pt)]
+  let webLinkLong = link(url)[#text(baseline: -2.5pt, size: 1.2em, [🔗]) #h(0.5em) Also available #underline[online], at scicomm.iiserkol.ac.in]
+  return ("short": webLink, "long": webLinkLong)
+}
+
+#let createTitleHeader(
+  title: "",
+  issueDetails: (),
+  shortLink: none,
+) = {
+  let headerSeparator = text(fill: header-dark-color, [])
+  return rect(
+      fill: header-bg-color, 
+      inset: 0cm,
+      outset: (x: margin-2,), 
+      width: 100%, 
+      height: 100%
+    )[
+      #text(fill: header-bright-color, weight: "bold", [INSCIGHT \##issueDetails.at("number") #h(8pt) #headerSeparator #h(8pt) #issueDetails.at("time") #h(8pt) #headerSeparator #h(8pt) #shortLink])
+      #h(1fr) 
+      #if title.len() > header-title-maxsize {
+        text(fill: header-bright-color, weight: "bold", title.slice(0, count: header-title-maxsize) + "...")
+      } else {
+        text(fill: header-bright-color, weight: "bold", title)
+      }
+      #v(header-raise)
+    ]
+}
+
+#let createPermalink(
+  permalinkSuffix: none,
+  issueNum: 0,
+) = {
+  return root-website + "issue" + issueNum + "/" + permalinkSuffix
 }

@@ -43,6 +43,7 @@
 #let footer-raise = -5pt
 #let footerLineHeight = 1pt
 #let footer-text-color = rgb("4a4a4a") //header-bg-color
+#let header-title-maxsize = 61
 
 // figures
 #let figure-suppl = "Fig"

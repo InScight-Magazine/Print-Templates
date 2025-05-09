@@ -1,6 +1,5 @@
 #import "constants.typ": *
 #import "helpers.typ": *
-#import "@preview/tiaoma:0.3.0": *
 
 #let default(
   issueDetails: (),
@@ -117,35 +116,26 @@ set page(
   authProfPosition: auto,
   breakRefsAt: 999,
   outlineDesc: none,
+  permalinkSuffix: none,
   content
 ) = {
-  let permalink = none
-  if authorAffiliations.len() > 0 {
-    permalink = root-website + "issue" + issueDetails.at("number") + "/" + authors.at(0).split().at(0) + "-" + title.split().at(-1)
-  } else {
-    permalink = root-website + "issue" + issueDetails.at("number") + "/" + title.split().at(-1)
-  }
-  let webLink = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-bright-color, [ #h(5pt) View Online #h(5pt)])] }
-  let webLinkLong = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-dark-color, size: 1em, [ #h(5pt) View this content online for a more fluid experience. #h(5pt)])] }
-  let qrcode = barcode(permalink, "QRCode", options: (bg-color: image-bg-color, fg-color: header-dark-color))
-
-set columns(gutter: column-gap)
-set page(
-  header: rect(
-    fill: header-bg-color, 
-    inset: 0cm,
-    outset: (x: margin-2,), 
-    width: 100%, 
-    height: 100%
-  )[
-    #{
-      text(fill: header-bright-color, weight: "bold", [INSCIGHT \##issueDetails.at("number")] + h(5pt)) + [ ] + h(5pt) + text(fill: header-bright-color, weight: "black", [#issueDetails.at("time")]) + h(5pt) + [ ] + h(5pt) + webLink
+  if permalinkSuffix == none {
+    if authorAffiliations.len() > 0 {
+      permalinkSuffix = lower(authors.at(0).split().at(0) + "-" + title.split().at(-1))
+    } else {
+      permalinkSuffix = lower(title.split().at(-1))
     }
-    #h(1fr) 
-    #text(fill: header-bright-color, weight: "bold", title)
-    #v(header-raise)
-  ]
-)
+  }
+  let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
+
+  let links = createLinks(url: permalink)
+
+  set columns(gutter: column-gap)
+  
+  set page(
+    header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short"))
+  )
+
 if coverImage != none {
   articleCover(
     title: title, 
@@ -158,6 +148,7 @@ if coverImage != none {
     reviewedBy: reviewedBy,
     category: category,
     received: received,
+    attribution: links.at("long"),
     outlineDesc: if authorAffiliations.len() > 0  { " | " + authors.join(", ") } else { outlineDesc },
     locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
   )
@@ -172,16 +163,6 @@ if authors.len() == 0 {
 counter(figure.where(kind: image)).update(0)
 columns(numCols,
 content 
-+ if coverImage != none {
-  box(width: 100%, inset: 1em, fill: image-bg-color,
-  grid(
-    rows:(auto, auto),
-    gutter: 1em,
-    align: (center + horizon, center + horizon),
-    text(weight: "bold", size: 1.1em, webLinkLong),
-    qrcode
-  ))
-}
 + if refsFile != none {
   references(refsFile: refsFile, breakAfter: breakRefsAt)
 }
@@ -312,12 +293,14 @@ if authorInfo != none {
       linebreak()
     }
     counter += 1
-  }
+  } + v(2em) + emph[Answers can be found at the end of the issue. For an interactive version of the quiz, check out our #link(createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: "quiz"))[*#underline[website]*]#label("quiz")]
+
   section(
     issueDetails: issueDetails,
     title: title,
     numCols: 1,
-    content + v(2em) + emph[Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*]#label("quiz")]
+    permalinkSuffix: "quiz",
+    content
   )
 }
 
@@ -364,7 +347,8 @@ if authorInfo != none {
         issueDetails: issueDetails,
         title: title,
         numCols: 1,
-        outlineDesc: " | The word linking game"
+        outlineDesc: " | The word linking game",
+        permalinkSuffix: "linkedlist",
     )
 
     Linked List is a general science-based word game. The rules are straightforward:
@@ -380,7 +364,7 @@ if authorInfo != none {
 
     #content
 
-    Answers can be found at the end of the issue. For an interactive version of this as well as the other games, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*]#label("linkedlist").
+    #emph[Solution can be found at the end of the issue. For an interactive version of this game, check out our #link(createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: "linkedlist"))[*#underline[website]*]]#label("linkedlist").
   ]
 }
 
@@ -426,13 +410,14 @@ if authorInfo != none {
           intro: intro,
           numCols: 1,
           outlineDesc: outlineDesc,
+          permalinkSuffix: "crossword",
     )
 
-    #align(center, [#image(crosswordImage, width: crosswordWidth)])#label("crossword")
+    #align(center, [#image(crosswordImage, width: crosswordWidth)])
 
     #content
 
-    Answers can be found near the end of the issue. For an interactive version, check out our #link("https://scicomm.iiserkol.ac.in/games/")[*#underline[website]*].
+    #emph[Solution can be found at the end of the issue. For an interactive version of the crossword, check out our #link(createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: "crossword"))[*#underline[website]*]]#label("crossword").
 
   ]
 }
@@ -479,31 +464,17 @@ if authorInfo != none {
     coverData.push((item.at("Title"), item.at("Author")))
   }
 
-  let permalink = root-website + "issue" + issueDetails.at("number") + "/" + title.split().at(-1)
-  let webLink = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-bright-color, [ #h(5pt) View Online #h(5pt)])] }
-  let webLinkLong = if permalink != none { link(permalink)[#text(weight: "bold", fill: header-bright-color, size: 1.1em, [ #h(10pt) Explore this on our website. #h(5pt)])] }
+  let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: "digest")
+  let links = createLinks(url: permalink)
 
   coverData = for (t,a) in coverData [
     #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
     #text(size: abstract-size, fill: title-color, t)
     #linebreak()
     #linebreak()
-  ] + webLinkLong
+  ] + emph(text(weight: "bold", links.at("long")))
   set page(
-    header: rect(
-      fill: header-bg-color, 
-      inset: 0cm,
-      outset: (x: margin-2,), 
-      width: 100%, 
-      height: 100%
-    )[
-      #{
-        text(fill: header-bright-color, weight: "bold", [INSCIGHT \##issueDetails.at("number")] + h(5pt)) + [ ] + h(5pt) + text(fill: header-bright-color, weight: "black", [#issueDetails.at("time")]) + h(5pt) + [ ] + h(5pt) + webLink
-      }
-      #h(1fr) 
-      #text(fill: header-bright-color, weight: "bold", title)
-      #v(header-raise)
-    ]
+    header: createTitleHeader(title: title, shortLink: links.at("short"), issueDetails: issueDetails)
   )
   articleCover(
     title: title, 
