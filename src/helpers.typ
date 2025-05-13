@@ -268,15 +268,12 @@
 }
 
 #let dcap(
-  content
+  content,
+  dropWord: false,
 ) = {
-  let first = content.at(0)//content.split(regex(" ")).at(0)
-  content = content.replace(first, "", count: 1)
-  // content = content.replace(first + " ", "", count: 1)
-  while first.len() == 0 {
-    first = content.split(regex(" ")).at(0)
-    content = content.replace(first + " ", "", count: 1)
-  }
+  let first = if dropWord == false { content.at(0) } else { content.split(regex(" ")).at(0) }
+  content = if dropWord == false { content.replace(first, "", count: 1) } else { content.replace(first + " ", "", count: 1) }
+  assert(first.len() > 0)
   dropcap(height: 3, font: dcap-font, gap: 0.5em, overhang: 0.0em, depth: 0.0em, weight: "regular", emph(first), eval(content, mode: "markup"))
 }
 

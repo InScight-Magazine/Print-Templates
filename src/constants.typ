@@ -76,4 +76,5 @@
 #let email = link("mailto:scicomm@iiserkol.ac.in")[_scicomm\@iiserkol.ac.in_]
 #let gform1 = "https://forms.gle/upAn7ECYkWze9h2U7"
 #let gform2 = "https://forms.gle/C7z6HmnAznQGscoA9"
+#let donationForm = "https://docs.google.com/forms/d/e/1FAIpQLSc1XWwxSF3UDJZVXpvmdlTDRUjmi0Gv4l5vk24VnTs_aUhsVQ/viewform?usp=preview"
 

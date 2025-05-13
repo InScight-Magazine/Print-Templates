@@ -225,7 +225,7 @@ if authorInfo != none {
       boldflag = false
     }
     if firstFlag == true {
-      line = dcap(line)
+      line = dcap(line, dropWord: true)
     } else {
       line = eval(mode: "markup", line)
     }
