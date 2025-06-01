@@ -1,0 +1,23 @@
+seed: SEMICONDUCTOR
+hints:
+  - "A radioactive element discovered by Marie and Pierre Curie, once used in medicine but later found to be hazardous to health."
+  - "A physical force resulting from moving electric charges, responsible for the attraction or repulsion between materials such as iron."
+  - "A conserved quantity in physics, defined as mass times velocity, representing how difficult it is to stop a moving object."
+  - "A group of two or more atoms chemically bonded together, forming the smallest unit of a compound with specific properties."
+  - "A measure of disorder or randomness in a system; in thermodynamics, it naturally increases over time."
+  - "A silvery metal with atomic number 39, used in LEDs, lasers, and superconductors, commonly found in rare-earth minerals."
+  - "A subatomic particle made of a quark and an antiquark, playing a key role in the strong nuclear force between nucleons."
+  - "The process of forming new atomic nuclei from protons and neutrons, occurring in stars and during the Big Bang."
+  - "A state in which a material can conduct electricity without resistance, occurring below a certain critical temperature."
+  - "A measure of a material’s stiffness, representing how much it deforms under stress within its elastic range."
+answers:
+  - "RADIUM"
+  - "MAGNETISM"
+  - "MOMENTUM"
+  - "MOLECULE"
+  - "ENTROPY"
+  - "YTTRIUM"
+  - "MESON"
+  - "NUCLEOSYNTHESIS"
+  - "SUPERCONDUCTIVITY"
+  - "YOUNGSMODULUS"

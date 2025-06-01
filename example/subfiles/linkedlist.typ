@@ -1,8 +1,8 @@
 #import "/template-files/inscight-template.typ": *
-#import "issueConstants.typ": *
+#import "/dataFiles/issueConstants.typ": *
 
 #linkedlist(
-  file: linkedlistpath,
-  title: "Linked List - The Word Linking Game",
-  header-global: header-global, 
+  issueDetails: yaml("/dataFiles/issueData.yml"),
+  file: "/dataFiles/linkedList.yaml",
+  title: "Linked List",
 )

@@ -1,10 +1,14 @@
+#import "/dataFiles/issueConstants.typ": *
 #import "/template-files/inscight-template.typ": *
 
 #insightDigest(
-  file: "/subfiles/researchSummary.yaml", 
-  heights: (34%, 45%, 44%, 48%),
+  issueDetails: yaml("/dataFiles/issueData.yml"),
+  file: "/dataFiles/digest.yaml", 
+  heights: (45%, 57%, 48%, 48%, 29%),
+  widths: (90%, 100%, 55%, 80%, 75%),
   title: "Insight Digest",
-  coverImage: "/images/back4-small.jpeg",
   intro: "Summarising The Frontiers In Research",
-  abstract: "In Insight Digest, we showcase simplified summaries of recent research articles in science, to give a feel for what's happening at the frontiers."
+  abstract: ("Fresh highlights from the frontiers of science",),
+  coverImage: "/covers/digest.jpeg",
+  coverCaption: "Halder and Annagiri’s study (contributed by TM) shows how competition for limited nesting sites during relocation imposes significant fitness costs on Diacamma indicum colonies. Larger colonies gain advantage through strategic aggression and recruitment.",
 )

@@ -1,7 +1,0 @@
-#let header-global = "INSCIGHT #2 | MAR' 25"
-#let outline-path = "outline.yaml"
-#let quizpath = "/subfiles/quiz1.yml"
-#let crosswordpath = "/subfiles/crossword.yml"
-#let linkedlistpath = "/subfiles/linkedList.yaml"
-#let frontImage = "/images/front.svg"
-#let backImage = "/images/back.svg"
