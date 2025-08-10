@@ -1,0 +1,193 @@
+{
+    "down": {
+        "Polymer": [
+            91,
+            "Large molecules of repeating units, like in plastics or DNA"
+        ],
+        "Freon": [
+            130,
+            "Trade name for refrigerant gases; damaging to the ozone layer"
+        ],
+        "Diffusion": [
+            104,
+            "Process by which particles spread out from high concentration to low concentration"
+        ],
+        "Isotope": [
+            9,
+            "Atoms of same element with different neutron numbers; used in radiology or carbon dating"
+        ],
+        "Radical": [
+            127,
+            "Highly reactive molecule or atom with an unpaired electron"
+        ],
+        "Precipitate": [
+            5,
+            "A solid that forms and separates from a liquid during a chemical reaction; often seen in cloudiness or as solids in test tubes"
+        ],
+        "Alloy": [
+            1,
+            "Mixture of metals and/or non-metals to create materials with improved properties"
+        ]
+    },
+    "across": {
+        "Plasma": [
+            120,
+            "Ionized, high-energy state of matter with free electrons"
+        ],
+        "Cracking": [
+            184,
+            "Breaking large hydrocarbons into smaller ones (e.g., in fuel refining)"
+        ],
+        "Pauling": [
+            91,
+            "Pioneer in quantum chemistry and molecular biology; explained nature of chemical bonding, won Chemistry and Peace Nobel Prizes"
+        ],
+        "Catalyst": [
+            52,
+            "Speeds up a chemical reaction without being consumed, crucial in oil refining"
+        ],
+        "Sublimation": [
+            214,
+            "Transition from a solid to a gas without becoming a liquid, like dry ice into vapor"
+        ],
+        "Mendeleev": [
+            154,
+            "Created the first widely accepted periodic table by organizing elements by atomic mass, predicted new elements"
+        ],
+        "Electrolysis": [
+            15,
+            "Using electricity to split compounds into elements or simpler compounds"
+        ]
+    },
+    "blanks": [
+        0,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105,
+        135,
+        150,
+        165,
+        180,
+        195,
+        210,
+        76,
+        196,
+        211,
+        2,
+        32,
+        47,
+        62,
+        77,
+        107,
+        137,
+        152,
+        167,
+        182,
+        197,
+        212,
+        3,
+        33,
+        48,
+        63,
+        78,
+        108,
+        138,
+        153,
+        168,
+        183,
+        198,
+        213,
+        4,
+        34,
+        49,
+        64,
+        79,
+        109,
+        139,
+        169,
+        199,
+        170,
+        200,
+        6,
+        36,
+        51,
+        66,
+        81,
+        111,
+        126,
+        141,
+        171,
+        201,
+        7,
+        37,
+        67,
+        82,
+        112,
+        8,
+        38,
+        68,
+        83,
+        98,
+        113,
+        128,
+        143,
+        173,
+        203,
+        114,
+        129,
+        144,
+        174,
+        204,
+        10,
+        40,
+        70,
+        85,
+        100,
+        115,
+        205,
+        11,
+        41,
+        71,
+        86,
+        101,
+        116,
+        131,
+        146,
+        176,
+        206,
+        12,
+        27,
+        42,
+        72,
+        87,
+        102,
+        117,
+        132,
+        147,
+        177,
+        192,
+        207,
+        13,
+        28,
+        43,
+        73,
+        88,
+        103,
+        118,
+        133,
+        148,
+        163,
+        178,
+        193,
+        208,
+        14,
+        29,
+        44,
+        74,
+        89
+    ],
+    "size": 15
+}

@@ -1,0 +1,92 @@
+questions:
+  - "NASA’s James Webb Space Telescope recently detected several unexpected molecules — including one never before observed in any planetary atmosphere — in the scorching skies of a tidally locked gas giant exoplanet. This planet is approximately 1.2 times the mass of Jupiter and completes an orbit around its star every 30.5 hours. *Which exoplanet is it?*"
+  - "This amino acid, found in certain foods and produced by the human body, has been shown in animal studies to slow signs of aging and extend lifespan when taken as a supplement. However, recent research is questioning this by examining its levels in people, monkeys, and mice across different ages. *Can you name this amino acid?*"
+  - "For years, scientists believed the mysterious dark streaks running down cliffs and crater walls on Mars were caused by flowing water. However, a recent AI-powered study published in _Nature Communications_ suggests a new explanation. *What is now believed to be the more likely cause of these long, dark features that stretch for hundreds of meters down Martian slopes?*"
+  - "Fossilized bones of an extinct human ancestor were recently discovered on the seafloor of the Madura Strait in Indonesia. These remains reveal a previously unknown population that hunted large animals and may have interacted culturally with other human species nearly 140,000 years ago. *Which species was this?*"
+  - "This is one of the most iconic deep-space images ever captured, and reveals thousands of galaxies, some dating back to less than a billion years after the Big Bang. *Which space telescope took this photograph?*"
+  - "Which hospital superbug — known for causing deadly infections — was recently discovered to survive by breaking down and consuming biodegradable medical plastics such as sutures and implants?"
+  - "Jayant Vishnu Narlikar, a pioneering Indian astrophysicist, collaborated with a prominent British cosmologist to develop a theory that challenged the conventional Big Bang model. Their theory incorporated continuous matter creation, avoided a singular beginning of time, and was based on Mach’s Principle, introducing a scalar field responsible for spontaneously generating matter. *What was the name of this cosmological theory?*"
+  - "This renowned string theorist was one of the first recipients of the Breakthrough Prize in Fundamental Physics, for \"opening the path to the realization that all string theories are different limits of the same underlying theory.\" He has made advancements in calculation of black hole entropy from first principles. *What's his name?*"
+  - "The image shows a revolutionary genetic imaging technique that maps DNA and RNA distribution inside living cells with unprecedented detail. themselves, it does not use traditional optics or lenses, instead reconstructing spatial information from genetic sequences alone. *What is this technique called?*"
+  - "The surreal landscape in the image is marked by vivid green, yellow, and orange colors, caused by acidic, mineral-rich brine bubbling from hydrothermal pools. Despite their colorful appearance, some of these pools are completely devoid of life, making them among the harshest environments on Earth. *Which location is this?*"
+options:
+  -
+    - Kepler-186f
+    - WASP-121b
+    - TRAPPIST-1d
+    - HD 209458b
+
+  -
+    - Glycine
+    - Taurine
+    - Lysine
+    - Tryptophan
+
+  -
+    - Lava flows from ancient volcanoes
+    - Subsurface ice melting
+    - Movement of wind and dust 
+    - Seepage of salty brine
+
+  -
+    - Neanderthal (Homo neanderthalensis)
+    - Denisovan
+    - Homo habilis
+    - Homo erectus 
+  -
+    - James Webb Space Telescope
+    - Spitzer Space Telescope
+    - Chandra X-ray Observatory
+    - Hubble Space Telescope 
+  -
+    - Escherichia coli
+    - Staphylococcus aureus
+    - Pseudomonas aeruginosa
+    - Clostridium difficile
+
+  -
+    - A model featuring inflation and quantum fluctuations that seeded cosmic structure
+    - A steady-state theory with continuous matter creation via a scalar creation field
+    - A universe governed only by general relativity and cold dark matter, beginning with a singularity
+    - A cyclic model involving repeated big bangs and big crunches
+
+  -
+    - Stephen Hawking
+    - Ashoke Sen 
+    - Juan Maldacena 
+    - Edward Witten
+
+  -
+    - Cryo-electron microscopy
+    - Fluorescence in situ hybridization (FISH)
+    - DNA microscopy 
+    - Optical coherence tomography
+
+  -
+    - Yellowstone Caldera, USA
+    - Danakil Depression, Eritrea
+    - Mount Erebus, Antarctica
+    - Dallol, Northern Ethiopia 
+
+images:
+  - "/images/quizQ1.png"
+  - ""
+  - "/images/quizQ3.jpg"
+  - ""
+  - "/images/quizQ5.jpg"
+  - ""
+  - "/images/quizQ7.jpeg"
+  - ""
+  - "/images/quizQ9.jpg"
+  - "/images/quizQ10.jpg"
+answers:
+  - 2
+  - 2
+  - 3
+  - 4
+  - 4
+  - 3
+  - 2
+  - 2
+  - 3
+  - 4

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="261.61395mm"
+   height="131.42477mm"
+   viewBox="0 0 261.61395 131.42477"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="berryPhase.svg"
+   inkscape:export-filename="berryPhase.png"
+   inkscape:export-xdpi="124.27471"
+   inkscape:export-ydpi="124.27471"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.52684663"
+     inkscape:cx="472.62332"
+     inkscape:cy="382.46425"
+     inkscape:window-width="1914"
+     inkscape:window-height="1044"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="-79.719597"
+       y="-206.89133"
+       width="1038.2528"
+       height="79.719597"
+       id="rect8" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect8"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect7"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect6"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1" />
+    <rect
+       x="-79.719597"
+       y="-206.89133"
+       width="1038.2528"
+       height="79.719597"
+       id="rect8-3" />
+    <rect
+       x="-79.719597"
+       y="-206.89133"
+       width="1038.2528"
+       height="79.719597"
+       id="rect9" />
+    <rect
+       x="-79.719597"
+       y="-206.89133"
+       width="1038.2528"
+       height="79.719597"
+       id="rect10" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(7.8951503,-40.433754)">
+    <circle
+       style="fill:#303030;fill-opacity:1;stroke:none;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1"
+       cx="30.788874"
+       cy="105.88369"
+       r="5.6321115" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#b06060;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 26.283185,80.351452 c -1.320563,-1.555437 -3.146465,-2.659572 -5.118667,-3.182724 -1.972203,-0.523152 -4.082391,-0.473733 -6.050403,0.06497 -3.936025,1.077401 -7.1794796,4.073538 -9.1144679,7.666434 -1.9349883,3.592897 -2.660013,7.737544 -2.6963059,11.818201 -0.036293,4.080659 0.5854253,8.135229 1.2023478,12.169149 0.5578429,3.64761 1.1160057,7.30898 2.1619559,10.84765 1.0459502,3.53868 2.6028821,6.97442 4.9720511,9.80343 2.92381,3.4913 7.060873,5.94926 11.528008,6.83389 4.467135,0.88462 9.233465,0.18711 13.253281,-1.95273 3.631278,-1.93301 6.558136,-4.92958 9.762326,-7.50948 3.118482,-2.51089 6.525386,-4.64391 9.662958,-7.1309 3.137573,-2.487 6.052274,-5.3993 7.788258,-9.00705 0.867992,-1.80388 1.427021,-3.76772 1.527173,-5.76706 0.100152,-1.99933 -0.267984,-4.03404 -1.162625,-5.824849 -0.894641,-1.790808 -2.326537,-3.326838 -4.102897,-4.249834 -1.776361,-0.922996 -3.895428,-1.20894 -5.82791,-0.686552 -2.030868,0.548984 -3.754215,1.938815 -5.067352,3.582432 -1.313138,1.643617 -2.261228,3.542823 -3.193078,5.428943 -1.507437,3.05115 -3.007405,6.12466 -4.962978,8.90991 -1.955574,2.78524 -4.405802,5.29469 -7.427668,6.86 -2.026704,1.04982 -4.291692,1.65546 -6.57403,1.67983 -2.282337,0.0244 -4.578246,-0.54042 -6.551379,-1.68776 -1.973132,-1.14735 -3.612209,-2.88238 -4.577418,-4.95072 -0.965208,-2.06834 -1.240102,-4.46452 -0.695402,-6.68104 0.420491,-1.71108 1.307517,-3.28086 2.391834,-4.6697 1.084316,-1.38884 2.365725,-2.6101 3.663984,-3.801377 2.59652,-2.382547 5.370802,-4.790311 6.710301,-8.049787 0.707559,-1.721741 0.972785,-3.628457 0.722616,-5.473029 -0.250169,-1.844572 -1.019767,-3.621225 -2.224513,-5.040245 z"
+       id="path2"
+       sodipodi:nodetypes="sssssssssss"
+       inkscape:original-d="m 26.283185,80.351452 c -3.003792,-4.255373 -14.643489,19.02402 -21.777496,28.536028 -7.1340075,9.51201 4.8811629,13.76739 7.134007,20.65108 2.252845,6.88369 16.646019,3.12895 24.781289,4.88116 8.135271,1.75221 6.38306,-4.88116 9.762326,-7.50948 3.379267,-2.62832 5.256639,-21.65234 7.884957,-32.666245 2.628317,-11.013908 -5.632112,5.882425 -8.26043,9.011375 -2.62832,3.12895 -8.135273,10.51328 -12.390646,15.76991 -4.255373,5.25664 -12.140328,-8.76106 -18.398229,-11.63969 -6.2579013,-2.87863 5.882426,-10.763594 12.766119,-16.520864 6.883691,-5.75727 1.501896,-6.257901 -1.501897,-10.513274 z"
+       inkscape:path-effect="#path-effect2" />
+    <circle
+       style="fill:#303030;fill-opacity:1;stroke:none;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle2"
+       cx="120.74718"
+       cy="105.88369"
+       r="5.6321115" />
+    <circle
+       style="fill:#303030;fill-opacity:1;stroke:none;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle4"
+       cx="210.70558"
+       cy="105.88369"
+       r="5.6321115" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#b06060;stroke-width:2.91487;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 119.81924,75.300945 c -1.3764,0.820551 -2.45639,2.075635 -3.26175,3.460975 -0.80537,1.38534 -1.35278,2.904129 -1.83897,4.431022 -0.48619,1.526892 -0.91653,3.07406 -1.50827,4.56323 -0.59174,1.48917 -1.35432,2.930293 -2.43065,4.117433 -1.57145,1.73324 -3.71448,2.827655 -5.84936,3.784672 -2.13488,0.957018 -4.34062,1.830764 -6.20348,3.246153 -1.769968,1.34481 -3.170904,3.14518 -4.165993,5.13291 -0.995089,1.98773 -1.59289,4.1603 -1.895344,6.36253 -0.604907,4.40446 -0.04373,8.87666 0.537117,13.28436 0.412117,3.12731 0.855586,6.32346 2.297925,9.12874 0.72117,1.40264 1.692923,2.69057 2.928344,3.67099 1.23542,0.98042 2.743071,1.64281 4.315571,1.76412 1.76839,0.13642 3.54592,-0.41431 5.06232,-1.33429 1.51639,-0.91998 2.79104,-2.19369 3.91167,-3.56846 2.24127,-2.74955 3.94569,-5.96666 6.59426,-8.3264 3.16804,-2.82256 7.35704,-4.13672 11.3553,-5.55705 1.99913,-0.71016 3.99045,-1.46847 5.84745,-2.49432 1.85701,-1.02585 3.58503,-2.33202 4.89413,-4.00148 1.42914,-1.82255 2.32023,-4.03782 2.70831,-6.32113 0.38809,-2.28331 0.28506,-4.63423 -0.14388,-6.910228 -0.85786,-4.551986 -2.97968,-8.752241 -5.07544,-12.883135 -1.82665,-3.600448 -3.73522,-7.307751 -6.84404,-9.883622 -1.55441,-1.287936 -3.39959,-2.260556 -5.38575,-2.621324 -1.98615,-0.360768 -4.11556,-0.07938 -5.84947,0.954304 z"
+       id="path7"
+       inkscape:path-effect="#path-effect7"
+       inkscape:original-d="m 119.81924,75.300945 c -6.02643,-3.850214 -5.85902,11.04844 -9.03964,16.57266 -3.18061,5.52422 -8.03522,5.022018 -12.05284,7.030825 -4.017613,2.00881 -3.348011,17.91637 -5.52422,24.7798 -2.176208,6.86342 6.026423,7.97792 9.54184,14.56385 3.51541,6.58593 10.54623,-8.81944 15.56825,-13.22915 5.02202,-4.40972 14.56385,-8.03523 22.09688,-12.05285 7.53303,-4.01761 -1.674,-17.409662 -2.51101,-26.114493 -0.837,-8.704832 -12.05284,-7.700428 -18.07926,-11.550642 z"
+       transform="matrix(1.0671336,0,0,0.99262411,-6.0341747,0.78355689)" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#b06060;stroke-width:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 209.71336,75.803147 c -6.63422,-1.310687 -13.51946,-2.185146 -20.12807,-0.750925 -3.3043,0.71711 -6.50381,2.019243 -9.24134,4.003841 -2.73753,1.984598 -4.99992,4.668815 -6.28692,7.795524 -1.1394,2.768112 -1.49582,5.818796 -1.31268,8.806626 0.18314,2.98783 0.89135,5.923027 1.81488,8.770437 3.31745,10.22833 9.74858,19.73552 19.0345,25.15733 4.64296,2.71091 9.93802,4.35187 15.31216,4.50889 5.37415,0.15702 10.81614,-1.19799 15.37132,-4.05393 4.35943,-2.73322 7.83721,-6.7926 10.08316,-11.42194 2.24595,-4.62934 3.27924,-9.81078 3.21924,-14.95583 -0.12,-10.290093 -4.5535,-20.177531 -10.79139,-28.362225 -5.19805,-6.820328 -11.92095,-12.79604 -20.07583,-15.448299 -4.07745,-1.32613 -8.46298,-1.785126 -12.69459,-1.094005 -4.23161,0.691122 -8.29806,2.558429 -11.42334,5.493864 -3.35999,3.155891 -5.54504,7.463727 -6.44831,11.984048 -0.90327,4.520322 -0.56487,9.241428 0.6351,13.692189 2.39994,8.901521 8.075,16.534518 14.06887,23.539538 7.10923,8.30855 15.18756,16.31243 25.41942,20.17018 5.11593,1.92887 10.70713,2.74619 16.10912,1.9025 5.40199,-0.84369 10.59336,-3.41361 14.21586,-7.50882 4.29927,-4.86031 6.14967,-11.64711 5.49494,-18.10293 -0.65473,-6.45583 -3.6819,-12.552276 -7.9906,-17.404231 -4.3087,-4.851955 -9.8495,-8.509687 -15.77516,-11.154088 -5.92567,-2.644401 -12.24445,-4.310068 -18.61034,-5.567744 z"
+       id="path8"
+       inkscape:path-effect="#path-effect8"
+       inkscape:original-d="m 209.71336,75.803147 c -12.29372,-17.409663 -23.77089,7.533027 -35.65633,11.04844 -11.88544,3.515412 0.3348,11.383241 0.5022,17.577063 0.16741,6.19382 33.14532,18.24667 49.71798,25.61229 16.57266,7.36563 1.67401,-37.497733 2.51101,-54.739995 0.83701,-17.242262 -29.4625,-7.365627 -44.19376,-11.04844 -14.73125,-3.682813 6.24685,32.475717 8.25566,49.215775 2.0088,16.74006 36.41985,10.04404 55.7444,14.56386 19.32454,4.51981 -24.58744,-34.81933 -36.88116,-52.228993 z"
+       transform="translate(0,8.4666659)" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,4.8150218,94.485645)"
+       id="text8"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:40px;line-height:1;font-family:Lato;-inkscape-font-specification:'Lato, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect8);display:inline;fill:none;fill-opacity:1;stroke:#b06060;stroke-width:11.3386;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="175.37711"
+         y="-174.69063"
+         id="tspan3"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan1">Various ways of wrapping the 
+</tspan></tspan><tspan
+         x="136.10713"
+         y="-134.69063"
+         id="tspan5"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan4">wavefunction in momentum space</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-88.470615,205.70155)"
+       id="text8-0"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:40px;line-height:1;font-family:Lato;-inkscape-font-specification:'Lato, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect8-3);display:inline;fill:none;fill-opacity:1;stroke:#b06060;stroke-width:11.3386;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="315.64716"
+         y="-174.69063"
+         id="tspan7"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan6">Wrap 0 times:
+</tspan></tspan><tspan
+         x="301.11716"
+         y="-134.69063"
+         id="tspan11"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan8">Berry phase = 0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,7.3085565,205.70155)"
+       id="text9"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:40px;line-height:1;font-family:Lato;-inkscape-font-specification:'Lato, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect9);display:inline;fill:none;fill-opacity:1;stroke:#b06060;stroke-width:11.3386;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="324.37717"
+         y="-174.69063"
+         id="tspan13"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan12">Wrap 1 time:
+</tspan></tspan><tspan
+         x="300.23715"
+         y="-134.69063"
+         id="tspan16"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan14">Berry phase = </tspan><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan15">π</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,97.266894,205.70155)"
+       id="text10"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:40px;line-height:1;font-family:Lato;-inkscape-font-specification:'Lato, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect10);display:inline;fill:none;fill-opacity:1;stroke:#b06060;stroke-width:11.3386;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="315.64716"
+         y="-174.69063"
+         id="tspan18"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan17">Wrap 2 times:
+</tspan></tspan><tspan
+         x="288.63715"
+         y="-134.69063"
+         id="tspan21"><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan19">Berry phase = 2</tspan><tspan
+           style="fill:#303030;stroke:none"
+           id="tspan20">π</tspan></tspan></text>
+  </g>
+</svg>

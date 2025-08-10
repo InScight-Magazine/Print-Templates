@@ -1,0 +1,92 @@
+- 
+  "Author": "Debanuj Chatterjee"
+  "Affiliation": "University of Lille, France"
+  "Title": "Fast and precise atmospheric sensing over 100 km open path"
+  "Summary": "Dual comb spectroscopy (DCS) is a powerful optical sensing technique that leverages two laser frequency combs, to measure gas absorption with high speed and sensitivity. By precisely determining the absorption frequencies of the sample, across a broad spectral range, DCS can detect trace gases like carbon dioxide (CO#sub[2]) and water vapor (H#sub[2]O) in the atmosphere with sub-ppm precision. This makes it ideal for applications in climate science, especially relevant for air quality monitoring, greenhouse gas emissions tracking, etc.
+
+
+Traditionally, the reach of DCS when performed in open path has been limited to distances under 20 km due to significant signal loss and technical constraints, such as the need for highly reflective mirrors, high atmospheric turbulence, etc. However, last year, in a landmark advancement, researchers from the University of Science and Technology of China have now extended DCS to a staggering 113 km open-air horizontal path; nearly six times longer than previous records.
+
+
+To achieve this, the team utilized a novel bistatic configuration, placing one frequency comb at each end of the path and transmitting light bidirectionally through the atmosphere without the need for reflectors. Each comb was synchronized to a rubidium atomic clock, acting as a local timing reference. The system incorporated high-power (1 W) optical frequency combs, stable telescopes, and real-time data acquisition to overcome atmospheric turbulence and extreme signal attenuation, going up to 83 dB.The experiment, conducted between two mountain sites in the Xinjiang, provice of China, viz. Nanshan and Gaoyazi, successfully measured absorption spectra of CO#sub[2] and H#sub[2]O over a 7 nm bandwidth and a frequency accuracy of 10 kHz. The system achieved CO#sub[2] detection sensitivities better than 2 ppm in just 5 minutes and below 0.6 ppm in 36 minutes; a remarkable performance for such a long-range setup.
+
+
+This breakthrough not only validates DCS for ultra-long-range sensing but also opens a plethora of possibilities for a diverse set of technological advancements. A curious reader would ask, if one can perform DCS over 100 km path in the turbulent atmosphere, why not shoot it towards the sky? Can the dual comb reach the ionosphere (50 km) and get reflected with only the radio wave content? Can it lay the foundation for future satellite-ground dual comb links? Can it perform high-precision monitoring of greenhouse gases from geostationary orbits? I leave the numerous possibilities to the fancy of your imagination!"
+  "Reference": "Han, JJ., Zhong, W., Zhao, RC. et al. Nat. Photon. 18, 1195–1202 (2024)"
+  "Url": "https://www.nature.com/articles/s41566-024-01525-9"
+  "Image": "debanujDigest.png"
+  "Caption": "Google Earth view of the DCS path of 113 km running from Nanshan to Gaoyazi in China."
+  "Keywords":
+    - dual-comb spectroscopy
+    - environmental sensing
+    - frequency comb
+    - spectroscopy
+- 
+  "Author": "Chitradeep Saha"
+  "Image": "chitradeepDigest.png"
+  "Caption": "A plot showing the variation of Carbon 14 production rate (top two panels), and solar modulation potential -- a measure of solar magnetic activity (bottom two panels) during 1000-1 BCE. Vertical shaded regions depict the two solar grand minima events. Notably, Carbon 14 production goes up during the reduced solar activity phases, and vice-versa."
+  "Affiliation": "CESSI, IISER Kolkata"
+  "Title": "Tree rings unlock the sun's age old secrets"
+  "Summary": "The oldest telescopic observation of the sun is only four centuries old. Thanks to nature's silent archivists, it is possible to unveil how this star behaved multiple millennia ago. Tree rings are one such natural reservoir that keeps a record of the time. Cosmogenic isotope contents in old tree rings carry imprints of the terrestrial climate, which in turn is modulated by the sun's magnetic activity. A more magnetically active sun sweeps away galactic cosmic rays more vigorously. As a consequence, the production rate of radioactive isotopes in the earth’s atmosphere goes down. This results in a reduced amount of Carbon-14 deposition in the tree rings during the period of enhanced solar activity, and vice-versa. Recently, scientists have used precise dendrochronological techniques to retrieve the sun's magnetic behaviour during the first millennium BCE with an unprecedented resolution of annual time scale. They have successfully detected a strong decennial timescale signal in the isotope data, as expected from current understanding of the solar cycles. Besides, their analysis hints towards possible occurrences of two solar grand minimum episodes during this period. Solar grand minima are phases of prolonged magnetic quiescence on the sun. These findings have implications for a better understanding of solar-stellar magnetism."
+  "Reference": "Brehm, N., Pearson, C.L., Christl, M. et al. Nat Commun 16, 406 (2025)"
+  "Url": "https://doi.org/10.1038/s41467-024-55757-y"
+  "Keywords":
+   - Paleoclimatology
+   - Dendrochronology
+   - Solar Magnetic Variabilty
+- 
+  "Author": "Madhura Narayan Joshi"
+  "Image": "madhurajoshiDigest.png"
+  "Caption": "Schematic of overturning circulation in modern(upper) and LGM(lower) highlighting change through time. The blue ribbon is indicative of Antarctic bottom water, green indicate North Atlantic deep water, red indicates Indian and Pacific ocean deep waters and orange indicates Antarctic intermediate waters. The black dashed line is an isopycnal which separates two branches of circulation in Southern Ocean. ℓ1 is the distance between the northernmost latitude reached by the ACC, indicated by a solid gray line, and the quasi-permanent sea ice line. The ragged gray line is the crest of the main bathymetric features of the Pacific and Indian ocean basins: mixing is enhanced below this line. The extent of the quasi-permanent sea ice line has shifted equatorward compared with modern climate ðℓ2 < ℓ1Þ. Mixing-driven upwelling of abyssal waters is confined below 2 km and it cannot lift waters high enough to upwell north of the ice line. As a result the abyssal overturning circulation closes on itself, leaving above a small overturning cell of North Atlantic waters."
+  "Affiliation": "22MS, IISER Kolkata"
+  "Title": "How does Antarctic sea ice and circulation change fate of global CO#sub[2] levels"
+  "Summary": "One of the key indicators of climate change is global warming — often discussed in academic circles and increasingly felt in daily life. A major driver of this warming is the rising concentration of atmospheric CO#sub[2] over recent decades. Oceans, which store about 90% of Earth’s carbon (combined oceanic, atmospheric, and terrestrial), play a vital role in regulating the carbon cycle and influencing climate.
+
+
+During the Last Glacial Maximum (LGM), around 25,000 to 20,000 years ago, Earth’s surface was 3–6 °C colder, atmospheric CO#sub[2] levels were 80–90 ppm lower, and vast ice sheets and sea ice covered the poles. Unlike the modern ocean, where Arctic-origin waters dominate and Antarctic waters occupy depths below 4 km, LGM oceans were filled with Antarctic-sourced waters up to 2 km, compressing northern water masses into shallower layers. This reorganization of deep water circulation reduced CO#sub[2] escape from the ocean surface and drew down atmospheric concentrations by 10–20 ppm.
+
+
+Previously, these shifts were seen as a sum of individual physical changes — altered currents, increased layering, and less CO#sub[2] outgassing from the Southern Ocean. Several mechanisms contributed: an equatorward shift of the Southern Hemisphere westerlies weakened upwelling of deeper water, increased stratification acted like a lid on carbon venting, expanded sea ice reduced air-sea exchange, and reduced mixing between northern and southern waters limited carbon leakage.
+
+
+Overturning circulation is a large-scale movement of ocean water where warmer, lighter surface waters move toward the poles, cool, and sink to form deep currents that eventually return to the surface. This circulation is driven by two main factors: flow along isopycnals (surfaces of equal density) and surface buoyancy flux — which reflects whether water in a region is becoming lighter (due to warming or precipitation) or denser (due to cooling, brine rejection, or evaporation). These isopycnals slope steeply at high latitudes, and a key one  the 27.9 kg/m³ isopycnal which separates the shallow and deep overturning branches in the Southern Ocean.
+
+
+In today’s climate, the sea ice edge stays close to Antarctica, and the isopycnal plunges below 2 km before reaching ocean basins. There, it intersects topography like ridges and seamounts, enhancing mixing and connecting the two branches into a single, figure-eight-like circulation. However, during the LGM, the summer sea ice line shifted northward by about 500 km. The isopycnal followed, shoaling above 2 km and avoiding major topography. Without significant mixing, the circulation split into two separate loops: deep Antarctic waters recirculated beneath the ice, while northern-sourced waters looped above. This vertical separation helped trap carbon in the deep ocean."
+  "Reference": "R. Ferrari,M.F. Jansen,J.F. Adkins,A. Burke,A.L. Stewart,& A.F. Thompson,  Antarctic sea ice control on ocean circulation in present and glacial climates, Proc. Natl. Acad. Sci. U.S.A. 111 (24) 8753-8758 (2014)"
+  "Url": "https://doi.org/10.1073/pnas.1323922111"
+  "Keywords":
+    - Last glacial maxima
+    - Carbon storage
+    - Antarctic sea ice
+    - Ocean Circulation
+    - Isopycnal slope
+
+- 
+  "Author": "Swarnendu Saha"
+  "Title": "Old carbon routed from land to the atmosphere by global river systems"
+  "Affiliation": "Department of Physical Sciences, IISER Kolkata"
+  "Image": "swarnenduDigest.png"
+  "Caption": "a) In the earlier model, it was believed that river carbon dioxide (CO#sub[2]) was mainly released from young, fast-cycling carbon — recently captured by plants (referred to as decadal-aged, shown in green). A smaller portion was considered to come from rocks (petrogenic carbon, shown in grey). Based on this understanding, it was estimated that about 1.7 billion tons of human-caused CO#sub[2] per year was being absorbed and stored in forests and soils. b) In the revised model, new measurements of carbon age in rivers (using radiocarbon data) revealed that much of the CO#sub[2] released by rivers is from older sources — carbon stored for thousands of years. This old carbon is believed to be released from deeper soils and weathered rocks. As a result, it is now recognized that rivers act as a pathway through which ancient carbon is lost from the land to the atmosphere. This finding requires a change in how Earth's carbon storage is understood and how human CO#sub[2] emissions are tracked."
+  "Summary": "We usually think of rivers as part of the modern carbon cycle — transporting carbon that plants have recently absorbed from the atmosphere. But this new study reveals that rivers also act as a hidden highway, carrying very old carbon — hundreds to thousands of years old — from land into the air.
+
+
+Scientists examined over 1,100 samples from rivers all over the world, looking at the type of carbon gases (CO#sub[2] and CH#sub[4]) being released into the air. By measuring radiocarbon (a kind of natural carbon dating), they could determine how “old” the carbon was. Surprisingly, nearly 60% of river CO#sub[2] emissions were found to come from millennia-old carbon, not recent plant activity.
+
+
+This “old” carbon comes from deep in the soil, sediments, and even from ancient rocks. Rain and groundwater erode and carry this carbon into rivers, which then release it into the atmosphere. The amount of old carbon released — around 1.2 billion tons per year — is nearly as much as all the carbon plants worldwide absorb from the atmosphere in a year.
+
+
+Different factors affect how much old carbon a river releases. Rivers in areas with sedimentary rocks, like limestone, or those in high mountain regions, were more likely to release older carbon. Large rivers also showed older carbon emissions, which challenges the common belief that only small rivers are affected by old carbon sources.
+
+
+These findings mean that current climate models and carbon budgets may be underestimating how much ancient carbon is being released. Old carbon, once locked in the earth, is now entering the modern carbon cycle — potentially speeding up climate change.
+
+
+This study suggests we need to rethink how rivers fit into the global carbon puzzle. Rivers are not just channels for young, fresh carbon. They are also leaks for ancient carbon stores, and this has major implications for how we understand and manage Earth’s carbon balance."
+  "Reference": "Dean, J.F., Coxon, G., Zheng, Y. et al. Old carbon routed from land to the atmosphere by global river systems. Nature 642, 105–111 (2025)"
+  "Url": "https://doi.org/10.1038/s41586-025-09023-w"
+  "Keywords":
+   - River CO#sub[2] emissions
+   - Radiocarbon dating
+   - Global carbon cycle

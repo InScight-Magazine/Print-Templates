@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="263.63647mm"
+   height="113.39018mm"
+   viewBox="0 0 263.63648 113.39018"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="landau.svg"
+   inkscape:export-filename="landau.png"
+   inkscape:export-xdpi="123.32"
+   inkscape:export-ydpi="123.32"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.7046647"
+     inkscape:cx="505.20481"
+     inkscape:cy="348.39265"
+     inkscape:window-width="1914"
+     inkscape:window-height="1044"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="-14.191146"
+       y="359.03601"
+       width="363.29337"
+       height="126.3012"
+       id="rect13" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect13"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect11"
+       is_visible="true"
+       lpeversion="1" />
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="0.40000001"
+       markerHeight="0.40000001"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect10"
+       is_visible="true"
+       lpeversion="1" />
+    <linearGradient
+       id="linearGradient8"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ff4030;stop-opacity:1;"
+         offset="0"
+         id="stop7" />
+      <stop
+         style="stop-color:#3070b0;stop-opacity:1;"
+         offset="1"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8"
+       id="linearGradient2"
+       x1="58.761696"
+       y1="86.359016"
+       x2="58.761696"
+       y2="158.07457"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.097561,0,-15.678332)" />
+    <rect
+       x="-14.191146"
+       y="359.03601"
+       width="530.7489"
+       height="153.26437"
+       id="rect14" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-13.850108,-76.22123)">
+    <rect
+       style="fill:url(#linearGradient2);stroke-width:1.04765"
+       id="rect1"
+       width="71.715553"
+       height="84.481667"
+       x="22.903919"
+       y="76.22123" />
+    <rect
+       style="fill:#3070b0;fill-opacity:1;stroke-width:0.356131"
+       id="rect3"
+       width="71.715553"
+       height="9.7623224"
+       x="165.77895"
+       y="150.94057" />
+    <rect
+       style="fill:#7b6067;fill-opacity:1;stroke-width:0.356131"
+       id="rect4"
+       width="71.715553"
+       height="9.7623224"
+       x="165.77895"
+       y="113.8989" />
+    <rect
+       style="fill:#ff4030;fill-opacity:1;stroke-width:0.356131"
+       id="rect5"
+       width="71.715553"
+       height="9.7623224"
+       x="165.77895"
+       y="76.857246" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#303030;stroke-width:5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+       d="M 56.696585,193.74463 H 106.63464"
+       id="path10"
+       inkscape:path-effect="#path-effect10"
+       inkscape:original-d="m 56.696585,193.74463 c 16.646017,0 49.938055,0 49.938055,0"
+       transform="translate(44.383124,-73.915232)" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#303030;stroke-width:3;stroke-dasharray:6, 3;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 24.405819,96.121356 H 94.619471"
+       id="path11"
+       inkscape:path-effect="#path-effect11"
+       inkscape:original-d="m 24.405819,96.121356 c 22.403284,0 46.308469,0 70.213652,0"
+       transform="translate(0,5.2916667)" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#303030;stroke-width:3;stroke-dasharray:6, 3;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 24.405819,96.121356 H 94.619471"
+       id="path12"
+       inkscape:path-effect="#path-effect13"
+       inkscape:original-d="m 24.405819,96.121356 c 22.403284,0 46.308469,0 70.213652,0"
+       transform="translate(142.87503,5.2916667)" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,16.145385,73.592911)"
+       id="text13"
+       style="font-weight:bold;font-size:26.6667px;line-height:1;font-family:Lato;-inkscape-font-specification:'Lato Bold';text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect13);display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:11.3386;stroke-dasharray:22.6772, 11.3386;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="4.0250168"
+         y="391.23516"
+         id="tspan2"><tspan
+           style="font-weight:600;font-size:40px;-inkscape-font-specification:'Lato, Semi-Bold';fill:#202020;stroke:none"
+           id="tspan1">continuous energy </tspan></tspan><tspan
+         x="-11.375031"
+         y="431.23516"
+         id="tspan4"><tspan
+           style="font-weight:600;font-size:40px;-inkscape-font-specification:'Lato, Semi-Bold';fill:#202020;stroke:none"
+           id="tspan3">levels of free 2D gas</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,140.99767,73.592909)"
+       id="text14"
+       style="font-weight:bold;font-size:26.6667px;line-height:1;font-family:Lato;-inkscape-font-specification:'Lato Bold';text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect14);display:inline;fill:none;fill-opacity:1;stroke:#303030;stroke-width:11.3386;stroke-dasharray:22.6772, 11.3386;stroke-dashoffset:0;stroke-opacity:1"><tspan
+         x="-13.496468"
+         y="391.23516"
+         id="tspan6"><tspan
+           style="font-weight:600;font-size:40px;-inkscape-font-specification:'Lato, Semi-Bold';fill:#202020;stroke:none"
+           id="tspan5">discrete bands when placed in </tspan></tspan><tspan
+         x="11.373604"
+         y="431.23516"
+         id="tspan8"><tspan
+           style="font-weight:600;font-size:40px;-inkscape-font-specification:'Lato, Semi-Bold';fill:#202020;stroke:none"
+           id="tspan7">magnetic field and disorder</tspan></tspan></text>
+  </g>
+</svg>
