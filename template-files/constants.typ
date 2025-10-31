@@ -54,6 +54,7 @@
 #let footerLineHeight = 1pt
 #let footer-text-color = rgb("4a4a4a") //header-bg-color
 #let header-title-maxsize = 61
+#let headerSeparator = box(height: 0.8em, width: 0.8em, fill: header-dark-color)
 
 // figures
 #let figure-suppl = text(weight: "bold", fill: header-bg-color, [FIG])

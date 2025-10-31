@@ -15,9 +15,9 @@
     [
       #v(1em)
       #if locator != none [
-        = #heading(outlined: false, level:1)[#title]#label(locator)
+        = #heading(outlined: false, level:1)[#eval(title, mode: "markup")]#label(locator)
       ] else [
-        = #heading(outlined: false, level:1)[#title]
+        = #heading(outlined: false, level:1)[#eval(title, mode: "markup")]
       ]
       #v(1em)
 
@@ -62,7 +62,7 @@
     #block[
       #image(coverImage, width: 100%, height: heroImage-height)
       #if coverCaption != none [
-        #place(bottom + right, box(width: 45%, fill: rgb(0, 0, 0, 200), inset: 0.5em, text(font: main-font, size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "semibold", coverCaption)))
+        #place(bottom + right, box(width: 45%, fill: rgb(0, 0, 0, 150), inset: 0.5em, text(font: main-font, size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "semibold", eval(coverCaption, mode: "markup"))))
       ]
     ]
     #rect(
@@ -143,6 +143,25 @@
   }
 ]
 ]
+}
+
+
+#let cover(
+  title: none, 
+  coverImage: none,
+  locator: none,
+  outlined: true,
+) = {
+  page(
+    header: none,
+    footer: none,
+    background: image(coverImage, width: 100%, height: 100%)
+  )[
+    #if outlined == true {
+        show heading: none
+        [#heading(outlined: true, title) #if locator != none { label(locator) } else { none }]
+    }
+  ]
 }
 
 
@@ -281,12 +300,12 @@
   authorImage: "",
 ) = {
     line(length:80%, stroke: 0.3em + fg-color)
+    image(authorImage)
     { 
       set text(size: 1.2em, font: author-font, weight: "medium")
       set par(justify: false)
       align(left, emph(eval(authorInfo, mode: "markup")))
     }
-    image(authorImage)
 }
 
 #let references(
@@ -379,7 +398,6 @@
   shortLink: none,
   toc: false,
 ) = {
-  let headerSeparator = text(fill: header-dark-color, [])
   return rect(
       fill: header-bg-color, 
       inset: 0cm,
@@ -398,7 +416,7 @@
         #if title.len() > header-title-maxsize {
           text(title.slice(0, count: header-title-maxsize) + "...")
         } else {
-          text(title)
+          text(eval(title, mode: "markup"))
         }
       ]
       #v(header-raise)

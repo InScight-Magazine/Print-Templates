@@ -64,7 +64,7 @@ set page(
   )[
     #{
       set text(font: header-font, fill: header-bright-color, weight: "semibold")
-      [INSCIGHT \##issueDetails.at("number")] + h(5pt) + [ ] + h(5pt) + [#issueDetails.at("time")]
+      [INSCIGHT \##issueDetails.at("number")] + h(5pt) + headerSeparator + h(5pt) + [#issueDetails.at("time")]
     }
     #v(header-raise)
   ]
@@ -146,22 +146,30 @@ set page(
   )
 
 if coverImage != none {
-  articleCover(
-    title: title,
-    authors: authors,
-    authorAffiliations: authorAffiliations,
-    abstract: abstract,
-    coverImage: coverImage,
-    coverCaption: coverCaption,
-    sideImage: sideImage,
-    sideImageFraction: sideImageFraction,
-    reviewedBy: reviewedBy,
-    category: category,
-    received: received,
-    attribution: links.at("long"),
-    outlineDesc: text(font: "Hero New", if authorAffiliations.len() > 0  { authors.join(", ") } else { outlineDesc }),
-    locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
-  )
+  if reviewedBy != none {
+    cover(
+      title: title,
+      coverImage: coverImage,
+      locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
+    )
+  } else {
+    articleCover(
+      title: title,
+      authors: authors,
+      authorAffiliations: authorAffiliations,
+      abstract: abstract,
+      coverImage: coverImage,
+      coverCaption: coverCaption,
+      sideImage: sideImage,
+      sideImageFraction: sideImageFraction,
+      reviewedBy: reviewedBy,
+      category: category,
+      received: received,
+      attribution: links.at("long"),
+      outlineDesc: text(font: "Hero New", if authorAffiliations.len() > 0  { authors.join(", ") } else { outlineDesc }),
+      locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
+    )
+  }
 }
 if authors.len() == 0 {
   nonCoverTitle(
@@ -174,6 +182,7 @@ if authors.len() == 0 {
 counter(figure.where(kind: image)).update(0)
 columns(numCols,
 if authorInfo != none {
+    v(1fr)
     auth-profile(authorInfo: authorInfo, authorImage: authorImage)
     v(1fr)
     colbreak()
@@ -222,10 +231,6 @@ content
   let firstFlag = true
   let step = -1
   let content = for textLine in lines {
-    set par(
-      first-line-indent: 0em,
-      justify: true,
-    )
     step += 1
     let trimmedLine = textLine.trim()
     if trimmedLine.len() == 0 {
@@ -271,7 +276,6 @@ content
         text(weight: "bold", group2) + [~] + trimmedLine
       } else {
       set par(
-        first-line-indent: 1em,
         justify: true,
       )
         trimmedLine
@@ -317,14 +321,31 @@ content
   let counter = 1
   content = for (question, options, img) in questions.zip(options, images) {
     set enum(numbering: "I. ")
-    grid(
-      columns: (1.2fr, 1fr),
-      gutter: 3em,
+    if img != none { 
+      if img.split(".").at(0).ends-with("-ttb") {
+        stack(
+          dir: ttb,
+          spacing: 2em,
+          align(center, image(img, width: 100%)),
+          [*Q#counter\.* ] + [#eval(question, mode: "markup")] + for line in options {
+          [+ #eval(line, mode: "markup")]
+          },
+        )
+      } else {
+        grid(
+          columns: (1.2fr, 1fr),
+          gutter: 3em,
+          [*Q#counter\.* ] + [#eval(question, mode: "markup")] + for line in options {
+          [+ #eval(line, mode: "markup")]
+          },
+          align(center, image(img, height: 15em))
+        )
+      }
+    } else {
       [*Q#counter\.* ] + [#eval(question, mode: "markup")] + for line in options {
-      [+ #eval(line, mode: "markup")]
-    },
-      if img.len() > 0 { align(center, image(img, height:15em)) }
-    )
+        [+ #eval(line, mode: "markup")]
+      }
+    }
     if counter < questions.len() {
       linebreak()
     }
@@ -348,7 +369,7 @@ content
   intro: none,
 ) = {
   let data = yaml(file)
-  let seed = data.seed
+  let seed = upper(data.seed)
   let hints = data.hints
   let answers = data.answers
   assert.eq(answers.len(), hints.len())
@@ -408,12 +429,9 @@ content
 #let crossword(
   issueDetails: none,
   file: none,
-  crosswordImage: none,
-  crosswordWidth: 100%,
   title: none,
   intro: none,
   outlineDesc: none,
-  leftColWidth: 1fr,
 ) = {
   let data = json(file)
   let locations = ()
@@ -574,5 +592,68 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
       capt(titles.at(2), captions.at(2)),
       image(images.at(2), width: 100%),
     )
+  )
+}
+
+#let whoami(
+  issueDetails: (),
+  file: none,
+  title: none,
+  intro: none,
+) = {
+  let data = yaml(file)
+  let items = ()
+  for (i, item) in data.enumerate() {
+    let gd = none
+    if calc.rem(i, 2) == 1 {
+      gd = grid(
+          columns: (0.8fr, 0.5fr),
+          align: left + top,
+          gutter: 4em,
+          [
+          == #item.question
+
+          #list(
+            tight:false,
+            ..item.hints
+          )
+        ],
+         image("../images/" + item.image, height: 18%, width: 100%, fit: "cover"),
+      )
+    } else {
+      gd = grid(
+          columns: (0.5fr, 0.8fr),
+          align: left + top,
+          gutter: 4em,
+          image("../images/" + item.image, height: 18%, width: 100%, fit: "cover"),
+          [
+          == #item.question
+
+          #list(
+            tight:false,
+            ..item.hints
+          )
+          ],
+      )
+    }
+    items.push(gd)
+    if i < data.len() - 1 {
+      items.push(align(center, line(length: 40%)))
+    }
+  }
+
+  let content = intro + v(2em) + stack(
+    dir: ttb,
+    spacing: 2em,
+    ..items
+  )
+
+  section(
+    issueDetails: issueDetails,
+    title: title,
+    numCols: 1,
+    permalinkSuffix: "whoami",
+    type: "cas",
+    content
   )
 }

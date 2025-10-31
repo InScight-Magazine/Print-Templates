@@ -2,7 +2,7 @@
 #import "helpers.typ": *
 #import "layouts.typ": *
 
-#let miniOutline(minPage, maxPage, classes: none, split: 99999) = {
+#let miniOutline(minPage, maxPage, classes: none, split: 99999, spacing: 1.5em) = {
   if "int" not in classes {
     classes.int = ()
   } 
@@ -13,7 +13,7 @@
     classes.meta = ()
   } 
 
-  show outline.entry: set block(below: 1.5em)
+  show outline.entry: set block(below: spacing)
   show outline.entry: it => {
     if int(it.page().text) == split {
       colbreak()
@@ -52,6 +52,7 @@
 
 #let fullOutline(
   issueDetails: none,
+  spacing: 1.5em,
   classes: none,
 ) = {
 
@@ -63,5 +64,5 @@
     )
 
     v(2em)
-    miniOutline(0, 1000, split: 49, classes: classes)
+    miniOutline(0, 1000, split: 49, classes: classes, spacing: spacing)
 }
