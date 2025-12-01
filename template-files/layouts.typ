@@ -3,7 +3,6 @@
 
 #let default(
   issueDetails: (),
-  frontImage: none,
   doc
 ) = {
 set text(
@@ -126,6 +125,7 @@ set page(
   permalinkSuffix: none,
   locator: none,
   type: none,
+  coverHeight: 60%,
   content
 ) = {
   if permalinkSuffix == none {
@@ -165,6 +165,7 @@ if coverImage != none {
       reviewedBy: reviewedBy,
       category: category,
       received: received,
+      coverHeight: coverHeight,
       attribution: links.at("long"),
       outlineDesc: text(font: "Hero New", if authorAffiliations.len() > 0  { authors.join(", ") } else { outlineDesc }),
       locator: if authors.len() > 0 { authors.at(0).split().at(0) + "-" + title.split().at(-1) } else { none },
@@ -182,9 +183,13 @@ if authors.len() == 0 {
 counter(figure.where(kind: image)).update(0)
 columns(numCols,
 if authorInfo != none {
-    v(1fr)
-    auth-profile(authorInfo: authorInfo, authorImage: authorImage)
-    v(1fr)
+    block(width: 90%,
+    par(leading: 0.6em, text(font: abstract-font, size:2em, weight: "medium", fill:header-bg-color, [#abstract.first()]) + text(font: abstract-font, size:1.2em, weight: "medium", eval(abstract.slice(1), mode:"markup")))
+    + v(1fr)
+    + text(font: abstract-font, size:1.3em, weight: "medium", fill: navy, [*EDITED BY*: #reviewedBy.join(", ")])
+    + v(1fr)
+    + auth-profile(authorInfo: authorInfo, authorImage: authorImage)
+    )
     colbreak()
 } + 
 content
@@ -192,22 +197,6 @@ content
   references(refsFile: refsFile, breakAfter: breakAfter)
 }
 )
-// if authorInfo != none or refsFile != none {
-//   line(length:80%)
-//   grid(
-//     columns: (1fr, 2fr),
-//     gutter: 2em,
-//     if authorInfo != none {
-//         eval(authorInfo, mode: "markup")
-//         image(authorImage)
-//     },
-//     grid.cell(breakable: false,
-//     if refsFile != none {
-//       references(refsFile: refsFile, breakAfter: breakAfter)
-//     }
-//   )
-//   )
-// }
 }
 
 #let interview(
@@ -223,6 +212,7 @@ content
   coverCaption: none,
   sideImage: none,
   sideImageFraction: 50%,
+  coverHeight: 60%,
 ) = {
   let afterBreak = false
   let boldflag = true
@@ -268,8 +258,8 @@ content
     }
 
     if boldflag == true {
-      set par(leading: 0.5em, justify: false)
-      text(weight: "bold", size: 1.1em, fill: category-colors.int, trimmedLine)
+      set par(leading: 0.5em, justify: true)
+      text(weight: "bold", size: 1.1em, fill: questionColor, trimmedLine)
     } else {
       if boldStartflag == true {
         boldStartflag = false
@@ -298,6 +288,7 @@ content
       coverCaption: coverCaption,
       sideImage: sideImage,
       sideImageFraction: sideImageFraction,
+      coverHeight: coverHeight,
       numCols: 2,
     )
     #counter(figure.where(kind: image)).update(0)
@@ -433,7 +424,7 @@ content
   intro: none,
   outlineDesc: none,
 ) = {
-  let data = json(file)
+  let data = toml(file)
   let locations = ()
   for (k,v) in data.at("down") {
     locations.push(v.at(0))
