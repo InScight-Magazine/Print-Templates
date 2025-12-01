@@ -50,6 +50,7 @@
   outlineDesc: none,
   issueId: none,
   locator: none,
+  coverHeight: 60%,
   outlined: true,
 ) = {
   page(
@@ -60,8 +61,8 @@
     footer: none,
   )[
     #block[
-      #image(coverImage, width: 100%, height: heroImage-height)
-      #if coverCaption != none [
+      #image(coverImage, width: 100%, height: coverHeight)
+      #if coverCaption.len() > 0 [
         #place(bottom + right, box(width: 45%, fill: rgb(0, 0, 0, 150), inset: 0.5em, text(font: main-font, size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "semibold", eval(coverCaption, mode: "markup"))))
       ]
     ]
@@ -351,24 +352,30 @@
 }
 
 #let tables(
-  headings: none,
+  file: none,
   caption: none,
   position: bottom,
-  ..content
 ) = {
+  let data = csv(file)
+  let headings = data.at(0)
+  for (i, h) in headings.enumerate() {
+    headings.at(i) = eval(h, mode:"markup")
+  }
+  let content = data.slice(1).join()
   figure(
     placement: position,
     table(
-      columns: headings.len(),
-      align: horizon,
-      stroke: 1pt + header-bg-color,
+        columns: headings.len(),
+        align: horizon,
+        stroke: 1pt + header-bg-color,
         table.header(
           ..headings,
         ),
         ..content
       ),
       caption: caption,
-      supplement: "Table"
+      supplement: "Table",
+      numbering: none
   )
 }
 
@@ -444,9 +451,9 @@
 }
 
 #let gen_crossword(
-  json_file,
+  toml_file,
 ) = {
-  let data = json(json_file)
+  let data = toml(toml_file)
   let size = data.at("size")
   let blanks = data.at("blanks")
   let locations = ()
@@ -488,9 +495,9 @@
 
 
 #let crossword_solution(
-  json_file,
+  toml_file,
 ) = {
-  let data = json(json_file)
+  let data = toml(toml_file)
   let locations = ()
   for (k,v) in data.at("down") {
     locations.push(v.at(0))
