@@ -1,6 +1,6 @@
 // font defaults
 #let main-font = "Merriweather"
-#let math-font = "New Computer Modern Math"
+#let math-font = "Noto Sans Math"
 #let heading-font = "Neuton"
 #let outline-font = "Barlow"
 #let author-font = "Lato"
@@ -18,7 +18,6 @@
 #let line-spacing = 0.5em
 #let paragraph-spacing = 1.2em
 #let heading2-spacing = 0.4em
-#let heroImage-height = 60%
 #let backCover-caption-size = 1.2em
 
 // page layout
@@ -67,11 +66,11 @@
 #let outline-headings-color = rgb("454545")
 #let contents-weight = "semibold"
 #let outline-size = 1.5em
-#let category-colors = ("art": rgb("70b23f"), "int": rgb("36454f"), "meta": rgb("DAA520"), "cas": rgb("913831"))
+#let category-colors = ("art": rgb("70b23f"), "int": rgb("0000aa"), "meta": rgb("DAA520"), "cas": rgb("913831"))
 
 // interviews
 #let boldweight = "bold"
-#let boldcolor = outline-headings-color
+#let questionColor = rgb("000042")
 #let separatorStroke = line(length: 60%, stroke: 0.3em + header-bg-color) + v(0.5em)
 
 // research summary
