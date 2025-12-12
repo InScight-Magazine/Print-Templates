@@ -114,7 +114,6 @@ set page(
   numCols: 2,
   authorInfo: none,
   authorImage: none,
-  authorImageWidth: 50%,
   refsFile: none,
   reviewedBy: none,
   category: none,

@@ -8,7 +8,6 @@
 #let authorImage = "apurba.jpg"
 #let authorInfo = "*Apurba Das* is a recent PhD graduate from Lysosome Biology and Related Disease lab at Department of Biological Sciences, IISER Kolkata, under the guidance of Prof. Rupak Datta. She is interested in understanding neurodegeneration, lysosomal storage disorders, and rare diseases."
 #let received = (month: 10, day: 12, year: 2025)
-#let category = "Physics"
 #let reviewedBy = ("Ayan Biswas", "Debanuj Chatterjee") 
 #let refsFile = "/dataFiles/apurba.yml"
 
@@ -23,9 +22,6 @@
   sideImageFraction: 35%,
   authorImage: "/authFaces/" + authorImage,
   authorInfo: authorInfo,
-  authorImageWidth: (40%,40%),
-  type: "art",
-  category: category,
   received: received,
   reviewedBy: reviewedBy,
   refsFile: refsFile,
