@@ -124,7 +124,6 @@ set page(
   outlineDesc: none,
   permalinkSuffix: none,
   locator: none,
-  type: none,
   coverHeight: 60%,
   content
 ) = {
@@ -348,7 +347,6 @@ content
     title: title,
     numCols: 1,
     permalinkSuffix: "quiz",
-    type: "cas",
     content
   )
 }
@@ -644,7 +642,6 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
     title: title,
     numCols: 1,
     permalinkSuffix: "whoami",
-    type: "cas",
     content
   )
 }
