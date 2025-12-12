@@ -3,48 +3,63 @@
     header: none,
     footer: none,
     margin: 0em,
-    background: image("/covers/front2.svg", height: 100%, width: 100%, fit: "cover")
+    background: image("/covers/tanmoy.png", height: 100%, width: 100%, fit: "cover")
 )
-#set text(fill: rgb("ddd"), font: "Neuton SC")
-#set par(leading: 0.2em, justify: false)
-#place(
+
+#set text(fill: rgb("ddd"))
+#set par(leading: 0.15em, spacing: 0.25em, justify: false)
+#{
+set text(font: "Neuton SC")
+place(
   center,
   dy: 6em,
-  image("/covers/lightBanner.svg", width: 50%) + 
-  // v(1em) +
+  image("/covers/lightBanner.png", width: 70%) + 
+  v(2em) +
   grid(
     columns: (auto, auto),
     align: center + horizon,
     gutter: 5em,
-    text(size: 1.8em, weight: "bold", [The IISER Kolkata \ Science Magazine]),
-    text(size: 1.8em, weight: "bold", "#4 | July 2025"),
+    text(size: 2.3em, weight: "bold", [The IISER Kolkata Science Magazine]),
+    text(size: 2.3em, weight: "bold", [\##yaml("/dataFiles/issueData.yml").number | #yaml("/dataFiles/issueData.yml").time]),
   )
 )
+}
 
-#set text(font: "Neuton")
-#set par(leading: 0.15em, spacing: 0.25em)
-#place(
-  center + bottom,
+#link(<Sharanya-2025>)[
+  #set text(font: "Neuton", size: 2.4em, weight: "bold")
+  #place(
+  left + horizon,
+  dx: 1em,
   dy: -2em,
-  box(width: 100% - 7em,
-  grid(
-    columns: (1fr, auto, 1fr, auto, 1fr),
-    align: center + horizon,
-    // stroke: (x,y) => if x < 2 { (right: 0.2em + white) },
-    gutter: 1em,
-    text(size: 1.3em, [*THROUGH THE EYES OF \ THE FOUNDING DIRECTOR* #parbreak() Interview with Prof. Dattagupta]),
-    line(angle: 90deg, length: 5em, stroke: 0.2em + white),
-    text(size: 1.3em, [*A CENTURY OF \ QUANTUM MECHANICS*#parbreak() From Paradoxes to Possibilities]),
-    line(angle: 90deg, length: 5em, stroke: 0.2em + white),
-    text(size: 1.3em, [*THE QUEST FOR THE \ SEA'S BLUE*#parbreak() Comic on the Raman Effect]),
-  )
+  box(width: 220pt,
+    [THE PHYSICS OF FORGETTING #parbreak() When Information Becomes Heat #parbreak() #text(fill: yellow, [Tanmoy Pandit])]
   )
 )
+]
 
-// #place(
-//   center + bottom,
-//   dy: -3em,
-//   text(size: 1.6em, weight: "bold", [\[#link("https://scicomm.iiserkol.ac.in")[scicomm.iiserkol.ac.in]\]]),
-// )
+#link(<Sharanya-2025>)[
+  #set text(font: "Neuton", size: 2.4em, weight: "bold")
+  #place(
+  right + horizon,
+  dx: -1em,
+  dy: 4em,
+  box(width: 190pt,
+    [BREAKING THE ICE #parbreak() India's First Women In Antarctica #parbreak() #text(fill: yellow, [comic by Arya Mhatre])]
+  )
+)
+]
+
+
+#link(<Sharanya-2025>)[
+  #set text(font: "Neuton", size: 2.4em, weight: "bold")
+  #place(
+  left + horizon,
+  dx: 1em,
+  dy: 10em,
+  box(width: 190pt,
+    [THEMED CROSSWORD #parbreak() #text(fill: yellow, [Women In Science])]
+  )
+)
+]
 
 #pagebreak()

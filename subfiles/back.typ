@@ -6,7 +6,7 @@
   )
 
 #backCover(
-  images: ("/images/back1.jpeg", "/images/back2.jpg", "/images/back3.JPG"),
-  titles: ("Tradition and Modernity", "Germination", "The Prisoner of Conscience"),
-  captions: ([A Dazzling Fusion of Culture and Creativity - IISER Kolkata's Fashion Show Celebrates Bold Expression and Timeless Aesthetics. _Credit: Jibitesh Das_], [On the occasion the _20th Institute Foundation Day_ and the Open House event with science exhibition organized was attended by more than 1000 students from neighbouring  schools with  lots of excitement. _Credit: IISER Kolkata_], [A still from the IICM 2024 stage act. _Credit: Swarnendu_])
+  images: ("/images/back1.jpg", "/images/back2.jpg", "/images/back3.JPG"),
+  titles: ("Stride of Unity", "Checkmate Chronicles", "The Science Carnival"),
+  captions: ([A spirited celebration of National Sports Day as students and faculty joined together for the Freedom Run Marathon, embodying unity, health, and enthusiasm across the IISER Kolkata campus. _Credit: IISER Kolkata_], [Snapshots from the Chess Club Tournament — IISER Kolkata’s chess enthusiasts showcasing strategic brilliance, camaraderie, and the thrill of mind games in action. _Credit: IISER Kolkata_], [An exciting water rocket event from Inquivesta where engineering ingenuity, teamwork and pure excitement meet. _Credit: Inquivesta_])
 )

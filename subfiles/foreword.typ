@@ -2,32 +2,34 @@
 
 #show: section.with(
   issueDetails: yaml("/dataFiles/issueData.yml"),
-  title: "The Celebration of Science For A Better Future", 
-  intro: [_Foreword by Prof. Tapas Kumar Sengupta_],
-  outlineDesc: "Foreword by Prof. Tapas Kumar Sengupta",
+  title: "Lighting the Spark of Science Communication", 
+  intro: [_Foreword by Soumitra Banerjee_],
+  outlineDesc: "Foreword by Prof. Soumitra Banerjee",
   permalinkSuffix: "foreword",
 )
 
-#place(
-  auto,
-  float: true,
-  scope: "parent",
-  grid(
-    columns: (1.2fr, 1.8fr),
-    gutter: 3em,
-    align(left, [Science is the celebration of unravelling the mysteries of our evolving universe. Unravelling the existence and functions of galaxies involved in formation of stars, planets and evolution of life itself on our beloved blue planet. Through observations, studies and discoveries of the true facts we practise science in our everyday life. Our scientific studies made us able to understand the importance of the ecosystem and its conservation, necessity of food production and storage, combating and preventing diseases and innovation of new, better and safer therapy, safer energy production and its sustainability, faster communication and making artificial intelligence as a new tool.
+I warmly welcome the initiative of the IISER student community to publish the popular science magazine _InScight_. Popular science has the remarkable ability to spark curiosity in young minds and inspire schoolchildren to pursue careers in science. It also plays a vital role in educating the general public about genuine scientific ideas, helping them distinguish science from pseudoscience. This is truly the need of the hour if we aspire to build India into a scientifically informed nation. Yet, India faces a shortage of quality popular science writers; we have not seen the emergence of authors comparable to George Gamow, Carl Sagan, Isaac Asimov, or Richard Dawkins.
 
-    As we cannot freeze any condition forever, contentious studies and scientific experimentations are required to understand the ever-changing ecosystem and need of our civilization and to come up with more and more innovations in order to address those changes to make our planet more habitable.]),
+Excellence in any craft demands continuous practice, and popular science writing is no exception. No one is born with the ability to communicate science compellingly. One must learn from the works of the great masters—observe their style, structure, and clarity—and then practice consistently. But such practice thrives only when there is a platform to showcase it. I hope _InScight_ will become that platform for budding popular science communicators.
 
-    figure(image("/covers/sukalyan.jpg"), caption: [Knots are hard to untie, making them robust. #pageLink(<Sukalyan-Devices>, [Sukalyan Deb's article]) explores how similar robustness emerges in properties of certain quantum systems.], supplement: "", numbering: none)
-  ) +
-  v(2em) +
-  grid(
-    columns: (1.8fr, 1.2fr),
-    gutter: 2em,
-    figure(image("/covers/sukalyan.jpg"), caption: [Knots are hard to untie, making them robust. #pageLink(<Sukalyan-Devices>, [Sukalyan Deb's article]) explores how similar robustness emerges in properties of certain quantum systems.], supplement: "", numbering: none),
-    align(left, [For that, besides the traditional scientific studies and standard scientific research, out of the box thinking is required for seeding and cultivating young minds for innovations. Let _InScight_ be the platform for the Insight of our future to seed, cultivate and nurture the open minds and unbound thoughts of the young scientists.
+India also lags behind advanced nations in another crucial area: science journalism. Very few Indian newspapers employ dedicated science journalists, and consequently, scientific breakthroughs achieved within the country seldom reach the wider public. I sincerely hope that some IISER students will consider science journalism as a career path. Here too, a medium is needed for students to develop and refine their journalistic skills, and I trust that _InScight_ will help fill this gap.
 
-  After the first release of _InScight_ in the month of January in 2025, this journey is going on with a clear motivation and with fullest energy and enthusiasm to publish the fourth issue. My sincere thanks to the InScight team for having such an endeavour.  Keep going, keep doing and thinking about science. Very best wishes to the team InScight.])
-  )
+The November 2025 issue presents an engaging spectrum of topics—from physics to biology—and I am confident that readers will find it both enlightening and enjoyable.
+
+*Prof. Soumitra Banerjee*,\
+Retired Professor,
+Department of Physical Sciences,\
+IISER Kolkata
+
+
+#figure(
+  image("../covers/bose.svg", width: 90%),
+  caption: [Gautam Basu traces Jagadish Chandra Bose’s extraordinary scientific evolution - from pioneering wireless communication to founding the field of biophysics. Read the #link(<Gautam-Biophysicist>)[article] to find out more.],
 )
+
+#v(1fr)
+#figure(
+  image("../covers/AAN.jpg", width: 90%),
+  caption: [From a financially humble childhood, doing odd jobs to fund his education, to becoming a scientist shaped by Germany, industry, and decades at NCL, #link(<Swarnendu-Natu>)[this interview] with Prof. Arvind Natu brings out the inner self of the current top most office holder of IISER Kolkata, the chairperson of the Board of Governors.],
+)
+#v(1fr)

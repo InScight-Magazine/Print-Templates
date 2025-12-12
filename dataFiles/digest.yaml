@@ -1,92 +1,101 @@
 - 
-  "Author": "Debanuj Chatterjee"
-  "Affiliation": "University of Lille, France"
-  "Title": "Fast and precise atmospheric sensing over 100 km open path"
-  "Summary": "Dual comb spectroscopy (DCS) is a powerful optical sensing technique that leverages two laser frequency combs, to measure gas absorption with high speed and sensitivity. By precisely determining the absorption frequencies of the sample, across a broad spectral range, DCS can detect trace gases like carbon dioxide (CO#sub[2]) and water vapor (H#sub[2]O) in the atmosphere with sub-ppm precision. This makes it ideal for applications in climate science, especially relevant for air quality monitoring, greenhouse gas emissions tracking, etc.
+  "Author": "Aniket Bajaj"
+  "Affiliation": "Department of Physical Sciences, IISER Kolkata"
+  "Title": "Thermal-breach memory: Harnessing metastability for sensing to artificial neurons"
+  "Summary": "In everyday life, memories often surface in unexpected and seemingly random ways. Interestingly, various forms of memory have also been identified in the physical world—ranging from magnetic systems and shape memory alloys to emerging fields like neuromorphic computing. In these systems, \"memory\" refers to the dependence of a system's current state on its history, often manifesting as multivalued or path-dependent behaviour. A system that has not yet fully relaxed to equilibrium can retain information about its creation or prior states, while one that has reached equilibrium loses all traces of its past—the act of equilibration effectively erases its memory.
 
 
-Traditionally, the reach of DCS when performed in open path has been limited to distances under 20 km due to significant signal loss and technical constraints, such as the need for highly reflective mirrors, high atmospheric turbulence, etc. However, last year, in a landmark advancement, researchers from the University of Science and Technology of China have now extended DCS to a staggering 113 km open-air horizontal path; nearly six times longer than previous records.
+Recently, our group, led by Prof. B. Bansal, has identified a novel form of memory in phase change materials, coined as thermal-breach memory. Initially, in collaboration with Prof. D. D. Sarma’s group at IISc Bangalore, we discovered this phenomenon in a well-known halide perovskite material (MAPbI3) which has thermally-induced phase change at low temperatures (~ 150 K). And later, by recognizing the broad potential of this memory effect; we collaborated with Prof. D. K. Shukla’s group at UGC-DAE CSR, Indore; to establish this fundamental concept for room temperature applications using another phase change material, vanadium dioxide (VO2). 
 
 
-To achieve this, the team utilized a novel bistatic configuration, placing one frequency comb at each end of the path and transmitting light bidirectionally through the atmosphere without the need for reflectors. Each comb was synchronized to a rubidium atomic clock, acting as a local timing reference. The system incorporated high-power (1 W) optical frequency combs, stable telescopes, and real-time data acquisition to overcome atmospheric turbulence and extreme signal attenuation, going up to 83 dB.The experiment, conducted between two mountain sites in the Xinjiang, provice of China, viz. Nanshan and Gaoyazi, successfully measured absorption spectra of CO#sub[2] and H#sub[2]O over a 7 nm bandwidth and a frequency accuracy of 10 kHz. The system achieved CO#sub[2] detection sensitivities better than 2 ppm in just 5 minutes and below 0.6 ppm in 36 minutes; a remarkable performance for such a long-range setup.
+These materials exhibit a key characteristic during their phase transition—hysteresis—where the phase fraction follows different paths depending on whether the external parameter (in this case, temperature) is increasing or decreasing (see figure). Memory effects require the system to be in a non-equilibrium state, which corresponds to the hysteretic (metastable) region. And we found that when the system is held within this coexistence region at a constant temperature, the metastable phase becomes \"frozen,\" showing no further progression toward the stable phase. If some perturbation is given to these isothermal conditions, one can track the breach by monitoring the corresponding behaviour of the frozen phase because its response to the given perturbation depends on the history of its creation (prepared while heating or cooling, see figure). This distinct behaviour enables the detection of thermal breaches as small as one degree.
 
 
-This breakthrough not only validates DCS for ultra-long-range sensing but also opens a plethora of possibilities for a diverse set of technological advancements. A curious reader would ask, if one can perform DCS over 100 km path in the turbulent atmosphere, why not shoot it towards the sky? Can the dual comb reach the ionosphere (50 km) and get reflected with only the radio wave content? Can it lay the foundation for future satellite-ground dual comb links? Can it perform high-precision monitoring of greenhouse gases from geostationary orbits? I leave the numerous possibilities to the fancy of your imagination!"
-  "Reference": "Han, JJ., Zhong, W., Zhao, RC. et al. Nat. Photon. 18, 1195–1202 (2024)"
-  "Url": "https://www.nature.com/articles/s41566-024-01525-9"
-  "Image": "debanujDigest.png"
-  "Caption": "Google Earth view of the DCS path of 113 km running from Nanshan to Gaoyazi in China."
+Thus, athermal states in phase change materials enable thermal-breach memory, by detecting small thermal breaches via distinct response of its phase fraction, offering stable, sensitive operation for sensor and neuromorphic applications."
+  "Reference": "Aniket Bajaj, Satyaki Kundu, Shikha Sahu, D. K. Shukla, Bhavtosh Bansal. Appl. Phys. Lett. 127, 021902 (2025)"
+  "Url": "https://doi.org/10.1063/5.0276973"
+  "Image": "aniket.svg"
+  "Caption": "Encoding-decoding of thermal-breach memory: Materials such as MAPbI3 and VO2 exhibit hysteresis during their phase transition, where the phase fraction follows different paths depending on whether the external parameter (here, temperature) is increasing or decreasing. This gives rise to a phase-coexistence region (as shown with shaded area). We found that when the system is brought into this region via heating (dotted red) or cooling (dotted blue) and held at a constant temperature, the metastable phase becomes frozen (red and blue square), showing no further evolution toward the stable phase. And further, upon introducing a small perturbation under these isothermal conditions, the decoding occurs: the response of the frozen phase depends on its thermal history. This history-dependent, distinct response enables detection of thermal breaches and highlights the potential of such systems for sensing and neuromorphic computing applications. Adapted from reference."
   "Keywords":
-    - dual-comb spectroscopy
-    - environmental sensing
-    - frequency comb
-    - spectroscopy
-- 
-  "Author": "Chitradeep Saha"
-  "Image": "chitradeepDigest.png"
-  "Caption": "A plot showing the variation of Carbon 14 production rate (top two panels), and solar modulation potential -- a measure of solar magnetic activity (bottom two panels) during 1000-1 BCE. Vertical shaded regions depict the two solar grand minima events. Notably, Carbon 14 production goes up during the reduced solar activity phases, and vice-versa."
-  "Affiliation": "CESSI, IISER Kolkata"
-  "Title": "Tree rings unlock the sun's age old secrets"
-  "Summary": "The oldest telescopic observation of the sun is only four centuries old. Thanks to nature's silent archivists, it is possible to unveil how this star behaved multiple millennia ago. Tree rings are one such natural reservoir that keeps a record of the time. Cosmogenic isotope contents in old tree rings carry imprints of the terrestrial climate, which in turn is modulated by the sun's magnetic activity. A more magnetically active sun sweeps away galactic cosmic rays more vigorously. As a consequence, the production rate of radioactive isotopes in the earth’s atmosphere goes down. This results in a reduced amount of Carbon-14 deposition in the tree rings during the period of enhanced solar activity, and vice-versa. Recently, scientists have used precise dendrochronological techniques to retrieve the sun's magnetic behaviour during the first millennium BCE with an unprecedented resolution of annual time scale. They have successfully detected a strong decennial timescale signal in the isotope data, as expected from current understanding of the solar cycles. Besides, their analysis hints towards possible occurrences of two solar grand minimum episodes during this period. Solar grand minima are phases of prolonged magnetic quiescence on the sun. These findings have implications for a better understanding of solar-stellar magnetism."
-  "Reference": "Brehm, N., Pearson, C.L., Christl, M. et al. Nat Commun 16, 406 (2025)"
-  "Url": "https://doi.org/10.1038/s41467-024-55757-y"
-  "Keywords":
-   - Paleoclimatology
-   - Dendrochronology
-   - Solar Magnetic Variabilty
-- 
-  "Author": "Madhura Narayan Joshi"
-  "Image": "madhurajoshiDigest.png"
-  "Caption": "Schematic of overturning circulation in modern(upper) and LGM(lower) highlighting change through time. The blue ribbon is indicative of Antarctic bottom water, green indicate North Atlantic deep water, red indicates Indian and Pacific ocean deep waters and orange indicates Antarctic intermediate waters. The black dashed line is an isopycnal which separates two branches of circulation in Southern Ocean. ℓ1 is the distance between the northernmost latitude reached by the ACC, indicated by a solid gray line, and the quasi-permanent sea ice line. The ragged gray line is the crest of the main bathymetric features of the Pacific and Indian ocean basins: mixing is enhanced below this line. The extent of the quasi-permanent sea ice line has shifted equatorward compared with modern climate ðℓ2 < ℓ1Þ. Mixing-driven upwelling of abyssal waters is confined below 2 km and it cannot lift waters high enough to upwell north of the ice line. As a result the abyssal overturning circulation closes on itself, leaving above a small overturning cell of North Atlantic waters."
-  "Affiliation": "22MS, IISER Kolkata"
-  "Title": "How does Antarctic sea ice and circulation change fate of global CO#sub[2] levels"
-  "Summary": "One of the key indicators of climate change is global warming — often discussed in academic circles and increasingly felt in daily life. A major driver of this warming is the rising concentration of atmospheric CO#sub[2] over recent decades. Oceans, which store about 90% of Earth’s carbon (combined oceanic, atmospheric, and terrestrial), play a vital role in regulating the carbon cycle and influencing climate.
-
-
-During the Last Glacial Maximum (LGM), around 25,000 to 20,000 years ago, Earth’s surface was 3–6 °C colder, atmospheric CO#sub[2] levels were 80–90 ppm lower, and vast ice sheets and sea ice covered the poles. Unlike the modern ocean, where Arctic-origin waters dominate and Antarctic waters occupy depths below 4 km, LGM oceans were filled with Antarctic-sourced waters up to 2 km, compressing northern water masses into shallower layers. This reorganization of deep water circulation reduced CO#sub[2] escape from the ocean surface and drew down atmospheric concentrations by 10–20 ppm.
-
-
-Previously, these shifts were seen as a sum of individual physical changes — altered currents, increased layering, and less CO#sub[2] outgassing from the Southern Ocean. Several mechanisms contributed: an equatorward shift of the Southern Hemisphere westerlies weakened upwelling of deeper water, increased stratification acted like a lid on carbon venting, expanded sea ice reduced air-sea exchange, and reduced mixing between northern and southern waters limited carbon leakage.
-
-
-Overturning circulation is a large-scale movement of ocean water where warmer, lighter surface waters move toward the poles, cool, and sink to form deep currents that eventually return to the surface. This circulation is driven by two main factors: flow along isopycnals (surfaces of equal density) and surface buoyancy flux — which reflects whether water in a region is becoming lighter (due to warming or precipitation) or denser (due to cooling, brine rejection, or evaporation). These isopycnals slope steeply at high latitudes, and a key one  the 27.9 kg/m³ isopycnal which separates the shallow and deep overturning branches in the Southern Ocean.
-
-
-In today’s climate, the sea ice edge stays close to Antarctica, and the isopycnal plunges below 2 km before reaching ocean basins. There, it intersects topography like ridges and seamounts, enhancing mixing and connecting the two branches into a single, figure-eight-like circulation. However, during the LGM, the summer sea ice line shifted northward by about 500 km. The isopycnal followed, shoaling above 2 km and avoiding major topography. Without significant mixing, the circulation split into two separate loops: deep Antarctic waters recirculated beneath the ice, while northern-sourced waters looped above. This vertical separation helped trap carbon in the deep ocean."
-  "Reference": "R. Ferrari,M.F. Jansen,J.F. Adkins,A. Burke,A.L. Stewart,& A.F. Thompson,  Antarctic sea ice control on ocean circulation in present and glacial climates, Proc. Natl. Acad. Sci. U.S.A. 111 (24) 8753-8758 (2014)"
-  "Url": "https://doi.org/10.1073/pnas.1323922111"
-  "Keywords":
-    - Last glacial maxima
-    - Carbon storage
-    - Antarctic sea ice
-    - Ocean Circulation
-    - Isopycnal slope
-
+    - Phase transitions
+    - Strongly correlated electron systems
+    - Nonvolatile memory
 - 
   "Author": "Swarnendu Saha"
-  "Title": "Old carbon routed from land to the atmosphere by global river systems"
-  "Affiliation": "Department of Physical Sciences, IISER Kolkata"
-  "Image": "swarnenduDigest.png"
-  "Caption": "a) In the earlier model, it was believed that river carbon dioxide (CO#sub[2]) was mainly released from young, fast-cycling carbon — recently captured by plants (referred to as decadal-aged, shown in green). A smaller portion was considered to come from rocks (petrogenic carbon, shown in grey). Based on this understanding, it was estimated that about 1.7 billion tons of human-caused CO#sub[2] per year was being absorbed and stored in forests and soils. b) In the revised model, new measurements of carbon age in rivers (using radiocarbon data) revealed that much of the CO#sub[2] released by rivers is from older sources — carbon stored for thousands of years. This old carbon is believed to be released from deeper soils and weathered rocks. As a result, it is now recognized that rivers act as a pathway through which ancient carbon is lost from the land to the atmosphere. This finding requires a change in how Earth's carbon storage is understood and how human CO#sub[2] emissions are tracked."
-  "Summary": "We usually think of rivers as part of the modern carbon cycle — transporting carbon that plants have recently absorbed from the atmosphere. But this new study reveals that rivers also act as a hidden highway, carrying very old carbon — hundreds to thousands of years old — from land into the air.
+  "Title": "Listening to Rivers: How Stream flow Can Help Us Understand Rainfall Better"
+  "Affiliation": "Department of Physical Sciences, IISER Kolkata (20MS)"
+  "Image": "swarnendu.png"
+  "Caption": "Schematic overview of the study’s inverse modelling approach and validation steps for improving precipitation estimates using stream flow discharge. The left panel shows two neural network setups for “Inverse experiments”: the top network predicts precipitation using only meteorological and static inputs, while the bottom network additionally uses discharge as input, illustrating the novel approach of inferring precipitation from stream flow. The right side is divided into three validation sections: the top (“Continental Scale Analysis”) displays application across European catchments; the middle (“Out of Sample Test”) demonstrates independent validation; the bottom (“Hydrological Modelling”) shows how the discharge-informed precipitation feeds hydrological models (HBV, CATFLOW) for simulating soil moisture and stream flow. Together, these subplots capture the workflow from inverse prediction, large-scale and site-specific validation, to testing hydrological consequences. Adapted from reference."
+  "Summary": "Understanding rainfall is key for managing water, predicting floods, and studying climate—but measuring it directly is tricky. Rain gauges and satellites often miss details or have errors. This paper explores a creative idea: can we use the water flowing out of rivers (stream flow) to better estimate how much rain actually fell in a region? In other words, can we trace rainfall backward from the river’s response?
 
 
-Scientists examined over 1,100 samples from rivers all over the world, looking at the type of carbon gases (CO#sub[2] and CH#sub[4]) being released into the air. By measuring radiocarbon (a kind of natural carbon dating), they could determine how “old” the carbon was. Surprisingly, nearly 60% of river CO#sub[2] emissions were found to come from millennia-old carbon, not recent plant activity.
+This sounds simple but isn’t. Stream flow depends not only on rain, but also on evaporation, soil moisture, and groundwater—all of which mix together in complicated ways. Many different rain patterns can produce similar river flows, so working backward to find the exact rainfall is impossible. Instead, the researchers aim to estimate the average rainfall over a catchment, which is more realistic and useful.
 
 
-This “old” carbon comes from deep in the soil, sediments, and even from ancient rocks. Rain and groundwater erode and carry this carbon into rivers, which then release it into the atmosphere. The amount of old carbon released — around 1.2 billion tons per year — is nearly as much as all the carbon plants worldwide absorb from the atmosphere in a year.
+To tackle this, they use a type of artificial intelligence called an LSTM (Long Short-Term Memory) neural network. It’s good at handling time-dependent data, like how rivers respond to rain with delays. They train two models: one predicts rainfall using weather data such as temperature and humidity, while the other adds river discharge information. Comparing the two shows whether including river data actually helps.
 
 
-Different factors affect how much old carbon a river releases. Rivers in areas with sedimentary rocks, like limestone, or those in high mountain regions, were more likely to release older carbon. Large rivers also showed older carbon emissions, which challenges the common belief that only small rivers are affected by old carbon sources.
+The results are promising. The model that includes streamflow performs about 20% better in estimating rainfall, especially in areas with good data. However, it slightly underestimates rainfall overall, meaning some adjustments are still needed. When these improved rainfall estimates are used in hydrological models, they better match real-world observations of soil moisture and floods—showing that this method captures important water-cycle behavior.
 
 
-These findings mean that current climate models and carbon budgets may be underestimating how much ancient carbon is being released. Old carbon, once locked in the earth, is now entering the modern carbon cycle — potentially speeding up climate change.
+The authors note that the approach relies on good-quality data and could benefit from newer AI techniques in the future. Still, their work demonstrates a powerful concept: using river flow (the effect) to learn about rainfall (the cause). It’s a fresh way of combining machine learning with hydrology—looking at the water cycle in reverse—to improve rainfall estimates where observations are limited.
 
 
-This study suggests we need to rethink how rivers fit into the global carbon puzzle. Rivers are not just channels for young, fresh carbon. They are also leaks for ancient carbon stores, and this has major implications for how we understand and manage Earth’s carbon balance."
+In short, the study shows how “listening” to rivers can help us better understand the rain that feeds them, offering a smart and practical step forward for water and climate science."
   "Reference": "Dean, J.F., Coxon, G., Zheng, Y. et al. Old carbon routed from land to the atmosphere by global river systems. Nature 642, 105–111 (2025)"
   "Url": "https://doi.org/10.1038/s41586-025-09023-w"
   "Keywords":
    - River CO#sub[2] emissions
    - Radiocarbon dating
    - Global carbon cycle
+- 
+  "Author": "Suman Haldar"
+  "Title": "What do the fundamental constants of physics tell us about life?"
+  "Affiliation": "Department of Physical Sciences, IISER Kolkata"
+  "Image": "suman.svg"
+  "Caption": "Characterizing chemical self-replicators. (a) Self-replication requires organisms to break down food molecules from the environment to extract energy and metabolic precursors (catabolism) and then use this energy to synthesize the complex molecules necessary for selfreplication (anabolism). (b) We focus on three properties of self-replication: (i) the mass per unit energy consumed needed to self-replicate, (ii) the time it takes for self-replication, and (iii) the energy per unit time a dormant cell must expend in order to stay alive and counter entropic forces. Adapted from reference."
+  "Summary": "In this extraordinary work by Pankaj Mehta and Jané Kondev, physics reaches toward the living world with the same audacity Weisskopf once used to estimate the height of mountains. Half a century ago Weisskopf showed that with just six physical constants—ℏ, c, e, mₑ, mₚ, Gₙ—the universe allowed one to estimate densities, mountain heights, stable matter. But life was missing from that program. This paper attempts the most radical extension: to put “life” itself inside the Weisskopf reasoning game. To ask: how much of biology can be read directly from quantum constants? How much inevitability is buried inside the Rydberg energy? How much universality does α, mₑ / mₚ impose on metabolism and replication?
+
+
+Life on Earth is, fundamentally, electrons falling downhill toward lower energy states. Szent-Gyorgi called life a high-energy electron searching for a place to rest — this paper takes that statement literally and quantitatively. The authors argue that three essential biological numbers — growth yield, minimum possible doubling time, and the minimum maintenance power of dormancy — can all be derived from fundamental constants plus a few geometric/structural fudge factors. The Rydberg energy (~13.6 eV) and Bohr radius (~0.53 Å) define the quantum base units of chemistry. Thermal fluctuations (kBT ~ 25 meV) are orders of magnitude lower — this gigantic asymmetry explains why chemistry is stable, why catalysts exist, why biological time must scale between these two worlds (quantum & thermal).
+
+
+From this, they estimate the yield Y: mass (g) produced per Joule consumed. Using only α, Ry, molecular atomic numbers and bond fudge factors, they get ~10⁻⁵–10⁻⁴ g/J — astonishingly matching microbes on Earth. This, they argue, may be universal, even for alien life, because it is not exponentially sensitive to activation energy — unlike kinetics.
+
+
+Minimum doubling time emerges from the interplay of quantum-set minimum viscosity (Berg viscosity) and diffusion-limited kinetics. With Arrhenius activation barriers of 0.4–1.1 eV, one gets doubling times from seconds to geological years — perfectly spanning Vibrio natriegens (~10 minutes) to deep-ocean microbes (~years). And finally, dormant power — arises simply from thermally-opened membrane pores leaking charge requiring pumping — giving ~10⁻¹³ –10⁻¹⁵ J/s/cell, exactly the natural order biological measurements report.
+
+
+The result is profound: evolution explores details, but the gross “possibility space” of life is already sharply bounded by physics itself long before chemistry, DNA, or selection. The production of biomass, the speed of replication, the lowest energy to stay alive — are already written in the constants of nature. Growth yield is the least free, most universal property of life. This is not biology derived from empirical catalogs — this is life emerging almost poetically from ℏ, α, mₑ, mₚ. Physics gives life a skeleton before evolution gives life a story."
+  "Reference": "Mehta, Pankaj, and Jane Kondev. What do the fundamental constants of physics tell us about life?. arXiv preprint arXiv:2509.09892 (2025)."
+  "Url": "https://arxiv.org/abs/2509.09892"
+  "Keywords":
+    - Biological Physics
+    - Earth and Planetary Astrophysics
+    - Statistical Mechanics
+- 
+  "Author": "Ashish Ramesh NT"
+  "Title": "From the Arctic to India: Understanding How Barents–Kara Sea Ice Influences the Monsoon"
+  "Affiliation": "IIT Roorkee"
+  "Image": "ashish.png"
+  "Caption": "This schematic shows how melting Arctic sea ice can influence the Indian Summer Monsoon. When spring sea ice in the Barents–Kara region decreases, the Arctic warms more quickly and more heat is exchanged between the ocean and atmosphere. This extra warming disrupts the polar vortex and changes the behaviour of large atmospheric waves and jet streams. These altered jet streams then move southward and affect the circulation over Asia. By the time this disturbance reaches India, it leads to increased sinking of air over the Indo-Gangetic Plain, which reduces upward motion and makes it harder for clouds and rainfall to form. Overall, the figure explains how changes in Arctic sea ice can indirectly weaken monsoon rainfall over northern India. Adapted from reference."
+  "Summary": "The Arctic is warming faster than any other region on Earth, and one of the clearest signs of this rapid change is the steady decline of sea ice. Among the various Arctic seas, the Barents–Kara (B–K) Sea, located north of Russia, has been identified as a particularly sensitive region where warming and ice loss occur rapidly. This study explores how variations in spring sea ice in the B–K region influence the behaviour of the Indian Summer Monsoon Rainfall (ISMR), which is vital for the climate, agriculture, and economy of India.
+
+
+To investigate this link, the researchers examined climate data spanning more than six decades, from 1959 to 2021. They created a springtime sea ice index for the B–K region and identified years with unusually low and unusually high sea ice. They then analysed how the monsoon behaved during the following summer in each of these contrasting years.
+
+
+The study found a clear and consistent relationship between spring Arctic sea ice conditions and the strength of the Indian monsoon. During years with low sea ice in the B–K region, the exposed ocean water absorbs more heat, warming the lower atmosphere and reducing surface pressure. This thermal and pressure imbalance helps generate disturbances that travel across continents as large-scale atmospheric waves. These waves modify the position and strength of the subtropical westerly jet stream during the Indian monsoon season. In low-ice years, the jet stream shifts slightly southward and encourages sinking air over northern India, especially across the Indo-Gangetic Plain. This downward motion suppresses the vertical movement of moist air, limits cloud development, and ultimately weakens monsoon rainfall in one of India’s most important agricultural zones.
+
+
+In contrast, years with higher-than-usual spring sea ice show an opposite response. A colder Arctic surface supports higher pressure and different atmospheric wave patterns, which help strengthen upper-level divergence and promote rising motion over northern India. These conditions favour stronger monsoon circulation, enhanced moisture transport and increased rainfall, particularly in the Indo-Gangetic Plain and parts of Northeast India.
+
+
+The findings highlight how tightly connected the world’s climate systems are. Though India’s monsoon is strongly influenced by tropical factors such as the Indian Ocean, ENSO, and land–sea thermal contrasts, this research demonstrates that conditions in the faraway Arctic also exert an important influence. This has significant implications for water resources, agriculture, and long-term planning. The study suggests that including Arctic indicators in monsoon prediction models could help improve seasonal forecasts and deepen our understanding of global climate linkages."
+  "Reference": "Sardana, D., Agarwal, A. Impact of spring sea ice variability in the Barents–Kara region on the Indian Summer Monsoon Rainfall. Sci Rep 15, 37790 (2025)"
+  "Url": "https://www.nature.com/articles/s41598-025-21544-y"
+  "Keywords":
+    - Arctic Sea Ice
+    - Barents–Kara Region
+    - Indian Summer Monsoon
+    - Teleconnections

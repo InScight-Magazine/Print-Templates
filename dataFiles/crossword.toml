@@ -1,0 +1,17 @@
+size = 11
+blanks = [55, 66, 77, 88, 99, 110, 1, 12, 23, 34, 56, 67, 78, 89, 100, 2, 13, 90, 101, 3, 25, 36, 58, 80, 102, 59, 81, 103, 5, 27, 38, 60, 6, 28, 39, 50, 61, 83, 105, 116, 7, 29, 40, 51, 62, 84, 106, 117, 107, 118, 9, 20, 31, 42, 53, 64, 86, 108, 119, 10, 98, 109, 120]
+
+[across]
+CURIE = [111, "Pioneering chemist and physicist who discovered polonium and radium."]
+KADAMBINI = [68, "One of the first Indian women doctors; pioneer in medicine and women’s education."]
+MEITNER = [91, "Austrian–Swedish physicist who co-discovered nuclear fission."]
+SUNITA = [14, "Indian-American astronaut who spent over 300 days in space."]
+ANNING = [44, "English fossil hunter whose discoveries helped found paleontology."]
+
+[down]
+ALICE = [71, "American chemist who developed the first effective treatment for leprosy."]
+KATHERINE = [8, "NASA mathematician whose calculations guided Apollo missions."]
+HODGKIN = [21, "British chemist awarded the Nobel Prize for protein crystallography."]
+BIBHA = [0, "Trailblazing Indian woman physicist who studied cosmic rays before independence."]
+JANAKI = [24, "Indian botanist who contributed to cytogenetics and plant breeding."]
+RUBIN = [4, "Astronomer who uncovered evidence for dark matter."]

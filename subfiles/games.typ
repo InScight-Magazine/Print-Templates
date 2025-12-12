@@ -1,9 +1,10 @@
 #import "/template-files/inscight-template.typ": *
 
 #let gamesSummary = (
-    ("Questions drawn from ideas of general science.", "Science Quiz"),
-    ("The theme for this issue is Chemistry.", "Themed Crossword"),
+    ("Quiz based on the earth and the moon.", "Science Quiz"),
+    ("The theme for this issue is women in science.", "Themed Crossword"),
     ("Link each term with the next, and complete the science word chain!", "Linked List"),
+    ("Can you guess the names of these scientists?", "Who Am I?"),
   )
 
 #let coverData = for (a, t) in gamesSummary [
@@ -18,10 +19,9 @@
 #let links = createLinks(url: permalink)
 #articleCover(
   title: "Science Games", 
-  coverImage: "/covers/games.jpg",
+  coverImage: "/covers/games.png",
   abstract: coverData,
-  coverCaption: "This issue's crossword is drawn from Chemistry.",
-  attribution: [#links.at("long") #v(1em) Games designed by *Alekhya*],
+  coverCaption: "Marie Curie statue in Warsaw, Poland",
   outlined: false,
   sideImageFraction: 0%,
 )

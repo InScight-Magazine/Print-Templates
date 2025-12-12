@@ -1,34 +1,46 @@
 #import "/template-files/inscight-template.typ": *
-// #import "/dataFiles/issueConstants.typ": *
+
 
 #show: section.with(
   issueDetails: yaml("/dataFiles/issueData.yml"),
-  title: "A Word From The Editor", 
+  title: "Behind The Pages", 
   permalinkSuffix: "editor",
   numCols: 2,
 )
 
-Hello Friends! Welcome to the fourth issue of InSight. As we celebrate the turning of another issue, I take this opportunity to thank you all who have stood with us, and helped us to continue this journey of InScight Magazine - The IISER Kolkata Science Magazine. Filled with vibrant stories and voices of our alumni, Professors, and guest scientists, this month, we have tried to add colour to the magazine and take the readers on a journey through the history of IISER Kolkata and also to newer domains of Science today.
+The newest _InScight_ issue, a few tens of MBs in your laptop, other than being jam-packed with the latest updates of the science world, holds something way more profound in the fact that every bit of information, a PDF or the lyrics of a song, when deleted or forgotten, releases a very tiny amount of heat to the surroundings – a tussle of debt which we cranial beings are stuck in with the universe. Information is physical : As Tanmoy Pandit, reflects on Landauer in this very issue, a few pages later.
 
-As Prof. Ayan Banerjee has rightly mentioned, in his words, Science is a method and an attitude, and Prof. Tapas Kumar Sengupta, in his foreword to this issue of InScight Science, is the celebration of unravelling the mysteries of our evolving universe - it is our duty as scientists, who are funded by the tax paid by the commoners, to come out of the labs and take our research to the mass. InScight envisions bridging the gap between distance between the scientists and the masses in the upcoming days.
+That science is harmonious is emblazoned by the fact that Marie Curie, the famous physicist’s, birthday coincides with the day of National Cancer Awareness (November 7th) in the country. Madame Curie’s pursuits shaped modern day radio-therapy, a boon to millions, heightening the fact that science transcends territories, time and systems. 
 
-In this issue, we have featured our alumni from the Department of Physical Sciences - Dr. Rajarshi Bhattacharyya, who is currently working in Germany as a Cryogenic Systems Engineer at attocubes systems AG. We believe that his journey from a BSMS student at IISER to PhD scholar in Israel and finally now as a professional engineer in Germany would show you all a newer perspective of the higher education and job market after BSMS. 
+From a cheek cell to a nuclear bomb, we play by the rules, bending some, making new ones. 
 
-In the other two interviews, we have featured Prof. Sushanta Dattagupta - the founder director of IISER Kolkata, and Dr. Sanjit Mitra of IUCAA - a leading scientist of the LIGO-India project, and we hope the interview with them shall help you all in your journey forward.
+Brought forth in contrasting taste is a walk back in time to the Carboniferous era when tiny dragonflies you trap in your palm were massive creatures whose survival had integral connections with contemporary temperatures and oxygen saturation, elucidated by Atri Majumdar. 
 
-We have started a new section in the magazine, where we advertise academic internships, PhD positions, and Post-Doctoral applications, gathered by scraping the internet and email conversations. We believe that this section will help the students plan accordingly and in advance for their upcoming academic and scientific journey. Of course, we by ourselves cannot gather all the news that can be gathered, so we request all our readers to bring such information to our notice, so that we can better distributed the information.
+iGEM Team 2025 brings forth A touch of Cancer (a phrase by John Green’s protagonist Augustus Waters, trying at hilarity), and a new onco-weapon : the probiotics on your bedside table wherein bacteria engineered to protect, reheat immune-suppressed ‘cold tumors’ and facilitate the immune system. 
 
+A strive to study the rarest diseases of all, brings forth Apurba Das and her insights on neural manifestation of MPS VII, a lysosomal storage disease (LSD), arising from the dysfunctional lysosomes, the terminators of the cell as we call them. 
+
+Leading on the front, we have IISER-K’s researchers listening to the Rhythm of Rivers for climate management and water-harvesting to ‘memory’ hunting in magnetic and phase-change systems. 
+
+The fact that ‘life’ and its very possibility is both a ‘wonder’ and a ‘courtroom’ of rules, is elucidated by the fact that the gross rules for the existence of life, from the lowest energy to stay alive to the speed of replication of a cell, are pre-determined by the physical quantities : _InScight_’s final insight. 
+
+Mankind hunts evolution, and physics is an old friend.
+
+With this _InScight_’s newest issue, celebrates and unites minds across miles and time dimensions. True to our cause, we plead curiosity, patience and just a tiny home for your crazy ideas.  
+
+Happy Sciencing!
+
+*Sharanya Chatterjee*\
+Editor, _InScight_
 #colbreak()
-We are planning on adding a new section to the magazine - write about your PhD thesis! The point is to discuss the story of your PhD thesis; the questions, the results and the philosophy of your approach, written so that students across the disciplines can understand and have a feel for it. We aim to tighten the research community of IISER Kolkata across disciplines, and who knows - you may find a newer possibility and a collaboration for your project too!
 
-We are always looking for your contributions and feedback. Thank you for journeying with us. On behalf of the entire team, happy reading—and here’s to building bridges, one insight at a time.
+#figure(
+  image("/covers/comic.svg", width: 75%), 
+  caption: [Arya Mhatre of IISER Kolkata depicts the pathbreaking achievements of Aditi Pant and Sudipta Sengupta as they became the first Indian women to participate in the Antarctic program. #link(<comic-antarctica>)[Read her comic to find out more].]
+)
 
-With warmth,
-#sign([Swarnendu Saha,\ Editor-in-chief,\ InScight])
-
-#image("/covers/sukalyan.jpg")
-#text(size:1.1em, [Knots are hard to untie, making them robust. #pageLink(<Sukalyan-Devices>, [Sukalyan Deb's article]) explores how similar robustness emerges in properties of certain quantum systems.])
 #v(1fr)
-#image("/covers/sukalyan.jpg")
-#text(size:1.1em, [Knots are hard to untie, making them robust. #pageLink(<Sukalyan-Devices>, [Sukalyan Deb's article]) explores how similar robustness emerges in properties of certain quantum systems.])
-#v(1fr)
+#figure(
+  image("/covers/iGEM.svg", width: 75%), 
+  caption: [Sharanya Chatterjee and Madhura Theng from _InScight_ cover the story  of IISER Kolkata’s iGEM 2025 team has engineered ReSET, a probiotic-based theranostic system that senses tumor-specific cues. Learn more in #link(<Sharanya-2025>)[this article].],
+)

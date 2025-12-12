@@ -34,7 +34,7 @@ We are currently looking to expand our team. If you are interested in what we do
     #yaml("/dataFiles/team.yml").at("Chief")
 
     === Advisors
-    #yaml("/dataFiles/team.yml").at("Advisors").sorted().join("\n")
+    #yaml("/dataFiles/team.yml").at("Advisors").join("\n")
 
     === Design & Website
     #yaml("/dataFiles/team.yml").at("Design").sorted().join("\n")

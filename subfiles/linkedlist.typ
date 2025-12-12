@@ -3,5 +3,5 @@
 #linkedlist(
   issueDetails: yaml("/dataFiles/issueData.yml"),
   file: "/dataFiles/linkedList.yml",
-  title: "Linked List",
+  title: "Linked List --- Women In Science Edition",
 )

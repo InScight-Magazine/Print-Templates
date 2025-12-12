@@ -1,33 +1,51 @@
 #import "/template-files/inscight-template.typ": *
 
-#articleCover(
-  title: "The Quest For The Sea's Blue: The Discovery of the Raman Effect",
-  coverImage: "/covers/comicCover.jpg",
-  authors: ("Shreya Ganguly",),
-  authorAffiliations: ("IISER Kolkata",),
-  abstract: [Dicover how a simple question - why does the sea look blue - led to one of the most groundbreaking discoveries in physics. This engaging *science comic* traces C. V. Raman's journey to uncover the phenomenon that now bears his name.\ \ \ \ _*Shreya Ganguly* is a student of 22MS batch pursuing a physics major at IISER Kolkata. A habitual explorer and art-lover, she likes drawing, dancing and trying out her hand at graphic design and video editing - when she isn't drowning in coursework, that is._],
-  sideImageFraction: 30%,
-  sideImage: "/authFaces/shreya.jpg",
-  locator: "Shreya-Effect",
-  outlineDesc: "Comic by Shreya Ganguly",
+#let title = "Breaking the Ice: India's First Women in Antarctica"
+#let author = "Arya Mhatre"
+#let authorInfo = "*Arya Mhatre* is a student at IISER Kolkata currently pursuing Earth Sciences. Beyond collecting cool rocks, she's also an illustrator and comic artist who wants to learn 2d animation."
+#let authorAffiliations = "IISER Kolkata"
+#let authorImage = "/authFaces/arya.jpg"
+#let coverImage = "/covers/comic.svg"
+
+#cover(
+  title: title,
+  coverImage: coverImage,
+  locator: "comic-antarctica",
+  outlined: true
 )
+
 
 #pagebreak()
 #set page(
-  background: image("/images/comic1.png"),
+  background: image("/images/comic-11.pdf"),
   header: none,
   footer: none,
 )
 #pagebreak()
 #set page(
-  background: image("/images/comic2.png"),
+  background: image("/images/comic-22.pdf"),
   header: none,
   footer: none,
 )
 #pagebreak()
 #set page(
-  background: image("/images/comic3.png"),
+  background: image("/images/comic-33.pdf"),
   header: none,
   footer: none,
 )
 #pagebreak()
+#set page(
+  background: image("/images/comic-44.pdf"),
+  header: none,
+  footer: none,
+)
+#pagebreak()
+#set page(background: none)
+#show: default.with(
+  issueDetails: yaml("/dataFiles/issueData.yml"),
+)
+#align(center,
+block(width: 50%,
+auth-profile(authorInfo: authorInfo, authorImage: authorImage)
++ v(1fr)
+))
