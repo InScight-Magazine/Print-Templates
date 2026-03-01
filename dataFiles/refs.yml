@@ -1,0 +1,4 @@
+# example refs file. Must be in yaml format. Extension can be anything as long as you use the correct filename in the typst file.
+# each line (starting with hyphen followed by a space) is a reference, must be enclosed within quotes.
+- "Ref 1"
+- "Ref 2"

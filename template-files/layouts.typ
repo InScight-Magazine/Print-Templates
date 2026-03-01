@@ -109,19 +109,34 @@ set page(
 #let article(
   issueDetails: none,
   title: none,
-  authors: (),
-  authorAffiliations: (),
+  authors: none,
+  authorAffiliations: none,
   abstract: none,
   coverImage: none,
   authorInfo: none,
   authorImage: none,
-  authorImageWidth: 100%,
   refsFile: none,
-  reviewedBy: (),
+  reviewedBy: none,
   received: none,
+  authorImageWidth: 100%,
   breakAfter: (-1,),
   content
 ) = {
+  if type(authors) == str {
+    authors = (authors,)
+  }
+  if type(authorInfo) == str {
+    authorInfo = (authorInfo,)
+  }
+  if type(authorAffiliations) == str {
+    authorAffiliations = (authorAffiliations,)
+  }
+  if type(reviewedBy) == str {
+    reviewedBy = (reviewedBy,)
+  }
+  if type(authors) == str {
+    authors = (authors,)
+  }
   let permalinkSuffix = lower(authors.at(0).split().join("-") + "-" + title.split().at(-1))
   let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
   let links = createLinks(url: permalink)
@@ -131,9 +146,6 @@ set page(
   assert(received != none, message:"For item \""+title+"\", a \"received date\" must be provided in the call to section()")
   let date = [#datetime(..received).display("[month repr:long] [day], [year]")]
   let authlist = { grid(columns: (auto, auto), gutter:10pt, align:(left + horizon, left + horizon), text(weight: "bold", stack(dir:ttb, spacing: 1em, ..authors)), stack(dir:ttb, spacing: 1em, ..authorAffiliations)) + date }
-  if type(authorInfo) == str {
-    authorInfo = (authorInfo,)
-  }
   let authInfoForm = ()
   for info in authorInfo {
     authInfoForm.push(eval(info, mode: "markup"))
@@ -173,11 +185,11 @@ set page(
 #let interview(
   issueDetails: (),
   file: none,
-  group1: (),
-  group2: (),
   title: none,
-  interviewers: (),
-  interviewerAffiliations: (),
+  group1: none,
+  group2: none,
+  interviewers: none,
+  interviewerAffiliations: none,
   abstract: "",
   coverImage: "",
   interviewee: none,
@@ -186,6 +198,21 @@ set page(
   intervieweeInfo: none,
   received: none,
 ) = {
+  if type(group1) == str {
+    group1 = (group1,)
+  }
+  if type(group2) == str {
+    group2 = (group2,)
+  }
+  if type(interviewers) == str {
+    interviewers = (interviewers,)
+  }
+  if type(interviewerAffiliations) == str {
+    interviewerAffiliations = (interviewerAffiliations,)
+  }
+  if type(interviewee) == str {
+    interviewee = (interviewee,)
+  }
   if type(intervieweeInfo) == str {
     intervieweeInfo = (intervieweeInfo,)
   }
@@ -264,7 +291,7 @@ set page(
   } 
   {
 
-  let permalinkSuffix = lower(interviewee)
+  let permalinkSuffix = lower(interviewee.at(0))
   let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
   let links = createLinks(url: permalink)
   set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
