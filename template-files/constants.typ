@@ -66,7 +66,7 @@
 #let outline-headings-color = rgb("454545")
 #let contents-weight = "semibold"
 #let outline-size = 1.5em
-#let category-colors = ("art": rgb("70b23f"), "int": rgb("0000aa"), "meta": rgb("DAA520"), "cas": rgb("913831"))
+#let category-colors = ("art": rgb("C44536"), "int": rgb("7A5C9E"), "meta": rgb("2F3E9E"), "cas": rgb("6C7A89"), "rest": rgb("1B8A8F"))
 
 // interviews
 #let boldweight = "bold"

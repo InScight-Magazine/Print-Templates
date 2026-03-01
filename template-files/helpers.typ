@@ -4,8 +4,6 @@
 #let nonCoverTitle(
   title: none, 
   intro: none,
-  outlined: true,
-  outlineDesc: none,
   locator: none,
 ) = {
   place(
@@ -13,46 +11,42 @@
     scope: "parent",
     float: true,
     [
-      #v(1em)
+      #v(-0.5em)
+      #set par(leading: 0.1em)
       #if locator != none [
-        = #heading(outlined: false, level:1)[#eval(title, mode: "markup")]#label(locator)
+        #if locator == "outline" [
+          #heading(outlined: false, level:1, supplement: locator)[#eval(title, mode: "markup")]#label(locator)
+        ] else [
+          #heading(outlined: true, level:1, supplement: locator)[#eval(title, mode: "markup")]#label(locator)
+        ]
       ] else [
-        = #heading(outlined: false, level:1)[#eval(title, mode: "markup")]
+        #heading(outlined: false, level:1, supplement: locator)[#eval(title, mode: "markup")]
       ]
-      #v(1em)
-
+      #v(-1em)
       #if intro != none [
-        #text(size: 1.6em, intro)
-        #v(1.5em)
+        #set par(leading: 0.5em)
+        #set par(spacing: 1em)
+        #emph(text(size: 1.1em, intro))
       ]
+      #if locator != "outline" {
+        line(length:100%)
+      }
     ]
   )
-  if outlined == true and locator != "outline" {
-    show heading: none
-    heading(outlined: true, title)
-    // + if outlineDesc != none [#linebreak()#text(font: header-font, outlineDesc)]
-  }
 }
 
-#let articleCover(
+#let halfCover(
   title: none, 
-  authors: (), 
-  authorAffiliations: (),
-  abstract: none,
+  intro: none,
   coverImage: none,
-  sideImage: none,
-  sideImageFraction: 50%,
-  reviewedBy: none,
-  category: none,
-  received: none,
   coverCaption: none,
-  attribution: none,
-  outlineDesc: none,
-  issueId: none,
-  locator: none,
   coverHeight: 60%,
+  ending: none,
   outlined: true,
+  coverData: (),
 ) = {
+
+  let locator = "digest"
   page(
     fill: header-dark-color,
     columns: 1, 
@@ -62,7 +56,7 @@
   )[
     #block[
       #image(coverImage, width: 100%, height: coverHeight)
-      #if coverCaption.len() > 0 [
+      #if coverCaption != none [
         #place(bottom + right, box(width: 45%, fill: rgb(0, 0, 0, 150), inset: 0.5em, text(font: main-font, size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "semibold", eval(coverCaption, mode: "markup"))))
       ]
     ]
@@ -77,73 +71,38 @@
       #v(-30pt)
       #block(it.body)
     ]
-    #if locator != none [
-      #heading(level: 1, outlined: false, [#title])#label(locator)
-    ] else [
-      #heading(level: 1, outlined: false, [#title])
-    ]
+    #heading(level: 1, outlined: false, eval(title, mode: "markup"), supplement: locator)#label(locator)
     #if outlined == true {
-      {
-        show heading: none
-        heading(outlined: true, title)
-        // + if outlineDesc != none [#linebreak()#text(font: header-font, outlineDesc)]
-      }
+      show heading: none
+      heading(outlined: true, eval(title, mode: "markup"))
     }
-    #par(justify: false, leading: line-spacing, first-line-indent: 0pt)[
+    #v(coverItemGap)
     #text(
       fill: author-color,
       size: author-size,
       font: heading-font,
       weight: "semibold",
     )[
-      #for p in authors.enumerate() { p.at(1) + if authorAffiliations.len() > 0 {" (" + authorAffiliations.at(p.at(0)) + ")" } + linebreak()}
+      #v(-1em)
+      #intro
+      #v(1em)
     ]
-    ]
-    #v(coverItemGap)
     #{
       set text(
         fill: title-color,
         size: abstract-size,
         font: abstract-font, 
       )
-    if sideImage != none {
-      grid(
-        columns: ((200% - 2 * sideImageFraction) * 1fr, 2 * sideImageFraction * 1fr),
-        gutter: 2em,
-        par(justify: true, first-line-indent: 0pt)[
-          #abstract
-        ] + emph(text(fill: white, attribution))
-,
-        image(sideImage)
-      )
-    } else {
-        if reviewedBy != none and received != none and category != none [
-          #let date = datetime(..received)
-          #grid(
-            columns: (2fr * (100% - sideImageFraction), 1fr * sideImageFraction),
-            gutter: 4em,
-            par(justify: true, first-line-indent: 0pt)[
-              #eval(mode: "markup", abstract)
-            ] + emph(text(fill: white, attribution)),
-            if reviewedBy != none [
-              #align(right, [
-              #upper[*Reviewed by*]\
-              #reviewedBy.sorted().join(", ", last: " and ")\ \
-              #upper[*Submitted*]\
-              #date.display("[month repr:short] [day], [year]")\ \
-              #upper[*Category*] \
-              #category
-              ]
-            )
-            ]
-          )
-        ] else [
-          #box(width: 100% - sideImageFraction, par(justify: true, abstract))
-        ]
+      for (t,a) in coverData [
+        #text(font: heading-font, size: abstract-size, fill: author-color, weight: "bold", a)
+        #text(size: abstract-size, fill: title-color, eval(t, mode: "markup"))
+        #linebreak()
+        #linebreak()
+      ] + ending
     }
-  }
-]
-]
+
+  ]
+  ]
 }
 
 
@@ -151,16 +110,15 @@
   title: none, 
   coverImage: none,
   locator: none,
-  outlined: true,
 ) = {
   page(
     header: none,
     footer: none,
     background: image(coverImage, width: 100%, height: 100%)
   )[
-    #if outlined == true {
-        show heading: none
-        [#heading(outlined: true, title) #if locator != none { label(locator) } else { none }]
+    #if locator != none {
+      show heading: none
+      [#heading(outlined: true, eval(title, mode: "markup"), supplement: locator) #label(locator)]
     }
   ]
 }
@@ -297,15 +255,23 @@
 }
 
 #let auth-profile(
-  authorInfo: "",
+  authorInfo: none,
   authorImage: "",
+  authorImageWidth: 100%,
 ) = {
+
+    if type(authorInfo) == str {
+      authorInfo = (authorInfo,)
+    }
     line(length:80%, stroke: 0.3em + fg-color)
-    image(authorImage)
+    image(authorImage, width: authorImageWidth)
     { 
       set text(size: 1.2em, font: author-font, weight: "medium")
       set par(justify: false)
-      align(left, emph(eval(authorInfo, mode: "markup")))
+      for info in authorInfo {
+        [#align(left, emph(eval(info, mode: "markup")))]
+        [#parbreak()]
+      }
     }
 }
 
@@ -317,7 +283,7 @@
   let refsList = yaml(refsFile)
   let counter = 1
   for ref in refsList {
-    [#enum.item(counter)[#ref]]
+    [#enum.item(counter)[#eval(ref, mode: "markup")]]
     if breakAfter.contains(counter) {
       colbreak()
     }
@@ -345,10 +311,15 @@
   content,
   dropWord: false,
 ) = {
-  let first = if dropWord == false { content.at(0) } else { content.split(regex(" ")).at(0) }
-  content = if dropWord == false { content.replace(first, "", count: 1) } else { content.replace(first + " ", "", count: 1) }
-  assert(first.len() > 0)
-  dropcap(height: 3, font: dcap-font, gap: 0.5em, overhang: 0.0em, depth: 0.0em, weight: "regular", emph(first), eval(content, mode: "markup"))
+  let html = if "html" in sys.inputs { if sys.inputs.html == "true" { true } else { false } } else { false }
+  if html {
+    eval(content, mode: "markup")
+  } else {
+    let first = if dropWord == false { content.at(0) } else { content.split(regex(" ")).at(0) }
+    content = if dropWord == false { content.replace(first, "", count: 1) } else { content.replace(first + " ", "", count: 1) }
+    assert(first.len() > 0)
+    dropcap(height: 3, font: dcap-font, gap: 0.5em, overhang: 0.0em, depth: 0.0em, weight: "regular", emph(first), eval(content, mode: "markup"))
+  }
 }
 
 #let tables(
@@ -384,10 +355,20 @@
   text,
   underl: true,
 ) = {
-  if underl == true {
-    context[#link(("page": locate(anchor).page(), "x": 0em, "y": 0em), underline(text))]
-  } else {
-    context[#link(("page": locate(anchor).page(), "x": 0em, "y": 0em), text)]
+  context {
+    let matches = ()
+    for h in query(heading.where(level: 1, outlined: true)) {
+      if h.supplement.text.contains(anchor) {
+        matches.push(h)
+      }
+    }
+    assert(matches.len() == 1, message: "Anchor " + anchor + " is not unique. Make it more specific or try a different anchor.")
+    let anchor = matches.at(0).location()
+    if underl == true {
+      [#link(("page": locate(anchor).page(), "x": 0em, "y": 0em), underline(text))]
+    } else {
+      [#link(("page": locate(anchor).page(), "x": 0em, "y": 0em), text)]
+    }
   }
 }
 
@@ -403,7 +384,6 @@
   title: none,
   issueDetails: (),
   shortLink: none,
-  toc: false,
 ) = {
   return rect(
       fill: header-bg-color, 
@@ -413,19 +393,13 @@
       height: 100%
     )[
       #set text(font: header-font, fill: header-bright-color, weight: "semibold")
-      #if toc == false [
-        #text([INSCIGHT \##issueDetails.at("number") #h(8pt) #headerSeparator #h(8pt) #issueDetails.at("time") #h(8pt) #headerSeparator #h(8pt) #shortLink])
-      ] else [
-        #text([INSCIGHT \##issueDetails.at("number") #h(8pt) #headerSeparator #h(8pt) #issueDetails.at("time")])
-      ]
+      #text([INSCIGHT \##issueDetails.at("number") #h(8pt) #headerSeparator #h(8pt) #issueDetails.at("time") #h(8pt) #headerSeparator #h(8pt) #shortLink])
       #h(1fr) 
-      #if toc == false [
-        #if title.len() > header-title-maxsize {
-          text(title.slice(0, count: header-title-maxsize) + "...")
-        } else {
-          text(eval(title, mode: "markup"))
-        }
-      ]
+      #if title.len() > header-title-maxsize {
+        text(title.slice(0, count: header-title-maxsize) + "...")
+      } else {
+        text(eval(title, mode: "markup"))
+      }
       #v(header-raise)
     ]
 }
@@ -542,4 +516,16 @@
       emph(text(size: 1.1em, weight: "semibold", content))
     }
   )
+}
+
+#let m(expr) = eval("$" + expr + "$", mode: "markup")
+#let M(expr) = align(center, [\ #m(expr.text)\ ])
+
+#let ignore(content) = {
+  let html = if "html" in sys.inputs { if sys.inputs.html == "true" { true } else { false } } else { false }
+  if html {
+    content
+  } else {
+    none
+  }
 }

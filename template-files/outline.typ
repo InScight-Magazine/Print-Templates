@@ -2,33 +2,24 @@
 #import "helpers.typ": *
 #import "layouts.typ": *
 
-#let miniOutline(minPage, maxPage, classes: none, split: 99999, spacing: 1.5em) = {
-  if "int" not in classes {
-    classes.int = ()
-  } 
-  if "cas" not in classes {
-    classes.cas = ()
-  } 
-  if "meta" not in classes {
-    classes.meta = ()
-  } 
+#let miniOutline(splitAt: (), spacing: 1.5em) = {
 
   show outline.entry: set block(below: spacing)
   show outline.entry: it => {
     if int(it.page().text) == split {
-      colbreak()
+      pagebreak()
     }
-    let col = none //header-bg-color
-    if classes.int.contains(int(it.page().text)) {
+    let col = none
+    if it.element.supplement.text.starts-with("interview") {
       col = category-colors.int
-    } else if classes.cas.contains(int(it.page().text)) {
+    } else if it.element.supplement.text.starts-with("article") {
+      col = category-colors.rest
+    } else if it.element.supplement.text == "crossword" or it.element.supplement.text == "linkedlist" or it.element.supplement.text == "whoami" or it.element.supplement.text == "quiz" {
       col = category-colors.cas
-    } else if classes.meta.contains(int(it.page().text)){
-      col = category-colors.meta
-    } else if classes.art.contains(int(it.page().text)){
+    } else if it.element.supplement.text.starts-with("comic-") {
       col = category-colors.art
     } else {
-      col = black
+      col = category-colors.meta
     }
     set text(fill: col, weight: contents-weight, size: outline-size, font: outline-font)
     link((page: int(it.page().text), x: 0pt, y: 0pt), grid(
@@ -41,28 +32,54 @@
     ))
   }
 
-  show outline.entry: it => {
-    if int(it.page().text) >= minPage and int(it.page().text) <= maxPage {
-      it
-    }
-  }
-
   outline(title: none, depth: 1)
 }
 
-#let fullOutline(
+#let prettyOutline(
   issueDetails: none,
+  splitAt: (),
   spacing: 1.5em,
-  classes: none,
 ) = {
 
-    show: section.with(
-      issueDetails: issueDetails,
+    set page(header: createTitleHeader(title: "In This Issue", issueDetails: issueDetails))
+
+    nonCoverTitle(
       title: "In This Issue", 
-      numCols: 1,
-      locator: "outline",
+      locator: "outline"
     )
 
     v(2em)
-    miniOutline(0, 1000, split: 49, classes: classes, spacing: spacing)
+    show outline.entry: set block(below: spacing)
+    show outline.entry: it => {
+      if splitAt.contains(int(it.page().text)) {
+        v(1fr)
+        pagebreak()
+        v(1fr)
+      }
+      let col = none
+      if it.element.supplement.text.starts-with("interview") {
+        col = category-colors.int
+      } else if it.element.supplement.text.starts-with("article") {
+        col = category-colors.rest
+      } else if it.element.supplement.text == "crossword" or it.element.supplement.text == "linkedlist" or it.element.supplement.text == "whoami" or it.element.supplement.text == "quiz" {
+        col = category-colors.cas
+      } else if it.element.supplement.text.starts-with("comic-") {
+        col = category-colors.art
+      } else {
+        col = category-colors.meta
+      }
+      set text(fill: col, weight: contents-weight, size: outline-size, font: outline-font)
+      link((page: int(it.page().text), x: 0pt, y: 0pt), grid(
+        columns: (80%, 5%, 5%),
+        align: (right + horizon, right + horizon, right + horizon),
+        gutter: 1em,
+        it.body(),
+        line(length: 100%, stroke: (thickness: 0.2em, paint: col, dash: "dotted")),
+        circle(fill: col, align(center + horizon, text(fill: white, it.page())))
+      ))
+    }
+
+    v(1fr)
+    outline(title: none, depth: 1)
+    v(1fr)
 }
