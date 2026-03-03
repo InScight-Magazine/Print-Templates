@@ -188,15 +188,16 @@ set page(
   title: none,
   group1: none,
   group2: none,
+  interviewees: none,
   interviewers: none,
   interviewerAffiliations: none,
   abstract: "",
   coverImage: "",
-  interviewee: none,
   intervieweeImage: none,
   intervieweeImageWidth: 100%,
   intervieweeInfo: none,
   received: none,
+  content
 ) = {
   if type(group1) == str {
     group1 = (group1,)
@@ -210,88 +211,15 @@ set page(
   if type(interviewerAffiliations) == str {
     interviewerAffiliations = (interviewerAffiliations,)
   }
-  if type(interviewee) == str {
-    interviewee = (interviewee,)
+  if type(interviewees) == str {
+    interviewees = (interviewees,)
   }
   if type(intervieweeInfo) == str {
     intervieweeInfo = (intervieweeInfo,)
   }
-  let afterBreak = false
-  let boldflag = true
-  let boldStartflag = false
-  let lines = read(file).split("\n")
-  let firstFlag = true
-  let step = -1
-  let content = for textLine in lines {
-    step += 1
-    let trimmedLine = textLine.trim()
-    if trimmedLine.len() == 0 {
-      parbreak()
-      continue
-    }
-    if trimmedLine.trim() == "COLBREAK" {
-      colbreak()
-      continue
-    }
-    if trimmedLine.starts-with("IMAGE:") {
-      let dict = eval(trimmedLine.trim("IMAGE:"))
-      img(..dict)
-      continue
-    }
-    if trimmedLine.starts-with("QUOTE:") {
-      quote[#eval(trimmedLine.trim("QUOTE:"), mode:"markup")]
-      continue
-    }
-    for name in group1 {
-      if trimmedLine.starts-with(name) {
-        trimmedLine = name + "  " + trimmedLine.replace(name, "").trim()
-        boldflag = true
-        if not firstFlag {
-          v(1.4em)
-        }
-        break
-      }
-    }
-
-    let intervieweeName = ""
-    for name in group2 {
-      if trimmedLine.starts-with(name) {
-        intervieweeName = name
-        boldflag = false
-        trimmedLine = trimmedLine.replace(name, "").trim()
-        boldStartflag = true
-        break
-      }
-    }
-    if firstFlag == true {
-      trimmedLine = dcap(trimmedLine, dropWord: true)
-    } else {
-      trimmedLine = eval(mode: "markup", trimmedLine)
-    }
-
-    if boldflag == true {
-      set par(leading: 0.5em, justify: true)
-      text(weight: "bold", size: 1.1em, fill: questionColor, trimmedLine)
-      ignore("\n{: .interview-answer }\n")
-    } else {
-      if boldStartflag == true {
-        boldStartflag = false
-        text(weight: "bold", intervieweeName) + [~] + trimmedLine
-      } else {
-      set par(
-        justify: true,
-      )
-        trimmedLine
-      }
-    }
-    if firstFlag == true {
-      firstFlag = false
-      continue
-    }
-  } 
   {
 
-  let permalinkSuffix = lower(interviewee.at(0))
+  let permalinkSuffix = lower(interviewees.at(0))
   let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
   let links = createLinks(url: permalink)
   set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
@@ -342,7 +270,18 @@ set page(
       + auth-profile(authorInfo: intervieweeInfo, authorImage: intervieweeImage, authorImageWidth: intervieweeImageWidth)
       )
       + colbreak()
-      + content
+      + {
+        for name in group1 {
+          content = { 
+            show regex("^" + name + ".*$"): it => text(weight: "bold", size: 1.1em, fill: questionColor, it) + ignore("\n{: .interview-answer }\n")
+            content 
+          }
+        }
+        content
+        // this convoluted method is necessary because simply applying show rules 
+        // in a loop and placing the content outside the loops means the show rules 
+        // will activate only within the loop and content will be unaffected
+      } 
     )
   }
   }
