@@ -650,7 +650,6 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
 }
 
 #let foreword(
-  content: none,
   images: (),
   captions: (),
   widths: (),
@@ -658,9 +657,12 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
   title: none,
   author: none,
   affiliation: none,
-  type: none,
+  content
 ) = {
-  assert(type == "foreword" or type == "editor")
+  let type = "foreword"
+  if title == none {
+    type = "editor"
+  }
   let outlineDesc = "Foreword by " + author
   if type == "editor" {
     title = "A Word from the Editors"
@@ -672,19 +674,12 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
   } else {
     intro = [*#author*\ #affiliation] 
   }
-  let content = grid(
-      columns: (1fr, 1fr),
-      gutter: 3em,
-      align: (left, center),
-      eval(content, mode:"markup"),
-      for (i, img) in images.enumerate() {
-        if i == 0 {
-          image(images.at(i), width: widths.at(i)) + captions.at(i)
-        } else {
-          v(1fr) + image(images.at(i), width: widths.at(i)) + captions.at(i)
-        }
-      }
-    )
+  if widths.len() < images.len() {
+    widths = ()
+    for (i, _) in images.enumerate() {
+      widths.push(100%)
+    }
+  }
 
   let permalinkSuffix = "foreword"
   if title.contains("editor") {
@@ -699,7 +694,19 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
     intro: intro,
     locator: type,
   )
-  content
+  grid(
+    columns: (1fr, 1fr),
+    gutter: 3em,
+    align: (left, center),
+    content,
+    for (i, img) in images.enumerate() {
+      if i == 0 {
+        image(images.at(i), width: widths.at(i)) + captions.at(i)
+      } else {
+        v(1fr) + image(images.at(i), width: widths.at(i)) + captions.at(i)
+      }
+    }
+  )
 }
 
 #let comic(

@@ -357,11 +357,16 @@
 ) = {
   context {
     let matches = ()
+    let anchors = ()
+    for h in query(heading.where(level: 1, outlined: true)) {
+      anchors.push(h.supplement.text)
+    }
     for h in query(heading.where(level: 1, outlined: true)) {
       if h.supplement.text.contains(anchor) {
         matches.push(h)
       }
     }
+    assert(matches.len() > 0, message: "Anchor " + anchor + " does not exist in document. Available: " + anchors.join(", "))
     assert(matches.len() == 1, message: "Anchor " + anchor + " is not unique. Make it more specific or try a different anchor.")
     let anchor = matches.at(0).location()
     if underl == true {
