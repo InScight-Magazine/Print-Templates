@@ -8,31 +8,43 @@
 
 #import "/template-files/inscight-template.typ": * // this simply imports the layouts and helpers; this never changes
 
+#let group1 = ("BB:", "AS:")
+#let group2 = ("HE:", "LL:")
+#let title = "An Example *Interview*: Monster meets monster" 
+#let interviewees = ("Hobo Eager", "Lulu Lampard")
+#let interviewers = ("Big Brother", "African Swordsman")
+#let interviewerAffiliations = ("Institute of Xerxes", "Apocalyptic Forest")
+#let abstract = "This interview is _extremely_ interesting. Be sure to read it \"carefully\"."
+#let received = (month: 12, day: 7, year: 2025)
+#let intervieweeInfo =  ("*Interviewee 1* description. Might be important to use formatting here, for example when stating the name of the author.", "*Interviewee 2* description")
+#let coverImage =  "/covers/example.jpg"
+#let intervieweeImage =  "/authFaces/example.jpg"
+
 #show: interview.with(
   issueDetails: yaml("/dataFiles/issueData.yml"),
-  group1: ("BB:", "AS:"),
-  group2: ("HE:", "LL:"),
-  title: "An Example *Interview*: Monster meets monster" ,
+  group1: group1,
+  group2: group2,
+  title: title,
   // title must be a string. Can contain formatting (bold, italic) or math (enclosed within ticks ``), 
   // but we aim to keep the title as simple as possible
-  interviewees: ("Hobo Eager", "Lulu Lampard"),
+  interviewees: interviewees,
   // interviewees is string or array of strings (in case of multiple interviewees).
   // Can contain formatting (bold, italic) or math (enclosed within ticks ``), 
   // but we aim to keep the title as simple as possible
   // single interviewee example: #let interviewees = ("Man 1",), or #let interviewees = "Man 1"
-  interviewers: ("Big Brother", "African Swordsman"),
+  interviewers: interviewers,
   // identical structure as interviewees
-  interviewerAffiliations: ("Institute of Xerxes", "Apocalyptic Forest"),
+  interviewerAffiliations: interviewerAffiliations,
   // affiliations has properties exactly same as interviewees
-  abstract: "This interview is _extremely_ interesting. Be sure to read it \"carefully\".", 
+  abstract: abstract,
   // String. Abstract/excerpt/pitch for the article. Formatting is possible and encouraged.
-  received: (month: 12, day: 7, year: 2025), // article finalising date
-  intervieweeInfo:  ("*Interviewee 1* description. Might be important to use formatting here, for example when stating the name of the author.", "*Interviewee 2* description"),
+  received: received,
+  intervieweeInfo:  intervieweeInfo,
   // intervieweeInfo is meant for interviewee bio and stuff. Has same properties as interviewees.
   // string for single author, array of strings for multi author
   // multi-author example: #let authorInfo = ("Desc 1", "Desc 2")
-  coverImage:  "/covers/example.jpg",
-  intervieweeImage:  "/authFaces/example.jpg",
+  coverImage:  coverImage,
+  intervieweeImage:  intervieweeImage,
   // cover image and author image are kept in their respective folders, which must be reflected in the paths
 )
 

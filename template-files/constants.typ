@@ -1,12 +1,12 @@
 // font defaults
 #let main-font = "Merriweather"
 #let math-font = "Noto Sans Math"
-#let heading-font = "Neuton"
+#let heading-font = "Stack Sans Notch"
 #let outline-font = "Barlow"
-#let author-font = "Lato"
+#let author-font = "Kreon"
 #let caption-font = "Bitter"
 #let subheading-font = "Barlow"
-#let abstract-font = "Bitter"
+#let abstract-font = "Kreon"
 #let header-font = "Lora"
 #let heading-weight = 600
 #let dcap-font = "Merriweather"
@@ -39,7 +39,7 @@
 #let fg-color = rgb("282828")
 #let bg-color = rgb("fcfcfc")
 #let title-color = rgb("e0e0e0")
-#let author-profile-fill = rgb("FFDBBB88")
+#let author-profile-fill = rgb("FCF9EA")
 #let author-profile-border = rgb("FFDBBB")
 #let backpage-color = rgb("353535")
 
@@ -90,3 +90,4 @@
 
 // misc
 #let crossword-cell-size = 2.5em
+#let focusColours = ("EE1466", "66A0FF", "218B21")

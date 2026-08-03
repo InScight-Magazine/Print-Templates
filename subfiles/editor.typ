@@ -10,27 +10,30 @@
 
 #show:foreword.with(
   issueDetails: yaml("/dataFiles/issueData.yml"),
+  keys: ("article", "interview"),
   // A title is not needed for the editor's word section, 
   // it's automatically set internally. In fact, IT IS
   // NECESSARY FOR THE TEMPLATE THAT YOU NOT PASS ANY TITLE,
   // in order to disntinguish this from the foreword section,
   // that uses the same function.
-  images: ("../covers/example.jpg",),
-  // Array of image paths that will be dislayed alongside the writeup
-  captions: ([Regulatory T cells are a unique subset of cells that play a crucial role in suppressing harmful autoreactive T cells in the body. #pageLink("interview", [Read the rest in this article.])],[#pageLink("article", [Sury  offers]), a panoramic journey through Diophantine equations, weaving together history, puzzles, deep theorems, and modern breakthroughs.]),
-  // array of cations for the above images
-  widths: (5em,),
+  imgWidths: (72%, 72%),
   // array of widths for the above images
   // if left empty, images will take up entirety of right column
-  author: [Puppala Ainesh Kumar],
+  author: [Debanuj Chatterjee],
   affiliation: [Editor at _InScight_, IISER Kolkata],
   // full name and affiliation of editor who wrote this
 )
 
-The initiative taken by our young minds to publish the Science Magazine _InScight_ to inculcate interests among the people in academic community to have better understanding in different interesting topics with the help of people of varied interests in science disciplines gives me immense pleasure to see that it has completed one year of its successful journey starting in January 2025. Now, in January 2026 issue, _InScight_ has brought to you the discussion of science in different disciplines including Mathematics which, in my opinion, is not a science rather a tool for developing science. This issue includes discussion on the topic of 2025 Nobel Prize in Medicine for discoveries on peripheral immune tolerance, opening a new field of research for treatments of auto-immune diseases. A discussion on Diophantine Equations, connecting Recreational Mathematics to Number Theory, will give ample scope of thinking to the mathematics lovers. You will also get discussion on prime numbers, showing how irregularities in practice follow statistical regularity. 
+Every scientific breakthrough begins with a question. Some questions seek to understand the universe at its most fundamental level, while others emerge from observing the natural world around us or reflecting on the journeys that shape scientific careers. Despite their diversity, they are united by a common thread: curiosity. It is this curiosity that continues to drive science forward, and manifests as the anthem of InScight.
 
-If you are truly motivated towards something, no obstacles can stop you reaching the destination, as can be seen through an inspiring article on how Nikolai Koshliakov developed Generalized Zeta Function from a Soviet Labour Camp. The discussion on how Niels Bohr’s work on Quantum Revolution was inspired from Bohr-Van Leeuwen theorem which raises a fundamental paradox, is an article worth reading. This issue also gives some very interesting mathematics quiz along with their correct answers. Along with some more interesting topics, one will get a wonderful discussion, through a comic, on how Dr. Subhash Mukhopadhyay was deprived of his recognition for his discovery on IVF technique, leading to his untimely demise.
+We begin at the fascinating intersection of theoretical physics and mathematics: the world of conformal bootstraps. A remarkable blend of physics, geometry, and mathematical consistency forms the foundation of this field. The journey explores how quantum mechanics can be demystified by demanding the self-consistency of nature.
 
-The discussions are not only by the members of the IISER Kolkata community but also by the students and the faculty members of different premier institutions, showing the gain in popularity of _InScight_ in just one year period. It is mostly observed that the people at large do not think out of the traditional way because of lack of time due to different obligations, or because of lack of interest. However, there is a necessity of out-of-the-box thinking in order to promote science towards its proper utilization in human interest. You will all agree with me that any science without mathematics works like a fish out of water, and hence understanding and development of mathematics for solving different real-life problems is a must. 
+Gears change as we delve into the world of chemistry. Our next article explores the development of asymmetric synthesis and modern hybrid catalytic systems. The ability to selectively produce one molecular form over another has been transforming pharmaceutical science and chemical engineering over the years. This underscores how these discoveries are fundamentally reshaping modern medicine.
 
-Through this platform we invite students, researchers, educators and all interested citizens to get involved in different scientific discussions, and _InScight_, I am confident, will serve the purpose of bringing different domains of science under the same umbrella to handle any issue of this universe by providing a platform for critical discussion and analyses of different problems. I wish _InScight_ to keep its upward journey through the radder of success with time, as it has been doing for last one year.
+This year marks one hundred years since Werner Heisenberg's formulation of matrix mechanics, a milestone that forever changed our understanding of reality. Our feature on "Quantum at 100" revisits the revolutionary ideas that gave birth to quantum mechanics and reflects on how they continue to influence modern science, ranging from condensed matter physics to quantum information theory to materials science.
+
+Science, however, is not confined to laboratories or equations alone. In a deeply personal narrative, we follow the journey of a young scientist whose dream of studying at IISER Berhampur unfolded through uncertainty, perseverance, and probability itself. It is a reminder that every scientific career is built not only on intellect, but also on resilience and the courage to embrace the unknown.
+
+We also travel millions of years into the Earth's past to uncover the mystery behind the disappearance of giant dragonflies. Their story offers a fascinating glimpse into how changes in atmospheric composition and planetary environments have shaped the evolution of life on Earth.
+
+Whether you are a student, researcher, or simply a curious reader, we hope this issue will spark new ideas and conversations. As we stand at a crucial crossroads of Indian science and education, we hope the growing InScight community continues to champion scientific thinking. The future of science depends not only on discoveries in laboratories but also on a society willing to ask questions. Afterall every scientific breakthrough begins with a question.

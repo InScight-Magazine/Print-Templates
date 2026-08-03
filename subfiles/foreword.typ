@@ -10,26 +10,35 @@
 
 #show: foreword.with(
   issueDetails: yaml("/dataFiles/issueData.yml"),
-  title: "Reflections on a Growing Scientific Dialogue",
+  title: "Tradition, Science, and the Search for Truth",
   // appropriate title that captures the spirit of the writeup.
   // passing some title is mandatory, otherwise the template
   // will interpret this as the "Editor's word" section instead.
-  images: ("../covers/example.jpg", "../covers/example2.jpg"),
-  // Array of image paths that will be dislayed alongside the writeup
-  captions: ([From a Soviet labor camp, Nikolai Koshliakov developed a striking generalization of the Riemann zeta function under conditions that defy imagination. #pageLink("interview", [Read more.])],[#pageLink("article", [In this interview]), Prof. Munshi reflects on a life shaped by mathematics—from early fascination with symbols to research at Princeton and a return to ISI Kolkata as a faculty member.]),
-  // array of cations for the above images
-  widths: (19em, 19em),
-  // array of widths for the above images.
+  keys: ("article", "interview"),
+  // A title is not needed for the editor's word section, 
+  // it's automatically set internally. In fact, IT IS
+  // NECESSARY FOR THE TEMPLATE THAT YOU NOT PASS ANY TITLE,
+  // in order to disntinguish this from the foreword section,
+  // that uses the same function.
+  imgWidths: (100%, 100%),
+  fraction: 1.6fr,
+  // array of widths for the above images
   // if left empty, images will take up entirety of right column
-  author: [Prof. Asok K. Nanda],
-  affiliation: [Department of Mathemetical Sciences, IISER Kolkata],
-  // full name and affiliation of faculty member who wrote this
+  author: [Prof. Sayam Sen Gupta],
+  affiliation: [Department Of Chemical Sciences, IISER Kolkata],
+  // full name and affiliation of editor who wrote this
 )
 
-The initiative taken by our young minds to publish the Science Magazine _InScight_ to inculcate interests among the people in academic community to have better understanding in different interesting topics with the help of people of varied interests in science disciplines gives me immense pleasure to see that it has completed one year of its successful journey starting in January 2025. Now, in January 2026 issue, _InScight_ has brought to you the discussion of science in different disciplines including Mathematics which, in my opinion, is not a science rather a tool for developing science. This issue includes discussion on the topic of 2025 Nobel Prize in Medicine for discoveries on peripheral immune tolerance, opening a new field of research for treatments of auto-immune diseases. A discussion on Diophantine Equations, connecting Recreational Mathematics to Number Theory, will give ample scope of thinking to the mathematics lovers. You will also get discussion on prime numbers, showing how irregularities in practice follow statistical regularity. 
+First, my warmest congratulations to the team behind _InScight_. Running a scientific magazine is an experiment in itself - one that demands curiosity, persistence, and no small measure of courage. At a time when most information reaches us through fleeting WhatsApp forwards and endless social media reels, it is deeply heartening to see students choosing the slower, more thoughtful medium of print. There is a unique joy in telling the stories behind scientific discoveries, and _InScight_ gives those stories a home. For that, our entire community owes its editors and contributors sincere gratitude.
 
-If you are truly motivated towards something, no obstacles can stop you reaching the destination, as can be seen through an inspiring article on how Nikolai Koshliakov developed Generalized Zeta Function from a Soviet Labour Camp. The discussion on how Niels Bohr’s work on Quantum Revolution was inspired from Bohr-Van Leeuwen theorem which raises a fundamental paradox, is an article worth reading. This issue also gives some very interesting mathematics quiz along with their correct answers. Along with some more interesting topics, one will get a wonderful discussion, through a comic, on how Dr. Subhash Mukhopadhyay was deprived of his recognition for his discovery on IVF technique, leading to his untimely demise.
+When the editorial team invited me to write this piece, I found myself wondering what message would best suit the first issue. One question that repeatedly surfaces today is whether science and tradition stand in opposition. It is a fascinating debate, and one that deserves a closer look.
 
-The discussions are not only by the members of the IISER Kolkata community but also by the students and the faculty members of different premier institutions, showing the gain in popularity of _InScight_ in just one year period. It is mostly observed that the people at large do not think out of the traditional way because of lack of time due to different obligations, or because of lack of interest. However, there is a necessity of out-of-the-box thinking in order to promote science towards its proper utilization in human interest. You will all agree with me that any science without mathematics works like a fish out of water, and hence understanding and development of mathematics for solving different real-life problems is a must. 
+Consider the story of beriberi, a disease that once devastated communities across Asia after steam mills began polishing rice, removing its nutrient-rich outer layers. Long before Christiaan Eijkman demonstrated the role of thiamine through careful experiments in the late nineteenth century, many South Asian communities had already developed the practice of parboiling paddy before milling. This simple process-still familiar to us as “seddho chaal” in Bengal and in the preparation of rice for foods such as idli and dosa - preserved much of the vitamin within the grain. The same pattern appears elsewhere. After screening more than 240,000 compounds without success, Chinese scientist Tu Youyou turned to traditional Chinese medical texts for inspiration that were used for over two millennia to treat fevers. Her team identified sweet wormwood (Artemisia annua) as a treatment for intermittent fevers and, in 1971, isolated artemisinin, its potent antimalarial compound. Artemisinin-based therapies are now the WHO's standard treatment for malaria, and Tu Youyou received the 2015 Nobel Prize in Medicine.
 
-Through this platform we invite students, researchers, educators and all interested citizens to get involved in different scientific discussions, and _InScight_, I am confident, will serve the purpose of bringing different domains of science under the same umbrella to handle any issue of this universe by providing a platform for critical discussion and analyses of different problems. I wish _InScight_ to keep its upward journey through the radder of success with time, as it has been doing for last one year.
+None of these communities for centuries knew about thiamine, or artemisinin. What they possessed was something equally valuable: knowledge accumulated through generations of observation, experimentation, and lived experience. Tradition, in this sense, is not superstition. It is a repository of successful solutions refined over centuries. But tradition has one limitation - it evolves slowly. When the Industrial Revolution transformed food production and populations grew rapidly, longstanding practices could not adapt quickly enough. This was not a failure of tradition; it was a mismatch of timescales.
+
+That is where hypothesis-driven science becomes indispensable - not as a replacement for tradition, but as its accelerant. What once required centuries of trial and error can now be understood within a generation through careful experimentation, mechanistic insight, and peer review. The COVID-19 pandemic offered perhaps the clearest demonstration. Within weeks of the first reported cases, scientists had identified the virus and sequenced its genome. Within months, they had determined the structure of its spike protein. Within about a year, that knowledge had culminated in safe and effective vaccines developed at an unprecedented speed.
+
+Knowledge accumulated slowly across generations and knowledge built rapidly through scientific inquiry are not competing ways of understanding the world. They are complementary. One reminds us where wisdom comes from; the other shows us how quickly that wisdom can grow when guided by evidence.
+
+May _InScight_ continue to tell both kinds of stories.

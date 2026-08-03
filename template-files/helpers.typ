@@ -12,7 +12,7 @@
     float: true,
     [
       #v(-0.5em)
-      #set par(leading: 0.1em)
+      #set par(leading: 0.4em)
       #if locator != none [
         #if locator == "outline" [
           #heading(outlined: false, level:1, supplement: locator)[#eval(title, mode: "markup")]#label(locator)
@@ -57,7 +57,21 @@
     #block[
       #image(coverImage, width: 100%, height: coverHeight)
       #if coverCaption != none [
-        #place(bottom + right, box(width: 45%, fill: rgb(0, 0, 0, 150), inset: 0.5em, text(font: main-font, size: main-size - 1pt, fill: rgb(240, 240, 240), weight: "semibold", eval(coverCaption, mode: "markup"))))
+        #place(
+          top + right,
+          box(
+            fill: rgb(0, 0, 0, 180), 
+            inset: 0.5em,
+            outset: 0em,
+            text(
+              font: main-font,
+              size: main-size,
+              fill: rgb(240, 240, 240),
+              weight: "semibold",
+              eval(coverCaption, mode: "markup")
+            )
+          )
+        )
       ]
     ]
     #rect(
@@ -129,10 +143,26 @@
   caption: none,
   position: bottom+left,
   width: 100%,
+  float: true,
   portrait: false,
   ) = {
   set text(font: caption-font)
   if portrait == true or width <= 33.3% {
+  if float == false {
+    rect(
+      fill: image-bg-color,
+      inset: image-caption-gap,
+      width: 100%,
+    )[
+      #figure(
+      image(path, width: width),
+      caption: if caption != none {
+        figure.caption(position: bottom, emph(eval(mode: "markup", caption)))
+      }
+    )
+    ]
+    return
+  }
   place(
     position,
     scope: "column",
@@ -255,22 +285,22 @@
 }
 
 #let auth-profile(
-  authorInfo: none,
+  authorInfo: (),
   authorImage: "",
   authorImageWidth: 100%,
 ) = {
 
-    if type(authorInfo) == str {
-      authorInfo = (authorInfo,)
-    }
-    line(length:80%, stroke: 0.3em + fg-color)
-    image(authorImage, width: authorImageWidth)
+    align(center, image(authorImage, width: authorImageWidth))
     { 
-      set text(size: 1.2em, font: author-font, weight: "medium")
-      set par(justify: false)
+      set text(size: 1.1em, font: heading-font)
       for info in authorInfo {
-        [#align(left, emph(eval(info, mode: "markup")))]
-        [#parbreak()]
+        if type(info) == str {
+          info = eval(info, mode: "markup")
+        }
+        show strong: set text(weight: "black")
+        v(0.5em)
+        [#align(left, info)]
+        parbreak()
       }
     }
 }
@@ -514,11 +544,13 @@
   content,
   color
 ) = {
+  let col = focusColours.at(calc.rem(color, 3))
   rect(
     inset: 0.8em,
-    fill: yellow,
+    stroke: (left: 3pt + rgb(focusColours.at(calc.rem(color, 3)))),
+    fill: rgb(col + "11"),
     {
-      emph(text(size: 1.1em, weight: "semibold", content))
+      content
     }
   )
 }
@@ -532,5 +564,34 @@
     content
   } else {
     none
+  }
+}
+
+#let extract(file) = {
+  let abstract = none
+  let image = none
+  let tytle = none
+  let prefix1 = "#let abstract ="
+  let prefix2 = "#let coverImage ="
+  let prefix3 = "#let title ="
+  for line in read("/subfiles/" + file + ".typ").split("\n") {
+    if line.contains(prefix1) {
+      abstract = line.split("\"").at(1)
+    }
+    if line.contains(prefix2) {
+      image = line.split("\"").at(1)
+    }
+    if line.contains(prefix3) {
+      tytle = line.split("\"").at(1)
+    }
+  }
+  return (abstract, image, tytle)
+}
+
+#let truncate(s, max-len) = {
+  if s.len() > max-len {
+    s.slice(0, max-len) + "..."
+  } else {
+    s
   }
 }
