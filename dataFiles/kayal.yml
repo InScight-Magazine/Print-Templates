@@ -1,0 +1,10 @@
+# example refs file. Must be in yaml format. Extension can be anything as long as you use the correct filename in the typst file.
+# each line (starting with hyphen followed by a space) is a reference, must be enclosed within quotes.
+- "Lin, G.-Q.; Li, Y.-M.; Chan, A. S. C. Principles and Applications of Asymmetric Synthesis; Wiley-Interscience: New York, *2001*."
+- "Pasteur, L. Acad. Sci. *1848*, 26, 535."
+- "Vickery, H. B.; Pucher, G. W.; Deuber, C. G. J. Biol. Chem. *1942*, 145, 45."
+- "Bodor, N.; Sloan, K. B.; Higuchi, T.; Sasahara, K. J. Med. Chem. *1977*, 20, 1435."
+- "For reviews on chiral phosphoric acid catalysis: (a) Akiyama, T. Chem. Rev. *2007*, 107, 5744. (b) Terada, M. Synthesis *2010*, 1929. (c) Kampen, D.; Reisinger, C. M.; List, B. Top. Curr. Chem. *2010*, 291, 395. (d) Parmar, D.; Sugiono, E.; Raja, S.; Rueping, M. Chem. Rev. *2014*, 114, 9047."
+- "For reviews on metal complex/organic molecule binary catalytic system: (a) Shao, Z.; Zhang, H. Chem. Soc. Rev. *2009*, 38, 2745. (b) Zhou, J. Chem. Asian J. *2010*, 5, 422. (c) Hashmi, A. S. K.; Hubbert, C. Angew. Chem. Int. Ed. *2010*, 49, 1010. (d) Armas, P. De; Tejedor, D.; García-Tellado, F. Angew. Chem. Int. Ed. *2010*, 49, 1013. (e) Du, Z.; Shao, Z. Chem. Soc. Rev. *2013*, 42, 1337."
+- "Sorimachi, K.; Terada, M. J. Am. Chem. Soc. *2008*, 130, 14452."
+- "Peng, B.; Ma, J.; Guo, J.; Gong, Y.; Wang, R.; Zhang, Y.; Zeng, J.; Chen, W.; Ding, K.; Zhao, B. J. Am. Chem. Soc. *2022*, 144, 2853."

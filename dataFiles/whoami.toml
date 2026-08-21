@@ -1,0 +1,46 @@
+title = "Who Am I? Name These Iconic Books"
+author = "*Abhirup Mukherjee* [DPS, IISER Kolkata]"
+intro = "Can you identify these landmark popular science books from just a few clues?"
+[[questions]]
+question = "Which popular science book am I?"
+image = "whoami1.jpg"
+hints = [
+  "I explain how tiny changes accumulate over immense spans of time.",
+  "My ideas transformed biology and our understanding of life's diversity.",
+  "I was published in 1859 and sparked one of the greatest scientific debates in history.",
+  "My central mechanism is natural selection."
+]
+answer = "On the Origin of Species"
+
+[[questions]]
+question = "Which popular science book am I?"
+image = "whoami2.jpg"
+hints = [
+  "I explore humanity's journey from prehistoric hunter-gatherers to the modern world.",
+  "My chapters revolve around three major revolutions that shaped civilization.",
+  "I became an international bestseller despite being written by a historian rather than a scientist.",
+  "My title is just one word."
+]
+answer = "Sapiens"
+
+[[questions]]
+question = "Which popular science book am I?"
+image = "whoami3.jpg"
+hints = [
+  "I reveal the hidden lives of genes and the history of heredity.",
+  "My author won the Pulitzer Prize for another book on cancer.",
+  "My subtitle is \"An Intimate History\".",
+  "My title describes the unit of heredity itself."
+]
+answer = "The Gene"
+
+[[questions]]
+question = "Which popular science book am I?"
+image = "whoami4.jpg"
+hints = [
+  "I take readers on a journey from the Big Bang to the origins of life.",
+  "My author later became one of television's most beloved science communicators.",
+  "My opening sentence begins, \"The cosmos is all that is or ever was or ever will be.\"",
+  "I share my name with a famous television series."
+]
+answer = "Cosmos"

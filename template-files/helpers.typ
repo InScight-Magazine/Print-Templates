@@ -42,11 +42,10 @@
   coverCaption: none,
   coverHeight: 60%,
   ending: none,
-  outlined: true,
+  // outlined: true,
   coverData: (),
 ) = {
 
-  let locator = "digest"
   page(
     fill: header-dark-color,
     columns: 1, 
@@ -85,11 +84,7 @@
       #v(-30pt)
       #block(it.body)
     ]
-    #heading(level: 1, outlined: false, eval(title, mode: "markup"), supplement: locator)#label(locator)
-    #if outlined == true {
-      show heading: none
-      heading(outlined: true, eval(title, mode: "markup"))
-    }
+    #heading(level: 1, outlined: false, eval(title, mode: "markup"))
     #v(coverItemGap)
     #text(
       fill: author-color,
@@ -132,7 +127,7 @@
   )[
     #if locator != none {
       show heading: none
-      [#heading(outlined: true, eval(title, mode: "markup"), supplement: locator) #label(locator)]
+      [#heading(outlined: true, eval(title, mode: "markup"), supplement: locator)]
     }
   ]
 }
@@ -221,59 +216,6 @@
   }
 }
 
-#let v-image(
-  path: none, 
-  caption: "",
-  position: top,
-  scope: "column",
-  width: 100%,
-  ) = {
-  place(
-    position + center,
-    scope: scope,
-    float: true,
-    rect(
-      fill: image-bg-color,
-      inset: image-caption-gap,
-      width: width
-    )[
-      #figure(
-      image(path, width: 100%),
-      caption: if caption.len() > 0 {
-        figure.caption(position: bottom, [#eval(mode: "markup", caption)])
-      }
-    )
-  ]
-  )
-}
-
-#let h-image(
-  path: none, 
-  caption: "",
-  position: top,
-  width: 50%,
-) ={
-  counter(figure.where(kind: image)).step()
-  place(
-    position,
-    scope: "parent",
-    float: true,
-    rect(fill: image-bg-color, inset: image-caption-gap)[
-      #grid(
-      columns: (width, 100% - width - image-caption-gap),
-      column-gutter: image-caption-gap,
-      align: (left, horizon+right),
-      image(path, width: 100%),
-      if caption.len() > 0 {
-        align(image-caption-align)[#text(weight: caption-weight)[#figure-suppl #context {counter(figure.where(kind: image)).display()}: #eval(mode: "markup", caption)]]
-      } else {
-        none
-      }
-    )
-    ]
-  )
-}
-
 #let info(info) = {
   rect(width: 100%, fill: image-bg-color, inset: 1em, radius: 10pt)[
     #text(weight: "medium", size: main-size)[#info]
@@ -292,13 +234,12 @@
 
     align(center, image(authorImage, width: authorImageWidth))
     { 
-      set text(size: 1.1em, font: heading-font)
+      set text(size: 1.1em, font: author-font)
       for info in authorInfo {
         if type(info) == str {
           info = eval(info, mode: "markup")
         }
         show strong: set text(weight: "black")
-        v(0.5em)
         [#align(left, info)]
         parbreak()
       }
@@ -410,7 +351,7 @@
 #let createLinks(
   url: none
 ) = {
-  let webLink = link(url)[#text(baseline: -1pt, size: 1.2em, [🔗]) #h(1pt) Web version #h(5pt)]
+  let webLink = link(url)[#text(baseline: -1pt, size: 1.2em, [🔗]) #h(1pt) HTML #h(5pt)]
   let webLinkLong = link(url)[#text(baseline: -2.5pt, size: 1.2em, [🔗]) #h(0.5em) Also available #underline[online], at scicomm.iiserkol.ac.in]
   return ("short": webLink, "long": webLinkLong)
 }
@@ -459,18 +400,29 @@
   )
 }
 
-#let gen_crossword(
+#let generateCrossword(
   toml_file,
 ) = {
   let data = toml(toml_file)
   let size = data.at("size")
   let blanks = data.at("blanks")
   let locations = ()
-  for (k,v) in data.at("down") {
-    locations.push(v.at(0))
+  let answers = (:)
+  for (word, (loc, _)) in data.at("down") {
+    locations.push(loc)
+    let charLoc = loc
+    for ch in word {
+      answers.insert(str(charLoc), ch)
+      charLoc = charLoc + size
+    }
   }
-  for (k,v) in data.at("across") {
-    locations.push(v.at(0))
+  for (word, (loc, _)) in data.at("across") {
+    locations.push(loc)
+    let charLoc = loc
+    for ch in word {
+      answers.insert(str(charLoc), ch)
+      charLoc = charLoc + 1
+    }
   }
   locations = locations.dedup().sorted()
 
@@ -488,6 +440,20 @@
       }
     }
   }
+  let revealed(i, j) = {
+    let location = i * size + j
+    if blanks.contains(location) {
+      box(width: 0.9 * crossword-cell-size, height: 0.9 * crossword-cell-size, fill: header-dark-color, stroke: 0.1em + header-dark-color)
+    } else {
+      let counter = locations.position(x => x == location) 
+      if counter == none {
+        box(width: 0.9 * crossword-cell-size, height: 0.9 * crossword-cell-size, stroke: 0.1em + header-dark-color, outset: 0em, inset:0.3em, align(center + horizon, text(size:1.1em, weight: "bold", fill: header-bg-color, [#answers.at(str(location))])))
+      } else {
+        counter = int(counter) + 1
+        box(width: 0.9 * crossword-cell-size, height: 0.9 * crossword-cell-size, stroke: 0.1em + header-dark-color, outset: 0em, inset:0.3em, align(center + horizon, text(size:1.1em, weight: "bold", fill: header-bg-color, [#answers.at(str(location))])) + place(top + left, text(size:0.9em, weight: "bold", fill: fg-color, [#counter])))
+      }
+    }
+  }
   let row(i) = {
     grid(
       columns: size,
@@ -499,7 +465,18 @@
     gutter: 0em,
     ..range(size).map(row)
   )
-  return crossword
+  let row(i) = {
+    grid(
+      columns: size,
+      ..range(size).map(j => revealed(i, j))
+    )
+  }
+  let solution = grid(
+    rows: size,
+    gutter: 0em,
+    ..range(size).map(row)
+  )
+  return ("crossword": crossword, "solution": solution)
 }
 
 
@@ -594,4 +571,58 @@
   } else {
     s
   }
+}
+
+#let prettyOutline(
+  issueDetails: none,
+  splitAt: (),
+  spacing: 1.5em,
+) = {
+
+    set page(header: createTitleHeader(title: "In This Issue", issueDetails: issueDetails))
+
+    nonCoverTitle(
+      title: "In This Issue", 
+      locator: "outline"
+    )
+
+    v(2em)
+    show outline.entry: set block(below: spacing)
+    show outline.entry: it => {
+      if splitAt.contains(int(it.page().text)) {
+        v(1fr)
+        pagebreak()
+        v(1fr)
+      }
+      context {
+        let col = category-colors.at("rest")
+        let locResult = none
+        for result in query(<vars>) {
+          assert(it.element.supplement.text != none)
+          assert("permalink" in result.value)
+          if result.value.permalink == it.element.supplement.text {
+            col = category-colors.at(result.value.type)
+            locResult = result
+            break
+          }
+        }
+        let title = it.element.body
+        if locResult != none and "outlinePrefix" in locResult.value and locResult.value.outlinePrefix != none {
+          title = [#locResult.value.outlinePrefix] + title
+        }
+        set text(fill: col, weight: contents-weight, size: outline-size, font: outline-font)
+        link((page: int(it.page().text), x: 0pt, y: 0pt), grid(
+          columns: (80%, 5%, 5%),
+          align: (right + horizon, right + horizon, right + horizon),
+          gutter: 1em,
+          title,
+          line(length: 100%, stroke: (thickness: 0.2em, paint: col, dash: "dotted")),
+          circle(fill: col, align(center + horizon, text(fill: white, it.page())))
+        ))
+      }
+    }
+
+    v(1fr)
+    outline(title: none, depth: 1)
+    v(1fr)
 }

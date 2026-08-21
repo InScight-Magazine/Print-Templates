@@ -1,0 +1,10 @@
+# example refs file. Must be in yaml format. Extension can be anything as long as you use the correct filename in the typst file.
+# each line (starting with hyphen followed by a space) is a reference, must be enclosed within quotes.
+- "Berner, R.A., et al. (2007). Oxygen and evolution. Science, 316(5824), 557-558."
+- "Chapman, R.F. (1998). The Insects: Structure and Function. Cambridge University Press."
+- "Dudley, R. (1998). Atmospheric oxygen, giant Paleozoic insects and the evolution of aerial locomotor performance. Journal of Experimental Biology, 201(8), 1043-1050."
+- "Kleiber, M. (1932). Body size and metabolism. Hilgardia, 6(11), 315-353."
+- "Kingsolver, J.G. & Huey, R.B. (2008). Size, temperature, and fitness: Three rules. Evolutionary Ecology Research, 10(2), 251-268."
+- "Nel, A., Prokop, J., Pecharová, M., Engel, M.S. & Garrouste, R. (2018). Palaeozoic giant dragonflies were hawker predators. Scientific Reports, 8(1), 12141."
+- "Unwin, D.M. (2005). The Pterosaurs: From Deep Time. Pi Press."
+- "Snelling, E.P., et al. (2024)."

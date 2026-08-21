@@ -1,7 +1,7 @@
 // font defaults
 #let main-font = "Merriweather"
 #let math-font = "Noto Sans Math"
-#let heading-font = "Stack Sans Notch"
+#let heading-font = "Sansation"
 #let outline-font = "Barlow"
 #let author-font = "Kreon"
 #let caption-font = "Bitter"
@@ -52,7 +52,7 @@
 #let footer-raise = -5pt
 #let footerLineHeight = 1pt
 #let footer-text-color = rgb("4a4a4a") //header-bg-color
-#let header-title-maxsize = 61
+#let header-title-maxsize = 56
 #let headerSeparator = box(height: 0.8em, width: 0.8em, fill: header-dark-color)
 
 // figures
@@ -66,7 +66,19 @@
 #let outline-headings-color = rgb("454545")
 #let contents-weight = "semibold"
 #let outline-size = 1.5em
-#let category-colors = ("art": rgb("C44536"), "int": rgb("7A5C9E"), "meta": rgb("2F3E9E"), "cas": rgb("6C7A89"), "rest": rgb("1B8A8F"))
+#let category-colors = (
+  "article": rgb("C44536"), 
+  "interview": rgb("7A5C9E"),
+  "foreword": rgb("2F3E9E"), 
+  "editor": rgb("2F3E9E"), 
+  "cas": rgb("6C7A89"),
+  "quiz": rgb("6C7A89"),
+  "crossword": rgb("6C7A89"),
+  "linkedlist": rgb("6C7A89"),
+  "whoami": rgb("6C7A89"),
+  "comic": rgb("6C7A89"),
+  "rest": rgb("1B8A8F")
+)
 
 // interviews
 #let boldweight = "bold"

@@ -10,7 +10,7 @@
 
 #show:foreword.with(
   issueDetails: yaml("/dataFiles/issueData.yml"),
-  keys: ("article", "interview"),
+  keys: ("sridip", "sangita"),
   // A title is not needed for the editor's word section, 
   // it's automatically set internally. In fact, IT IS
   // NECESSARY FOR THE TEMPLATE THAT YOU NOT PASS ANY TITLE,

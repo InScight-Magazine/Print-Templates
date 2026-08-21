@@ -119,7 +119,9 @@ set page(
   reviewedBy: none,
   received: none,
   authorImageWidth: 100%,
-  breakAfter: (-1,),
+  breakAfter: none,
+  addendum: none,
+  outlinePrefix: none,
   content
 ) = {
   if type(authors) == str {
@@ -142,7 +144,7 @@ set page(
   let links = createLinks(url: permalink)
   set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
 
-  let locator = "article-" + permalinkSuffix
+  // let locator = "article-" + permalinkSuffix
   assert(received != none, message:"For item \""+title+"\", a \"received date\" must be provided in the call to section()")
   let date = [#datetime(..received).display("[month repr:short] [day], [year]")]
   let authlist = grid(columns:(5fr, 1fr), gutter: 20pt, align: (top + left, top + right), grid(columns: (auto, auto), gutter: 10pt, align: left + top, text(weight: "bold", stack(dir:ttb, spacing: 1em, ..authors)), stack(dir:ttb, spacing: 1em, ..authorAffiliations)), [📅 #date]) + v(0.1em) + if reviewedBy.len() > 0 and reviewedBy.at(0).len() > 0 [*Reviewed By*: #reviewedBy.join(", ")]
@@ -162,6 +164,7 @@ set page(
     reviewedBy: reviewedBy,
     received: received,
     permalink: permalink,
+    outlinePrefix: outlinePrefix,
     type: "article")) #label("vars")]
   [#metadata(content.fields()) #label("content")]
   {
@@ -170,7 +173,7 @@ set page(
     cover(
       title: title,
       coverImage: coverImage,
-      locator: locator,
+      locator: permalink,
     )
     nonCoverTitle(
       title: title, 
@@ -184,15 +187,27 @@ set page(
           set text(size: 1.1em, font: abstract-font)
           show strong: set text(fill:header-bg-color)
           eval(abstract, mode:"markup")
-        }
-        + auth-profile(authorInfo: authorInfo, authorImage: authorImage, authorImageWidth: authorImageWidth)
+        })
+        +
+        block(width: 105%, inset: 10pt, height: auto, fill: author-profile-fill,
+        auth-profile(authorInfo: authorInfo, authorImage: authorImage, authorImageWidth: authorImageWidth)
         ) +
         {
           show link: set text(fill: header-bg-color)
           show link: it => underline(it)
           content
+          if addendum != none {
+            block(width: 105%, inset: 10pt, height: auto, fill: author-profile-fill, eval(addendum, mode: "markup"))
+          }
         }
       + if refsFile != none {
+        if breakAfter != none {
+          if type(breakAfter) == int {
+            breakAfter = (breakAfter,)
+          }
+        } else {
+          breakAfter = (-1,)
+        }
         references(refsFile: refsFile, breakAfter: breakAfter)
       }
     )
@@ -214,6 +229,7 @@ set page(
   intervieweeImageWidth: 100%,
   intervieweeInfo: none,
   received: none,
+  outlinePrefix: none,
   content
 ) = {
   if type(group1) == str {
@@ -241,7 +257,7 @@ set page(
   let links = createLinks(url: permalink)
   set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
 
-  let locator = "interview-" + permalinkSuffix
+  // let locator = "interview-" + permalinkSuffix
 
   let intervieweeInfoForm = ()
   for info in intervieweeInfo {
@@ -257,6 +273,7 @@ set page(
     authorImage: intervieweeImage,
     received: received,
     permalink: permalink,
+    outlinePrefix: outlinePrefix,
     type: "interview")) #label("vars")
   ]
   [#metadata(content.fields()) #label("content")]
@@ -264,7 +281,7 @@ set page(
     cover(
       title: title,
       coverImage: coverImage,
-      locator: locator,
+      locator: permalink,
     )
     assert(received != none, message:"For item \""+title+"\", a \"received date\" must be provided in the call to section()")
     let date = [#datetime(..received).display("[month repr:long] [day], [year]")]
@@ -362,6 +379,15 @@ set page(
     counter += 1
   } + v(2em) + emph[Answers can be found at the end of the issue. For an interactive version of the quiz, check out our #link(createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: "quiz"))[*#underline[website]*]#label("quiz")]
 
+  let counter = 1
+  let solution = while str(counter) in data {
+    let question = data.at(str(counter)).at("q")
+    let options = data.at(str(counter)).o
+    let answer = options.at(data.at(str(counter)).at("a") - 1)
+    [#counter. #eval(question, mode: "markup"): *#answer*] + v(-0.3em)
+    counter += 1
+  }
+
   let permalinkSuffix = "quiz"
   let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
   let links = createLinks(url: permalink)
@@ -376,10 +402,16 @@ set page(
   ),) #label("vars")
   ]
   [#metadata([].fields()) #label("content")]
+  [#metadata((
+    type: "quiz",
+    title: "Quiz",
+    solution: solution,
+  ),) #label("solution")
+  ]
   nonCoverTitle(
     title: title, 
     intro: intro + v(1em) + author,
-    locator: "quiz"
+    locator: permalink,
   )
   content
 }
@@ -426,6 +458,19 @@ set page(
     ]
     counter += 1
   }
+  let solution = for (h, a) in hints.zip(answers) {
+    let letterCount = 1
+    let strokeDef = (thickness: 1.5pt, paint: header-bg-color)
+    let boxes = for i in a {
+      box(square(size: 18pt, stroke: strokeDef, align(center + horizon, text(weight: "bold", size: 13pt, [#i]))), inset: 0pt, outset: 0pt)
+    }
+    [
+      #set par(first-line-indent: 0em)
+      #boxes
+      #linebreak() 
+      #v(-1.2em)
+    ]
+  } + linebreak()
   let permalinkSuffix = "linkedlist"
   let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
   let links = createLinks(url: permalink)
@@ -438,6 +483,12 @@ set page(
   ),) #label("vars")
   ]
   [#metadata([].fields()) #label("content")]
+  [#metadata((
+    type: "linkedlist",
+    title: "Linked List",
+    solution: solution,
+  ),) #label("solution")
+  ]
   [
 
     #set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
@@ -445,7 +496,7 @@ set page(
     #nonCoverTitle(
       title: title, 
       intro: intro + v(1em) + author,
-      locator: permalinkSuffix,
+      locator: permalink,
     )
 
     Linked List is a general science-based word game. The rules are straightforward:
@@ -484,7 +535,6 @@ set page(
 
   let down = [
     == Down
-    #linebreak()
     #for (k, v) in data.down.pairs().sorted(key: p=>p.at(1).at(0)) [
       #enum.item(locations.position(i => i == v.at(0)) + 1)[#v.at(1) (#k.len())]
     ]
@@ -492,12 +542,13 @@ set page(
 
   let across = [
     == Across
-    #linebreak()
     #for (k, v) in data.across.pairs().sorted(key: p=>p.at(1).at(0)) [
       #enum.item(locations.position(i => i == v.at(0)) + 1)[#v.at(1) (#k.len())]
     ]
   ]
-  let crossword = gen_crossword(file)
+  let genData = generateCrossword(file)
+  let crossword = genData.crossword
+  let solution = genData.solution
   let hints = grid(
     columns: (1fr, 1fr),
     gutter: 1em,
@@ -515,6 +566,12 @@ set page(
     type: "crossword",
   ),) #label("vars")
   ]
+  [#metadata((
+    type: "crossword",
+    title: "Crossword",
+    solution: solution,
+  ),) #label("solution")
+  ]
   [#metadata([].fields()) #label("content")]
   [
     #let links = createLinks(url: permalink)
@@ -523,7 +580,7 @@ set page(
     #nonCoverTitle(
       title: title, 
       intro: intro + v(1em) + author,
-      locator: permalinkSuffix,
+      locator: permalink,
     )
     #align(center, crossword)
 
@@ -714,12 +771,22 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
 
   let permalinkSuffix = "whoami"
   let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
+
+  [#metadata((
+    title: title,
+    authors: author,
+    permalink: permalink,
+    file: file,
+    type: "whoami",
+  ),) #label("vars")
+  ]
+  [#metadata([].fields()) #label("content")]
   let links = createLinks(url: permalink)
   set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
 
   nonCoverTitle(
     title: title, 
-    locator: permalinkSuffix,
+    locator: permalink,
     intro: intro + v(0.5em) + author,
   )
   content
@@ -795,7 +862,7 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
   nonCoverTitle(
     title: title, 
     intro: intro,
-    locator: type,
+    locator: permalink,
   )
   grid(
     columns: (fraction, 1fr),
@@ -823,6 +890,7 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
   comic_images: (),
 ) = {
 
+  let permalink = ("comic-" + authors.join("-") + "/").replace(" ", "-")
   [#metadata((
     title: title,
     authors: authors,
@@ -831,13 +899,13 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
     coverImage: coverImage,
     authorImage: authorImage,
     pages: comic_images,
-    permalink: ("comic-" + authors.join("-") + "/").replace(" ", "-"),
+    permalink: permalink,
     type: "comic")) #label("vars")]
   [#metadata([].fields()) #label("content")]
   cover(
     title: title,
     coverImage: coverImage,
-    locator: locator,
+    locator: permalink,
   )
 
   pagebreak()
@@ -859,4 +927,33 @@ align(center, text(size: 1.6em, weight: "bold", fill: backpage-color, [You made 
   auth-profile(authorInfo: authorInfo, authorImage: authorImage)
   + v(1fr)
   ))
+}
+
+#let lastpage(
+  issueDetails: none,
+) = {
+  let issueDetails = yaml(issueDetails)
+  let title = "Solutions"
+  let permalinkSuffix = "solutions"
+  let permalink = createPermalink(issueNum: issueDetails.at("number"), permalinkSuffix: permalinkSuffix)
+  let links = createLinks(url: permalink)
+  set page(header: createTitleHeader(title: title, issueDetails: issueDetails, shortLink: links.at("short")))
+
+  nonCoverTitle(
+        title: title, 
+        locator: permalinkSuffix,
+    )
+
+  set par(justify: false)
+
+  context {
+      let col = category-colors.at("rest")
+      let locResult = none
+      for result in query(<solution>) [
+        #block(breakable: false)[
+          == #result.value.title
+          #result.value.solution
+        ]
+      ]
+    }
 }

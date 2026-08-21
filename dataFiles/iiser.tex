@@ -1,0 +1,460 @@
+\documentclass[11pt, oneside]{article} 
+
+\title{At the crossroads of Theoretical Physics and Mathematics}
+\author{Sridip Pal}
+
+\date{}
+
+
+
+\begin{document}
+	
+\maketitle
+
+
+
+Physics often gives the impression of endless freedom. We write down equations, introduce parameters,
+and imagine a vast landscape of possible theories. Yet again and again, that freedom turns out to be
+illusory. Beneath the complexity, nature seems to obey a quiet discipline—an insistence that everything must 
+fit together without contradiction. Much of my research has been driven by a simple question:
+\emph{how far does that insistence go?}
+
+
+
+That question led me early on to \emph{conformal field theory}, or CFT. 
+
+
+
+
+CFTs appear most naturally at \emph{continuous phase transitions}—moments when a system is delicately
+poised between two different states, and small changes can have effects on all length scales at once.
+A familiar example is a magnet that is just about to lose its magnetization as it is heated: tiny
+fluctuations in one region can influence behavior far away. Another intuitive picture comes from
+connectivity. Imagine gradually adding links to a large network. At a certain threshold, disconnected
+clusters suddenly merge into a system-spanning structure. Right at that threshold, patterns exist on
+all scales, and no single length scale dominates.
+
+
+
+A useful way to picture this is to imagine zooming in on the system again and again. No matter
+how much you magnify the image, new structure keeps appearing, and the patterns you see look much the
+same at every scale (see \href{https://www.youtube.com/watch?v=MxRddFrEnPc}{this YouTube video about renormalization group flow in Ising model}).  It is precisely in these scale-free situations that conformal symmetry emerges,
+making CFTs powerful universal descriptions of otherwise very different physical systems. These same
+ideas later turn out to play a central role in modern approaches to quantum gravity as well.
+
+{\color{black}
+
+
+A conformal field theory is built from \emph{local operators}—mathematical objects that represent
+physical quantities measured at specific points, such as the spin of an atom in a magnet. The basic
+observables of the theory are their \emph{correlation functions}, which describe how measurements at
+different points influence one another. Remarkably, conformal symmetry fixes the form of these
+correlation functions almost completely. What remains undetermined is a collection of numerical
+constants.
+
+
+
+Once this set of numbers is known, every correlation function in the theory can, in principle, be
+reconstructed. In this sense, these numbers uniquely specify the theory itself. We refer to them
+collectively as the \emph{CFT data}. 
+
+
+
+This immediately raises a natural and surprisingly subtle question:
+
+\begin{quote}
+\emph{Can an arbitrary choice of numbers define a physically consistent theory?}
+\end{quote}
+
+
+
+The answer is no. Not every collection of numbers is allowed. For a theory to make physical sense, its
+CFT data must satisfy a large web of consistency conditions. These conditions reflect basic physical
+principles: energy must be conserved, information cannot travel faster than light, probabilities must
+always add up to one, and different ways of describing the same physical process must agree with one
+another. In technical language, these requirements are encoded in constraints such as \emph{symmetry},
+\emph{unitarity}, \emph{crossing symmetry}, and \emph{modular invariance}.  Together, they impose
+remarkably strong restrictions on what the CFT data can be—and it is precisely these restrictions
+that lie at the heart of the \textbf{conformal bootstrap}:  once basic principles such
+as symmetry, locality, and unitarity are imposed, the theory seems to leave remarkably little room to maneuver.  
+
+
+
+The  \emph{conformal bootstrap} is framework that makes this rigidity visible. Rather than starting from a microscopic model or equation of motion, the bootstrap asks a more austere question: \emph{what must be
+true of any theory that is consistent?} The resulting constraints often prove far stronger than
+intuition would suggest.
+}
+
+
+
+
+
+Historically, the conformal bootstrap is not a new idea. Its roots go back to the work of Alexander
+Polyakov in the early 1970s, who emphasized that consistency conditions such as crossing symmetry
+should be powerful enough to determine a theory on their own. For many years, this viewpoint
+remained more philosophical than practical. It was only much later—most notably through work by Rattazi, Rychkov, Tonni, Vichi in the late 2000s—that the bootstrap was revived in a concrete and
+systematic form, with new analytical and numerical tools that made Polyakov’s original vision
+operational.  A nice historical account can be found in this \href{https://arxiv.org/abs/2509.02779}{recent article} by Slava Rychkov.
+
+
+
+
+A helpful way to think about the conformal bootstrap is through the analogy of \emph{Sudoku} (see figure.~\!\ref{fig:sudoku}).  In a
+Sudoku puzzle, only a few numbers are filled in at the start, while the rest of the grid is left blank. The rules are simple: each row, column, and subgrid must contain every digit exactly once.
+Yet these rules are enforced \emph{everywhere} at once.  
+
+\begin{wrapfigure}{r}{0.6\textwidth}
+ \begin{center}
+   \vspace{-0.9cm}
+    \includegraphics[width=0.54\textwidth]{sudoku_com}
+  \end{center}
+  \vspace{-0.5cm}
+  \caption{Analogy between \textit{Sudoku} and \textit{Conformal Bootstrap}: solving theory using consistency conditions.}
+  \label{fig:sudoku}
+\end{wrapfigure}
+
+A choice made in one corner of the grid
+can quietly constrain entries far away, and in a well-posed puzzle, the solution may be essentially
+unique.
+
+
+
+The conformal bootstrap works in much the same way. The unknown entries are the basic numerical data
+of a conformal field theory—such as the dimensions of operators and how strongly they interact—while
+the rules come from fundamental physical principles like symmetry, unitarity, and consistency under
+crossing. These rules must be satisfied simultaneously, across all possible ways of probing the
+theory. As a result, the allowed data are often far more restricted than one would naively expect.
+
+
+
+In practice, this logic is made concrete in two complementary ways. \emph{Numerical bootstrap} methods
+systematically scan the space of possible data and discard anything that violates the rules. What
+remains are small ``islands'' of consistency—regions where all constraints may possibly be satisfied at once (see  e.g.\  \href{https://arxiv.org/abs/2311.15844}{arXiv:2311.15844[hep-th]}).
+\emph{Analytical bootstrap} methods, by contrast, explore the same constraints in extreme or asymptotic
+regimes, such as very large energies or large spin. Rather than carving out islands, they reveal
+universal patterns that must emerge far out in the spectrum, independent of microscopic details.
+
+
+
+
+
+This perspective unifies numerical bootstrap methods, which carve out allowed ``islands'' of theories,
+and analytical bootstrap approaches, which focus on asymptotic regimes such as large energy or large
+spin. Together, they suggest a striking
+conclusion: conformal field theories are far more rigid than they appear.
+
+
+
+
+
+
+This striking feature shaped my work during postdoctoral years: first at the Institute for Advanced Study (IAS), Princeton [$2019$-$22$], and later at California Institute of Technology (Caltech)[$2022$-$25$].
+The problems evolved, but the underlying question remained the same: \emph{when consistency is taken
+seriously, what is a quantum theory actually allowed to do?}
+
+
+
+What follows is not a comprehensive account of all my work during these years. Instead, I will focus on a few problems from my time at IAS and Caltech that best illustrate how my thinking has evolved, and how ideas from consistency, symmetry, and asymptotics have guided that evolution. Many other projects unfolded in parallel, but these selected threads capture the core themes that continue to shape my research.
+% ------------------------------------------------------------
+
+\section*{When Quantum States Have No Room to Spread Out}
+\addcontentsline{toc}{section}{When Quantum States Have No Room to Spread Out}
+
+
+\textit{How consistency alone can dictate the structure of quantum worlds}
+
+
+
+At IAS, this question drew my attention to the high-energy structure of quantum spectra. Every quantum
+system comes with a spectrum—a list of allowed excitations, like the notes a musical instrument can
+play. A natural question is how those notes are spaced. As one moves to higher and higher energies, can
+there be long stretches of silence, or must the spectrum inevitably become crowded?
+
+
+
+In two-dimensional conformal field theories, this question had been sharpened into a precise conjecture
+by Baur MukhametZhanov and Sasha Zhiboedov in 2019
+(\href{https://arxiv.org/abs/1904.06359}{arXiv:1904.06359[hep-th]}). They proposed that in any consistent two dimensional CFT,
+large gaps between states at high energies cannot persist and in fact the gap is upper bounded by $1$.  The conjecture was compelling,
+but proving it required writing down what mathematicians call \emph{band-limited} function with suitable properties.
+
+
+
+I became deeply involved in tackling this problem in the last few months of my PhD at UC San Diego. What helped enormously was a set of tools I had been
+fascinated by since graduate school: \emph{Tauberian theorems} (see this \href{https://en.wikipedia.org/wiki/Abelian_and_Tauberian_theorems}{wikipedia page}) These results relate global growth
+properties to fine asymptotic behavior and form one of the most elegant bridges between analysis and
+physics. Over the years, they had quietly shaped how I thought about spectra, and here they turned out
+to be exactly the right language. In fact, the original paper by Baur and Sasha was already
+written in this language, which made it feel immediately familiar and allowed me to understand its ideas at a very deep level.
+
+
+
+For about a month, I experimented with different test functions, trying to find one that would
+capture the constraints sharply enough to close the argument. Most choices fell short in subtle
+ways. Eventually, one particular function did exactly what was needed: it enforced the bootstrap
+constraints with the right balance of rigidity and flexibility. With that crucial ingredient in place,
+the conjecture fell into place, and I was able to complete the proof.
+
+
+
+Around the same time, my friend and collaborator Shouvik Ganguly [he's an electrical engineer by training,  somehow I convinced him that it is an interesting math problem for him to spend time on!] suggested a different idea aimed at improving
+other aspects of the state-counting problem studied by Baur and Sasha.His approach attacked the
+problem from a complementary angle. At first glance, the two perspectives—my proof of the conjectured
+gap bound and Shouvik’s improvements on related counting questions—seemed rather distant from one
+another. Yet I could not shake the feeling that they were connected at a deeper level.  We wrote down our understanding in a joint paper \href{https://arxiv.org/abs/1905.12636}{arXiv:1905.12636 [hep-th]}.
+
+
+
+Stripped to its essentials, the story raised two closely related questions. First: what is the
+\emph{optimal} bound on how far apart quantum states can be spaced? Second: given a fixed energy
+window, how many states can fit inside it in the most efficient way? These are two sides of the same
+coin—one phrased in terms of gaps, the other in terms of density. From the beginning, I believed that
+the answers to these optimality questions could not be independent, and that a unifying picture must
+lie underneath, still waiting to be fully uncovered.
+
+
+
+
+The final ingredient came after I moved to IAS,  from analytic number theory. 
+
+\begin{wrapfigure}{l}{0.6\textwidth}
+ \begin{center}
+   \vspace{-0.9cm}
+    \includegraphics[width=0.54\textwidth]{extremal\_functions}
+  \end{center}
+  \vspace{-0.5cm}
+  \caption{Beurling-Selberg extremal functions for integer sized bins}
+  \label{fig:BS}
+\end{wrapfigure}
+
+
+
+
+Through conversations with Sergey Tikhonov,  a mathematician,
+I was pointed toward the \emph{Beurling--Selberg extremization problem}, a famous and classical
+construction originally developed to obtain optimal bounds in analytic number theory. It is not a tool one
+normally expects to encounter in quantum field theory—but once the connection became clear, it was
+unmistakable. Beurling--Selberg extremal functions provided precisely what was needed to translate abstract bootstrap
+consistency conditions into sharp, quantitative bounds on operator spacing and operator counting. What made this framework especially powerful was that it allowed me to construct extremal
+functions in a systematic and controlled way. With this machinery in hand, two results emerged
+naturally.  First, it yielded another proof of the conjectured optimal gap between states at high
+energies—this time in a form that I found aesthetically cleaner and conceptually more satisfying than
+my earlier approach of mine. Second, it made it possible to answer a closely related question: given a fixed
+energy window of half-integer size, how many states can be optimally packed into it at high energies?
+
+
+
+Around the same time, to my great pleasure, Baur also joined the Institute for Advanced Study as a
+postdoctoral fellow. This made it natural to begin discussing these ideas together in
+detail. I invited him to join the adventure, and together we figured out how the solution to
+optimal counting problem could be extended beyond integer or half-integer bin sizes. Working
+together, we developed a unified treatment that covered arbitrary bin widths and sharpened the
+connection between spacing bounds and optimal state counting. Eventually, we wrote up these results
+in a joint paper \href{https://arxiv.org/abs/2003.14316}{arXiv:2003.14316[hep-th]}, bringing this part of the story to a satisfying close—at least for now.  We established \textit{quantum states have no room to spread out. Large gaps
+are forbidden. The spectrum must fill in.}
+
+
+
+What emerged was a clear lesson: the high-energy structure
+of a 2D CFT is not a matter of choice. It is tightly choreographed by symmetry, consistency, and deep
+mathematics.
+
+
+% ------------------------------------------------------------
+
+\section*{Listening to Spectra}
+\addcontentsline{toc}{section}{Listening to Spectra}
+
+
+
+The next direction of my IAS work began not from calculations, but from a conversation.
+
+\begin{wrapfigure}{l}{0.6\textwidth}
+ \begin{center}
+   \vspace{-0.9cm}
+    \includegraphics[width=0.54\textwidth]{EigenBolza}
+  \end{center}
+  \vspace{-0.5cm}
+  \caption{Picture taken from Wikipedia: eigenfunctions corresponding to the first three positive eigenvalues of Laplace operator on Bolza surface,  the most symmetric genus $2$ hyperbolic manifold. }
+  \label{fig:sudoku}
+\end{wrapfigure}
+
+
+
+I had not been thinking about geometry at all when Dalimil Maz\'a\v{c} (another postdoctoal fellow at IAS) in winter of $2021$ told me about an idea he had been
+considering: whether techniques inspired by the conformal bootstrap could be used to constrain the
+\emph{Laplace spectrum of hyperbolic manifolds}—curved spaces with constant negative curvature. Until
+that moment, this direction simply was not on my radar.
+
+
+
+But as Dalimil explained the idea, something clicked immediately. The analogy was too natural to
+ignore. If consistency can so powerfully constrain quantum spectra, why should the same logic not apply
+to the spectrum of vibrations on a curved space?
+
+
+
+I jumped into the project with Dalimil.  We soon found that this was not a
+superficial analogy.  We could find concrete bounds for $3$ dimensional manifolds.  Later Petr Kravchuk,  another postdoctoral fellow at IAS,  joined the project and we turned our attention to $2$ dimensional surfaces.  
+
+\begin{wrapfigure}{r}{0.6\textwidth}
+ \begin{center}
+   \vspace{-0.9cm}
+    \includegraphics[width=0.54\textwidth]{bassnote}
+  \end{center}
+  \vspace{-0.5cm}
+  \caption{As we scan over various hyperbolic surface,  the first non trivial eigenvalue of Laplacian takes the value, denoted with blue, on the real line.  The numbers on top inside the square bracket are \textit{names} of the surface,  signifying the toplogical type. Figure taken from \href{https://arxiv.org/abs/2111.12716}{arXiv:2111.12716[hep-th]}. }
+  \label{fig:scan}
+\end{wrapfigure}
+
+
+By translating bootstrap ideas into the language of hyperbolic symmetry and
+harmonic analysis, we derived new, rigorous bounds on Laplacian eigenvalues for broad classes of
+hyperbolic surfaces and orbifolds, resulting into a joint publication \href{https://arxiv.org/abs/2111.12716}{arXiv:2111.12716[hep-th]}.
+
+
+
+In geometry, one often speaks of ``hearing the shape of a drum''—the idea that the spectrum of an
+operator encodes deep information about the underlying space.  What struck me was how naturally the
+bootstrap fit into this perspective: spectra, once again, were being determined by consistency alone.  In many cases,  our upper bounds beat the previous record holders for $40$ years. in mathematics. Throughout this work, Peter Sarnak,  a famous mathematician's enthusiasm about our work was a powerful source of encouragement (see his  \href{https://hal.science/hal-04833647}{Grenoble lecture}).
+
+
+
+By the time I left IAS, a broader picture had crystallized. The bootstrap was not just a technique for
+CFTs. It was a way of thinking—a method for extracting order from symmetry, whether the object of study
+was a quantum spectrum or the shape of space itself.
+
+
+
+\textit{With that perspective in place, I arrived at Caltech ready to sharpen these ideas and push them
+into new regimes.}
+
+% ------------------------------------------------------------
+
+\section*{Sharpening the Picture at Caltech: Large Spin}
+
+
+When I moved to Caltech, the questions I had been circling did not disappear. Instead, they became
+sharper. I was still interested in spectra and asymptotics, but now I wanted to understand \emph{how}
+spectral crowding happens, and what universal structures emerge when one looks closely enough. This shift led me to focus on the \emph{large-spin} regime. Large-spin operators sit far out in the
+spectrum, but paradoxically they are among the most constrained. 
+
+
+
+In joint work with Slava Rychkov and Jiaxin Qiao
+(\href{https://arxiv.org/abs/2212.04893}{arXiv:2212.04893}), we showed that large-spin spectra exhibit
+striking universality. Many microscopic details wash out, leaving behind patterns dictated almost
+entirely by crossing symmetry and causality. Large spin acts like a microscope: by zooming far enough
+out, messy details blur away and clean structure comes into focus.
+
+
+
+I returned to this theme again in later work with Jiaxin Qiao and Balt van Rees
+(\href{https://arxiv.org/abs/2505.02897}{arXiv:2505.02897}), where we studied dense spectra at large spin
+in even greater detail.
+
+% ------------------------------------------------------------
+
+\section*{A Different Kind of Universality: Proving the HKS Conjecture}
+
+
+Alongside the large-spin program, my time at Caltech also led me to a different problem—one that did not
+rely on large spin at all.
+
+
+
+In 2014, Hartman, Keller, and Stoica conjectured that unitary two-dimensional CFTs exhibit a universal
+form of the \emph{grand-canonical free energy} at large central charge. The conjecture was motivated by
+holography and black-hole physics, but a general proof had remained elusive.
+
+
+
+In work with Jiaxin Qiao and Indranil Dey
+(\href{https://arxiv.org/abs/2410.18174}{arXiv:2410.18174}), we provided such a proof using tools from the
+\emph{analytical modular bootstrap}. By studying the torus partition function, we derived universal
+inequalities that follow solely from modular invariance and unitarity.
+
+
+
+These inequalities allowed us to rigorously control the large-central-charge limit and show that the
+conjectured behavior is a necessary consequence of consistency itself.
+
+
+\section*{Life Between Equations}
+
+
+Looking back, my postdoctoral years were shaped as much by people and places as by problems. At IAS,
+life and physics blended together in ways that were sometimes intense, sometimes joyful, and often
+unexpected. There were long afternoons of card games and late-night conversations, periods of quiet
+focus punctuated by dinners with friends, and stretches of uncertainty during the COVID years that
+made even small moments feel precious. I spent many hours walking through the woods around
+Princeton, where ideas had a way of loosening themselves during long, solitary walks. Later, in
+California, the rhythm changed—the sun, the Pacific, puzzle solving games squeezed between calculations,
+evenings that stretched late into the night. Conferences and travel filled the calendar, including
+memorable trips abroad, from intense workshops to moments of awe standing near Iguazú Falls
+
+\begin{wrapfigure}{r}{0.8\textwidth}
+ \begin{center}
+   \vspace{-0.9cm}
+    \includegraphics[width=0.64\textwidth]{friends}
+  \end{center}
+  \vspace{-0.5cm}
+  \caption{Friends and collaborators: with Subham and Jiaxin at Iguazu,  with Brato and Shouvik in Bengaluru,  with Dalimil near Eiffel Tower,  with Shreya and Brato in Bengaluru.}
+  \label{fig:scan}
+\end{wrapfigure}
+
+
+ in
+Brazil. Through it all, physics never felt separate from life; it was woven into it.
+
+
+
+What I value most from this period, however, is the community that formed around me. I was fortunate
+to build close friendships and collaborations with an extraordinary group of people: Brato Chakrabarti, Shreya Biswas, Shouvik
+Ganguly,  Dalimil
+Maz\'a\v{c}, Sanja Nedi\'c, Anshul Adve, Baur Mukhametzhanov, Petr Kravchuk, Ahanjit Bhattacharya, Peter Stoffer, Serena Gradel, Andrew Kobach,
+Nathan Benjamin, Yuya Kusuki,  Jiaxin Qiao, Leonardo Badurina, Kim Berghaus, Temple
+He, Allic Sivaramakrishnan, Julio Martinez, Clara Murgui, Ryan Plestid, Lorenz Eberhardt, Argha Mondal, Yixin Xu,  Elliott Gesteau, Ritama Paul, Bratati Patra, Souvik Dutta, Pinaki Banerjee, Diptarka Das,  Sara Murciano and Aron Hillman and many more. Some of these
+connections grew into long-term collaborations; others became lasting friendships. Together, we
+shared not just ideas and equations, but meals, travels, frustrations, and celebrations. In many
+ways, this network of people—spread across institutions and continents—became as important to my
+scientific growth as any single result or paper.
+
+
+
+\section*{A Natural Next Chapter}
+
+
+As these threads came together, one realization became increasingly clear to me: the questions that
+continue to motivate my work live most naturally at the boundary between physics and mathematics.
+They demand physical intuition, but they also require mathematical sharpness—a willingness to push
+consistency to its limits and to follow the consequences wherever they lead.
+
+
+
+That realization made the next step in my journey feel natural rather than abrupt. I am now a junior
+professor at the Institut des Hautes \'Etudes Scientifiques (IHES), an institute with a long tradition of
+precisely this kind of cross-disciplinary thinking. IHES is a place where ideas are given time to mature,
+where mathematicians and physicists interact daily, and where questions about structure, universality,
+and rigor are part of the common language. Long before I arrived, its intellectual atmosphere had already
+shaped my work through the influence of people whose approaches I deeply admired.
+
+
+
+What draws me most strongly to IHES is not a single research direction, but a way of working. It is an
+environment where foundational questions are not treated as detours, but as central pursuits, and where
+tools are free to migrate across fields when they illuminate new structure. For someone interested in how
+symmetry, consistency, and asymptotics conspire to shape quantum theories, it feels like a natural home.
+
+
+
+
+At the same time, this chapter is not an endpoint. In Fall 2026, I will return to India to join the Tata
+Institute of Fundamental Research (TIFR), Mumbai, as a Reader. I see this move as a continuation of the
+same intellectual journey—bringing ideas shaped across institutions and disciplines back into a vibrant
+scientific community, and contributing to a growing dialogue between physics and mathematics.
+
+
+
+
+\end{document}
